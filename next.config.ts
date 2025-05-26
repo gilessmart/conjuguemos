@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  basePath: "/mis-verbos",
+  output: "export"
 };
 
 export default nextConfig;
