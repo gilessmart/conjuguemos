@@ -1,4 +1,4 @@
-const knownVerbs: { [key: string]: {} } = {
+const knownVerbs: { [key: string]: object } = {
   hablar: {},
   comer: {},
   vivir: {},
