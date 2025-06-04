@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import knownVerbs from "./knownVerbs";
+import verbList from "./verbList";
 
 const SearchForm = () => {
   const [input, setInput] = useState("");
@@ -12,7 +12,7 @@ const SearchForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const verb = input.trim().toLowerCase();
-    if (Object.prototype.hasOwnProperty.call(knownVerbs, verb)) {
+    if (Object.prototype.hasOwnProperty.call(verbList, verb)) {
       setError("");
       router.push(`/verb/${verb}`);
     } else {

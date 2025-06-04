@@ -1,9 +1,9 @@
-import knownVerbs from "../../knownVerbs";
-import VerbForm from "../../SearchForm";
+import verbList from "@/app/verbList";
+import SearchForm from "@/app/SearchForm";
 import Conjugations from "./Conjugations";
 
 export function generateStaticParams() {
-  return Object.keys(knownVerbs).map(verb => ({ verb }));
+  return Object.keys(verbList).map(verb => ({ verb }));
 }
 
 interface VerbDetailPageProps {
@@ -15,12 +15,14 @@ interface VerbDetailPageProps {
 const VerbDetailPage = async (props: VerbDetailPageProps) => {
   const params = await props.params;
   const verb = params.verb.toLowerCase();
-  const overrides = knownVerbs[verb];
+  const titleCaseVerb = verb.charAt(0).toUpperCase() + verb.slice(1);
+  const irregularConjugations = verbList[verb];
 
   return (
-    <div style={{ padding: 24 }}>
-      <VerbForm />
-      <Conjugations verb={verb} overrides={overrides} />
+    <div>
+      <SearchForm />
+      <h1>{titleCaseVerb}</h1>
+      <Conjugations verb={verb} irregularConjugations={irregularConjugations} />
     </div>
   );
 };
