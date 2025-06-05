@@ -41,7 +41,7 @@ const Conjugations: React.FC<ConjugationsProps> = ({ verb, irregularConjugations
             <td>{conjugations.Indicative?.Conditional?.SecondPersonSingular}</td>
           </tr>
           <tr>
-            <td>Él/Ella/Usted</td>
+            <td>Él / Ella / Usted</td>
             <td>{conjugations.Indicative?.Present?.ThirdPersonSingular}</td>
             <td>{conjugations.Indicative?.Preterite?.ThirdPersonSingular}</td>
             <td>{conjugations.Indicative?.Imperfect?.ThirdPersonSingular}</td>
@@ -49,7 +49,7 @@ const Conjugations: React.FC<ConjugationsProps> = ({ verb, irregularConjugations
             <td>{conjugations.Indicative?.Conditional?.ThirdPersonSingular}</td>
           </tr>
           <tr>
-            <td>Nosotros/Nosotras</td>
+            <td>Nosotros / Nosotras</td>
             <td>{conjugations.Indicative?.Present?.FirstPersonPlural}</td>
             <td>{conjugations.Indicative?.Preterite?.FirstPersonPlural}</td>
             <td>{conjugations.Indicative?.Imperfect?.FirstPersonPlural}</td>
@@ -57,7 +57,7 @@ const Conjugations: React.FC<ConjugationsProps> = ({ verb, irregularConjugations
             <td>{conjugations.Indicative?.Conditional?.FirstPersonPlural}</td>
           </tr>
           <tr>
-            <td>Vosotros/Vosotras</td>
+            <td>Vosotros / Vosotras</td>
             <td>{conjugations.Indicative?.Present?.SecondPersonPlural}</td>
             <td>{conjugations.Indicative?.Preterite?.SecondPersonPlural}</td>
             <td>{conjugations.Indicative?.Imperfect?.SecondPersonPlural}</td>
@@ -65,7 +65,7 @@ const Conjugations: React.FC<ConjugationsProps> = ({ verb, irregularConjugations
             <td>{conjugations.Indicative?.Conditional?.SecondPersonPlural}</td>
           </tr>
           <tr>
-            <td>Ellos/Ellas/Ustedes</td>
+            <td>Ellos / Ellas / Ustedes</td>
             <td>{conjugations.Indicative?.Present?.ThirdPersonPlural}</td>
             <td>{conjugations.Indicative?.Preterite?.ThirdPersonPlural}</td>
             <td>{conjugations.Indicative?.Imperfect?.ThirdPersonPlural}</td>
