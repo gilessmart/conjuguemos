@@ -3,20 +3,21 @@ import SearchForm from "@/app/SearchForm";
 import Conjugations from "./Conjugations";
 
 export function generateStaticParams() {
-  return Object.keys(verbList).map(verb => ({ verb }));
+  return Object.keys(verbList).map(verb => ({ slug: verb }));
 }
 
 interface VerbDetailPageProps {
   params: Promise<{
-    verb: string;
+    slug: string;
   }>;
 }
 
 const VerbDetailPage = async (props: VerbDetailPageProps) => {
   const params = await props.params;
-  const verb = params.verb.toLowerCase();
+  const verbDetails = verbList[params.slug];
+  const verb = verbDetails.Verb;
   const titleCaseVerb = verb.charAt(0).toUpperCase() + verb.slice(1);
-  const irregularConjugations = verbList[verb];
+  const irregularConjugations = verbDetails.IrregularConjugations;
 
   return (
     <div>
