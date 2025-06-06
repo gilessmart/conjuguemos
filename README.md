@@ -12,16 +12,9 @@ View the result at http://localhost:3000/mis-verbos.
 
 ## Running a production build locally
 
-Remove any previous build:
-```sh
-rm -rf doc-root
-```
-
-Build the project & put the build output in a folder structure that matches GitHub pages:
+Create production build:
 ```sh
 npm run build
-mkdir doc-root
-mv out doc-root/mis-verbos
 ```
 
 Serve production build:
