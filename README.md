@@ -1,6 +1,6 @@
 # ¡Conjuguemos!
 
-For practicing Spanish verb conjugation.
+For practising Spanish verb conjugation.
 
 ## Run in dev mode locally
 

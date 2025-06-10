@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "¡Conjuguemos!",
-  description: "For practicing Spanish verb conjugation",
+  description: "For practising Spanish verb conjugation",
 };
 
 export default function RootLayout({
