@@ -10,4 +10,4 @@ npx next build
 
 # Put the build output in a folder structure that matches GitHub pages:
 mkdir doc-root
-mv out doc-root/mis-verbos
+mv out doc-root/conjuguemos

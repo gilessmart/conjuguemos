@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  basePath: "/mis-verbos",
+  basePath: "/conjuguemos",
   output: "export"
 };
 

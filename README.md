@@ -1,4 +1,4 @@
-# Mis Verbos
+# ¡Conjuguemos!
 
 For practicing Spanish verb conjugation.
 
@@ -8,7 +8,7 @@ For practicing Spanish verb conjugation.
 npm run dev
 ```
 
-View the result at http://localhost:3000/mis-verbos.
+View the result at http://localhost:3000/conjuguemos.
 
 ## Running a production build locally
 
@@ -22,4 +22,4 @@ Serve production build:
 npx http-server doc-root
 ```
 
-View the result at http://localhost:8080/mis-verbos/.
+View the result at http://localhost:8080/conjuguemos.
