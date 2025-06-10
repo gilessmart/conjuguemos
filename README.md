@@ -2,7 +2,7 @@
 
 For practising Spanish verb conjugation.
 
-## Run in dev mode locally
+## Run dev server
 
 ```sh
 npm run dev
@@ -10,7 +10,7 @@ npm run dev
 
 View the result at http://localhost:3000/conjuguemos.
 
-## Running a production build locally
+## Create & run a production build locally
 
 Create production build:
 ```sh
