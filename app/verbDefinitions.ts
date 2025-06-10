@@ -1,63 +1,105 @@
-import { VerbConjugations } from "./types";
-
-// Define VerbDetails type
-export interface VerbDetails {
+export type VerbDefinition = {
   Verb: string;
-  IrregularConjugations: VerbConjugations;
-}
+  IrregularConjugations?: IrregularConjugations
+};
 
-const verbList: { [key: string]: VerbDetails } = {
+export type IrregularConjugations = {
+  Indicative?: {
+    Present?: {
+      FirstPersonSingular?: string;
+      SecondPersonSingular?: string;
+      ThirdPersonSingular?: string;
+      FirstPersonPlural?: string;
+      SecondPersonPlural?: string;
+      ThirdPersonPlural?: string;
+    };
+    Preterite?: {
+      FirstPersonSingular?: string;
+      SecondPersonSingular?: string;
+      ThirdPersonSingular?: string;
+      FirstPersonPlural?: string;
+      SecondPersonPlural?: string;
+      ThirdPersonPlural?: string;
+    };
+    Imperfect?: {
+      FirstPersonSingular?: string;
+      SecondPersonSingular?: string;
+      ThirdPersonSingular?: string;
+      FirstPersonPlural?: string;
+      SecondPersonPlural?: string;
+      ThirdPersonPlural?: string;
+    };
+    Future?: {
+      FirstPersonSingular?: string;
+      SecondPersonSingular?: string;
+      ThirdPersonSingular?: string;
+      FirstPersonPlural?: string;
+      SecondPersonPlural?: string;
+      ThirdPersonPlural?: string;
+    };
+    Conditional?: {
+      FirstPersonSingular?: string;
+      SecondPersonSingular?: string;
+      ThirdPersonSingular?: string;
+      FirstPersonPlural?: string;
+      SecondPersonPlural?: string;
+      ThirdPersonPlural?: string;
+    };
+  };
+};
+
+export const definitions: { [key: string]: VerbDefinition } = {
   // regular ar verbs
-  acabar: { Verb: "acabar", IrregularConjugations: {} },
-  ayudar: { Verb: "ayudar", IrregularConjugations: {} },
-  bailar: { Verb: "bailar", IrregularConjugations: {} },
-  cambiar: { Verb: "cambiar", IrregularConjugations: {} },
-  caminar: { Verb: "caminar", IrregularConjugations: {} },
-  cantar: { Verb: "cantar", IrregularConjugations: {} },
-  comprar: { Verb: "comprar", IrregularConjugations: {} },
-  dibujar: { Verb: "dibujar", IrregularConjugations: {} },
-  disculpar: { Verb: "disculpar", IrregularConjugations: {} },
-  disfrutar: { Verb: "disfrutar", IrregularConjugations: {} },
-  ensenar: { Verb: "enseñar", IrregularConjugations: {} },
-  escuchar: { Verb: "escuchar", IrregularConjugations: {} },
-  esperar: { Verb: "esperar", IrregularConjugations: {} },
-  estudiar: { Verb: "estudiar", IrregularConjugations: {} },
-  hablar: { Verb: "hablar", IrregularConjugations: {} },
-  intentar: { Verb: "intentar", IrregularConjugations: {} },
-  lavar: { Verb: "lavar", IrregularConjugations: {} },
-  limpiar: { Verb: "limpiar", IrregularConjugations: {} },
-  llamar: { Verb: "llamar", IrregularConjugations: {} },
-  llevar: { Verb: "llevar", IrregularConjugations: {} },
-  mandar: { Verb: "mandar", IrregularConjugations: {} },
-  manejar: { Verb: "manejar", IrregularConjugations: {} },
-  necesitar: { Verb: "necesitar", IrregularConjugations: {} },
-  mirar: { Verb: "mirar", IrregularConjugations: {} },
-  odiar: { Verb: "odiar", IrregularConjugations: {} },
-  olvidar: { Verb: "olvidar", IrregularConjugations: {} },
-  pasar: { Verb: "pasar", IrregularConjugations: {} },
-  preguntar: { Verb: "preguntar", IrregularConjugations: {} },
-  preparar: { Verb: "preparar", IrregularConjugations: {} },
-  tomar: { Verb: "tomar", IrregularConjugations: {} },
-  trabajar: { Verb: "trabajar", IrregularConjugations: {} },
-  usar: { Verb: "usar", IrregularConjugations: {} },
+  acabar: { Verb: "acabar" },
+  ayudar: { Verb: "ayudar" },
+  bailar: { Verb: "bailar" },
+  cambiar: { Verb: "cambiar" },
+  caminar: { Verb: "caminar" },
+  cantar: { Verb: "cantar" },
+  comprar: { Verb: "comprar" },
+  dibujar: { Verb: "dibujar" },
+  disculpar: { Verb: "disculpar" },
+  disfrutar: { Verb: "disfrutar" },
+  ensenar: { Verb: "enseñar" },
+  escuchar: { Verb: "escuchar" },
+  esperar: { Verb: "esperar" },
+  estudiar: { Verb: "estudiar" },
+  hablar: { Verb: "hablar" },
+  intentar: { Verb: "intentar" },
+  lavar: { Verb: "lavar" },
+  limpiar: { Verb: "limpiar" },
+  llamar: { Verb: "llamar" },
+  llevar: { Verb: "llevar" },
+  mandar: { Verb: "mandar" },
+  manejar: { Verb: "manejar" },
+  necesitar: { Verb: "necesitar" },
+  mirar: { Verb: "mirar" },
+  odiar: { Verb: "odiar" },
+  olvidar: { Verb: "olvidar" },
+  pasar: { Verb: "pasar" },
+  preguntar: { Verb: "preguntar" },
+  preparar: { Verb: "preparar" },
+  tomar: { Verb: "tomar" },
+  trabajar: { Verb: "trabajar" },
+  usar: { Verb: "usar" },
   // regular er verbs
-  aprender: { Verb: "aprender", IrregularConjugations: {} },
-  beber: { Verb: "beber", IrregularConjugations: {} },
-  comer: { Verb: "comer", IrregularConjugations: {} },
-  comprender: { Verb: "comprender", IrregularConjugations: {} },
-  correr: { Verb: "correr", IrregularConjugations: {} },
-  deber: { Verb: "deber", IrregularConjugations: {} },
-  leer: { Verb: "leer", IrregularConjugations: {} },
-  responder: { Verb: "responder", IrregularConjugations: {} },
-  vender: { Verb: "vender", IrregularConjugations: {} },
+  aprender: { Verb: "aprender" },
+  beber: { Verb: "beber" },
+  comer: { Verb: "comer" },
+  comprender: { Verb: "comprender" },
+  correr: { Verb: "correr" },
+  deber: { Verb: "deber" },
+  leer: { Verb: "leer" },
+  responder: { Verb: "responder" },
+  vender: { Verb: "vender" },
   // regular ir verbs
-  vivir: { Verb: "vivir", IrregularConjugations: {} },
-  recibir: { Verb: "recibir", IrregularConjugations: {} },
-  decidir: { Verb: "decidir", IrregularConjugations: {} },
-  dividir: { Verb: "dividir", IrregularConjugations: {} },
-  compartir: { Verb: "compartir", IrregularConjugations: {} },
-  permitir: { Verb: "permitir", IrregularConjugations: {} },
-  subir: { Verb: "subir", IrregularConjugations: {} },
+  vivir: { Verb: "vivir" },
+  recibir: { Verb: "recibir" },
+  decidir: { Verb: "decidir" },
+  dividir: { Verb: "dividir" },
+  compartir: { Verb: "compartir" },
+  permitir: { Verb: "permitir" },
+  subir: { Verb: "subir" },
   // common irregular verbs
   conocer: {
     Verb: "conocer", 
@@ -630,5 +672,3 @@ const verbList: { [key: string]: VerbDetails } = {
   // traer: {},
   // volver: {},
 };
-
-export default verbList;

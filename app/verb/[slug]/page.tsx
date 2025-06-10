@@ -1,9 +1,9 @@
-import verbList from "@/app/verbList";
+import { getVerbDetails, getSimplifiedVerbs, VerbDetails } from "@/app/verbs";
 import SearchForm from "@/app/SearchForm";
 import Conjugations from "./Conjugations";
 
 export function generateStaticParams() {
-  return Object.keys(verbList).map(verb => ({ slug: verb }));
+  return getSimplifiedVerbs().map(verb => ({ slug: verb }));
 }
 
 interface VerbDetailPageProps {
@@ -14,16 +14,16 @@ interface VerbDetailPageProps {
 
 const VerbDetailPage = async (props: VerbDetailPageProps) => {
   const params = await props.params;
-  const verbDetails = verbList[params.slug];
-  const verb = verbDetails.Verb;
-  const titleCaseVerb = verb.charAt(0).toUpperCase() + verb.slice(1);
-  const irregularConjugations = verbDetails.IrregularConjugations;
+  // getVerbDetails should never return undefined in prod
+  // because the app will be deployed as a static export
+  // so the page won't exist unless the slug is valid
+  const verbDetails: VerbDetails = getVerbDetails(params.slug)!;
 
   return (
     <div>
       <SearchForm />
-      <h1>{titleCaseVerb}</h1>
-      <Conjugations verb={verb} irregularConjugations={irregularConjugations} />
+      <h1>{verbDetails.TitleCaseVerb}</h1>
+      <Conjugations verb={verbDetails} />
     </div>
   );
 };

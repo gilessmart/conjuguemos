@@ -2,17 +2,18 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import verbList from "./verbList";
+import { getSimplifiedVerbs } from "@/app/verbs";
 
 const SearchForm = () => {
   const [input, setInput] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
+  const verbList = getSimplifiedVerbs();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const verb = input.trim().toLowerCase();
-    if (Object.prototype.hasOwnProperty.call(verbList, verb)) {
+    if (verbList.includes(verb)) {
       setError("");
       router.push(`/verb/${verb}`);
     } else {
