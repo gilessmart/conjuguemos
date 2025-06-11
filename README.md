@@ -2,6 +2,8 @@
 
 For practising Spanish verb conjugation.
 
+Running at [https://gilessmart.github.io/conjuguemos/](https://gilessmart.github.io/conjuguemos/).
+
 ## Run dev server
 
 ```sh
