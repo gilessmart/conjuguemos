@@ -64,9 +64,11 @@ export const definitions: { [key: string]: VerbDefinition } = {
   escuchar: { Verb: "escuchar" },
   esperar: { Verb: "esperar" },
   estudiar: { Verb: "estudiar" },
+  gastar: { Verb: "gastar" },
   hablar: { Verb: "hablar" },
   intentar: { Verb: "intentar" },
   lavar: { Verb: "lavar" },
+  llenar: { Verb: "llenar" },
   limpiar: { Verb: "limpiar" },
   llamar: { Verb: "llamar" },
   llevar: { Verb: "llevar" },
@@ -181,6 +183,19 @@ export const definitions: { [key: string]: VerbDefinition } = {
       }
     }
   },
+  encender: {
+    Verb: "encender",
+    IrregularConjugations: {
+      Indicative: {
+        Present: {
+          FirstPersonSingular: "enciendo",
+          SecondPersonSingular: "enciendes",
+          ThirdPersonSingular: "enciende",
+          ThirdPersonPlural: "encienden"
+        }
+      }
+    }
+  },
   encontrar: {
     Verb: "encontrar", 
     IrregularConjugations: {
@@ -190,6 +205,19 @@ export const definitions: { [key: string]: VerbDefinition } = {
           SecondPersonSingular: "encuentras",
           ThirdPersonSingular: "encuentra",
           ThirdPersonPlural: "encuentran"
+        }
+      }
+    }
+  },
+  entender: {
+    Verb: "entender",
+    IrregularConjugations: {
+      Indicative: {
+        Present: {
+          FirstPersonSingular: "entiendo",
+          SecondPersonSingular: "entiendes",
+          ThirdPersonSingular: "entiende",
+          ThirdPersonPlural: "entienden"
         }
       }
     }
@@ -652,7 +680,6 @@ export const definitions: { [key: string]: VerbDefinition } = {
   // dormir: {},
   // elegir: {},
   // empezar: {},
-  // entender: {},
   // escribir: {},
   // jugar: {},
   // ofrecer: {},
