@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { getVerbDetails } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
 
-function VerbDetail() {
+export default function VerbDetail() {
   const params = useParams<{ verb: string }>();
   const verbParam = params.verb!;
   const verbDetails = getVerbDetails(verbParam);
@@ -101,6 +101,4 @@ function VerbDetail() {
       </main>
     </div>
   );
-}
-
-export default VerbDetail;
+};
