@@ -2,12 +2,12 @@ import { definitions, type VerbDefinition, type IrregularConjugations } from "./
 
 export function getVerbNames(): string[] {
   return Object.keys(definitions).sort();
-}
+};
 
 export function getVerbDetails(verb: string): VerbDetails | undefined {
   const definition = definitions[verb];
   return definition ? new VerbDetails(verb, definition) : undefined;
-}
+};
 
 export class VerbDetails {
   readonly Verb: string;
@@ -19,7 +19,7 @@ export class VerbDetails {
     this.TitleCaseVerb = verb.charAt(0).toUpperCase() + verb.slice(1);
     this.Conjugations = buildConjugations(verb, definition)
   }
-}
+};
 
 type PersonConjugations = {
   FirstPersonSingular: string;
