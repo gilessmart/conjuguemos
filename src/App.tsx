@@ -2,14 +2,14 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import VerbList from "./pages/VerbList";
 import VerbDetail from "./pages/VerbDetail";
 
-function App() {
+export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/verbs" />} />
-      <Route path="/verbs" element={<VerbList />} />
-      <Route path="/verbs/:verb" element={<VerbDetail />} />
+      <Route path="" element={<Navigate to="verbs" />} />
+      <Route path="verbs">
+        <Route index element={<VerbList />} />
+        <Route path=":verb" element={<VerbDetail />} />
+      </Route>
     </Routes>
   );
-}
-
-export default App;
+};
