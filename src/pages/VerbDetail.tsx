@@ -6,15 +6,16 @@ export default function VerbDetail() {
   const params = useParams<{ verb: string }>();
   const verbParam = params.verb!;
   const verbDetails = getVerbDetails(verbParam);
+  const title = verbDetails ? `${verbDetails.TitleCaseVerb}` : "Verb Not Found";
   
-  if (!verbDetails) {
-    usePageTitle("Conjuguemos - Verb Not Found");
-    
+  usePageTitle(title);
+  
+  if (!verbDetails) {    
     return (
       <div>
         <header>
           <Link to="/verbs">← Back to verb reference</Link>
-          <h1>Not found</h1>
+          <h1>{title}</h1>
         </header>
         <main>
           <p>Verb <em>{verbParam}</em> not recognised</p>
@@ -22,8 +23,6 @@ export default function VerbDetail() {
       </div>
     );
   }
-
-  usePageTitle(`Conjuguemos - ${verbDetails.TitleCaseVerb}`);  
   
   const conjugations = verbDetails.Conjugations;
 
@@ -31,7 +30,7 @@ export default function VerbDetail() {
     <div>
       <header>
         <Link to="/verbs">← Back to list</Link>
-        <h1>{verbDetails.TitleCaseVerb}</h1>
+        <h1>{title}</h1>
       </header>
       <main>
         <h2>Conjugations</h2>
