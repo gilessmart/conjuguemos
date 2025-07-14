@@ -1,8 +1,8 @@
-export type VerbDefinition = {
+export interface VerbDefinition {
   IrregularConjugations?: IrregularConjugations
-};
+}
 
-export type IrregularConjugations = {
+export interface IrregularConjugations {
   Indicative?: {
     Present?: {
       FirstPersonSingular?: string;
@@ -45,7 +45,7 @@ export type IrregularConjugations = {
       ThirdPersonPlural?: string;
     };
   };
-};
+}
 
 export const definitions: Record<string, VerbDefinition | undefined> = {
   // regular ar verbs

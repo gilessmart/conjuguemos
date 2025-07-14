@@ -21,16 +21,16 @@ export class VerbDetails {
   }
 };
 
-type PersonConjugations = {
+interface PersonConjugations {
   FirstPersonSingular: string;
   SecondPersonSingular: string;
   ThirdPersonSingular: string;
   FirstPersonPlural: string;
   SecondPersonPlural: string;
   ThirdPersonPlural: string;
-};
+}
 
-type VerbConjugations = {
+interface VerbConjugations {
   Indicative: {
     Present: PersonConjugations;
     Preterite: PersonConjugations;
@@ -38,7 +38,7 @@ type VerbConjugations = {
     Future: PersonConjugations;
     Conditional: PersonConjugations;
   }
-};
+}
 
 function buildConjugations(verb: string, definition: VerbDefinition): VerbConjugations {
   const ending = verb.slice(-2);
