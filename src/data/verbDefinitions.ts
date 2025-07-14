@@ -47,7 +47,7 @@ export type IrregularConjugations = {
   };
 };
 
-export const definitions: Record<string, VerbDefinition> = {
+export const definitions: Record<string, VerbDefinition | undefined> = {
   // regular ar verbs
   acabar: { },
   ayudar: { },
