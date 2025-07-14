@@ -6,7 +6,7 @@ export default function VerbDetail() {
   const params = useParams<{ verb: string }>();
   const verbParam = params.verb!;
   const verbDetails = getVerbDetails(verbParam);
-  const title = verbDetails ? `${verbDetails.TitleCaseVerb}` : "Verb Not Found";
+  const title = verbDetails ? verbDetails.TitleCaseVerb : "Verb Not Found";
   
   usePageTitle(title);
   
