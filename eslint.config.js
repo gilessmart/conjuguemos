@@ -11,10 +11,14 @@ export default tseslint.config([
     files: ['**/*.{ts,tsx}'],
     extends: [
       js.configs.recommended,
-      ...tseslint.configs.recommendedTypeChecked,
+      ...tseslint.configs.strictTypeChecked,
+      ...tseslint.configs.stylisticTypeChecked,
       reactHooks.configs['recommended-latest'],
       reactRefresh.configs.vite,
     ],
+    rules: {
+      "@typescript-eslint/no-non-null-assertion": 'off'
+    },
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
