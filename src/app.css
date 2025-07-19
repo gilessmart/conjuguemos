@@ -22,3 +22,9 @@ ul.mainMenu li:last-child {
 ul.mainMenu li:last-child::after {
   content: "";
 }
+
+table.verbTable thead {
+  background-color: #f0f0f0;
+  border-bottom: solid 1px #d0d0d0;
+  border-top: solid 1px #d0d0d0;
+}

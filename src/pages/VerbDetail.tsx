@@ -36,7 +36,7 @@ export default function VerbDetail() {
       <main>
         <h2>Conjugations</h2>
         <h3>Indicative</h3>
-        <table>
+        <table className="verbTable">
           <thead>
             <tr>
               <th>Person</th>

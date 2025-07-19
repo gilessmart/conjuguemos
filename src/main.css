@@ -38,12 +38,6 @@ table {
   border-collapse: collapse;
 }
 
-thead {
-  background-color: #f0f0f0;
-  border-bottom: solid 1px #d0d0d0;
-  border-top: solid 1px #d0d0d0;
-}
-
 td, th {
   text-align: left;
   padding: 0.25rem 0.75rem;
