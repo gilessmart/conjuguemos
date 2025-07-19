@@ -1,6 +1,7 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getVerbDetails } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
+import Menu from "../components/Menu";
 
 export default function VerbDetail() {
   const params = useParams<{ verb: string }>();
@@ -14,11 +15,11 @@ export default function VerbDetail() {
     return (
       <div>
         <header>
-          <Link to="/verbs">← Back to verb reference</Link>
+          <Menu />
           <h1>{title}</h1>
         </header>
         <main>
-          <p>Verb <em>{verbParam}</em> not recognised</p>
+          <p>Verb <em>{verbParam}</em> was not found.</p>
         </main>
       </div>
     );
@@ -29,7 +30,7 @@ export default function VerbDetail() {
   return (
     <div>
       <header>
-        <Link to="/verbs">← Back to list</Link>
+        <Menu />
         <h1>{title}</h1>
       </header>
       <main>

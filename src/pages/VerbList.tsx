@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { getVerbNames } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
+import Menu from "../components/Menu";
 
 export default function VerbList() {
   usePageTitle("Conjuguemos - Verb Reference");
@@ -8,6 +9,7 @@ export default function VerbList() {
   return (
     <div>
       <header>
+        <Menu />
         <h1>Verb Reference</h1>
       </header>
       <main>

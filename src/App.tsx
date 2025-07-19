@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import VerbList from "./pages/VerbList";
 import VerbDetail from "./pages/VerbDetail";
+import "./app.css"
 
 export default function App() {
   return (
