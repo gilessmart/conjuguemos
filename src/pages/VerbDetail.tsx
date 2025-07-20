@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { getVerbDetails } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
 import Menu from "../components/Menu";
-import "./VerbDetail.css";
+import styles from "./VerbDetail.module.css";
 
 export default function VerbDetail() {
   const params = useParams<{ verb: string }>();
@@ -37,7 +37,7 @@ export default function VerbDetail() {
       <main>
         <h2>Conjugations</h2>
         <h3>Indicative</h3>
-        <table className="verbTable">
+        <table className={styles.verbTable}>
           <thead>
             <tr>
               <th>Person</th>

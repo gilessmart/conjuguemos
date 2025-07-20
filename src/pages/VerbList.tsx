@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { getVerbNames } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
 import Menu from "../components/Menu";
-import "./VerbList.css";
+import styles from "./VerbList.module.css";
 
 export default function VerbList() {
   usePageTitle("Conjuguemos - Verb Reference");
@@ -14,7 +14,7 @@ export default function VerbList() {
         <h1>Verb Reference</h1>
       </header>
       <main>
-        <ul className="verbList">
+        <ul className={styles.verbList}>
           {verbs.map(verb => (
             <li key={verb}>
               <Link to={`/verbs/${verb}`}>{verb}</Link>
