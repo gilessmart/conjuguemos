@@ -13,12 +13,12 @@ export default function VerbList() {
         <h1>Verb Reference</h1>
       </header>
       <main>
-        <ul>
+        <ul className="verbList">
           {verbs.map(verb => (
             <li key={verb}>
               <Link to={`/verbs/${verb}`}>{verb}</Link>
             </li>
-          ))}
+          ))}          
         </ul>
       </main>
     </div>

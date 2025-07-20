@@ -28,3 +28,17 @@ table.verbTable thead {
   border-bottom: solid 1px #d0d0d0;
   border-top: solid 1px #d0d0d0;
 }
+
+ul.verbList {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 8em);
+  gap: 0.5em 0.25em;
+  padding: 0;
+}
+
+ul.verbList li {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
