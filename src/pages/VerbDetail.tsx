@@ -40,7 +40,7 @@ export default function VerbDetail() {
         <table className={styles.verbTable}>
           <thead>
             <tr>
-              <th>Person</th>
+              <th>Pronoun</th>
               <th>Present</th>
               <th>Preterite</th>
               <th>Imperfect</th>
@@ -50,7 +50,7 @@ export default function VerbDetail() {
           </thead>
           <tbody>
             <tr>
-              <td>Yo</td>
+              <td>yo</td>
               <td>{conjugations.Indicative.Present.FirstPersonSingular}</td>
               <td>{conjugations.Indicative.Preterite.FirstPersonSingular}</td>
               <td>{conjugations.Indicative.Imperfect.FirstPersonSingular}</td>
@@ -58,7 +58,7 @@ export default function VerbDetail() {
               <td>{conjugations.Indicative.Conditional.FirstPersonSingular}</td>
             </tr>
             <tr>
-              <td>Tú</td>
+              <td>tú</td>
               <td>{conjugations.Indicative.Present.SecondPersonSingular}</td>
               <td>{conjugations.Indicative.Preterite.SecondPersonSingular}</td>
               <td>{conjugations.Indicative.Imperfect.SecondPersonSingular}</td>
@@ -66,7 +66,7 @@ export default function VerbDetail() {
               <td>{conjugations.Indicative.Conditional.SecondPersonSingular}</td>
             </tr>
             <tr>
-              <td>Él / Ella / Usted</td>
+              <td>él / ella / usted</td>
               <td>{conjugations.Indicative.Present.ThirdPersonSingular}</td>
               <td>{conjugations.Indicative.Preterite.ThirdPersonSingular}</td>
               <td>{conjugations.Indicative.Imperfect.ThirdPersonSingular}</td>
@@ -74,7 +74,7 @@ export default function VerbDetail() {
               <td>{conjugations.Indicative.Conditional.ThirdPersonSingular}</td>
             </tr>
             <tr>
-              <td>Nosotros / Nosotras</td>
+              <td>nosotros / nosotras</td>
               <td>{conjugations.Indicative.Present.FirstPersonPlural}</td>
               <td>{conjugations.Indicative.Preterite.FirstPersonPlural}</td>
               <td>{conjugations.Indicative.Imperfect.FirstPersonPlural}</td>
@@ -82,7 +82,7 @@ export default function VerbDetail() {
               <td>{conjugations.Indicative.Conditional.FirstPersonPlural}</td>
             </tr>
             <tr>
-              <td>Vosotros / Vosotras</td>
+              <td>vosotros / vosotras</td>
               <td>{conjugations.Indicative.Present.SecondPersonPlural}</td>
               <td>{conjugations.Indicative.Preterite.SecondPersonPlural}</td>
               <td>{conjugations.Indicative.Imperfect.SecondPersonPlural}</td>
@@ -90,7 +90,7 @@ export default function VerbDetail() {
               <td>{conjugations.Indicative.Conditional.SecondPersonPlural}</td>
             </tr>
             <tr>
-              <td>Ellos / Ellas / Ustedes</td>
+              <td>ellos / ellas / ustedes</td>
               <td>{conjugations.Indicative.Present.ThirdPersonPlural}</td>
               <td>{conjugations.Indicative.Preterite.ThirdPersonPlural}</td>
               <td>{conjugations.Indicative.Imperfect.ThirdPersonPlural}</td>
