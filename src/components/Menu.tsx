@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import "./Menu.css";
 
 export default function Menu() {
   const location = useLocation();

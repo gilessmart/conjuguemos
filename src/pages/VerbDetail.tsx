@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { getVerbDetails } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
 import Menu from "../components/Menu";
+import "./VerbDetail.css";
 
 export default function VerbDetail() {
   const params = useParams<{ verb: string }>();
