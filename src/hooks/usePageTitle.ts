@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 
 export function usePageTitle(title: string) {
+  const pageTitle = title ? `Conjuguemos - ${title}` : "Conjuguemos";
   useEffect(() => {
-    document.title = `Conjuguemos - ${title}`;
-  }, [title]);
-}
+    document.title = pageTitle;
+  }, [pageTitle]);
+};
