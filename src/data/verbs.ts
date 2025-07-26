@@ -1,3 +1,4 @@
+import chooseRandom from "../utils/chooseRandom";
 import { definitions, type VerbDefinition, type IrregularConjugations } from "./verbDefinitions"
 
 export function getVerbNames(): string[] {
@@ -9,7 +10,12 @@ export function getVerbDetails(verb: string): VerbDetails | undefined {
   return definition ? new VerbDetails(verb, definition) : undefined;
 };
 
-export class VerbDetails {
+export function getRandomVerb(): VerbDetails {
+  const definition = chooseRandom(definitions);
+  return new VerbDetails(definition.key, definition.value ?? {});
+};
+
+class VerbDetails {
   readonly Verb: string;
   readonly TitleCaseVerb: string;
   readonly Conjugations: VerbConjugations;
