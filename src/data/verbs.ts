@@ -27,23 +27,49 @@ class VerbDetails {
   }
 };
 
-interface PersonConjugations {
-  FirstPersonSingular: string;
-  SecondPersonSingular: string;
-  ThirdPersonSingular: string;
-  FirstPersonPlural: string;
-  SecondPersonPlural: string;
-  ThirdPersonPlural: string;
-}
-
 interface VerbConjugations {
   Indicative: {
-    Present: PersonConjugations;
-    Preterite: PersonConjugations;
-    Imperfect: PersonConjugations;
-    Future: PersonConjugations;
-    Conditional: PersonConjugations;
-  }
+    Present: {
+      FirstPersonSingular: string;
+      SecondPersonSingular: string;
+      ThirdPersonSingular: string;
+      FirstPersonPlural: string;
+      SecondPersonPlural: string;
+      ThirdPersonPlural: string;
+    };
+    Preterite: {
+      FirstPersonSingular: string;
+      SecondPersonSingular: string;
+      ThirdPersonSingular: string;
+      FirstPersonPlural: string;
+      SecondPersonPlural: string;
+      ThirdPersonPlural: string;
+    };
+    Imperfect: {
+      FirstPersonSingular: string;
+      SecondPersonSingular: string;
+      ThirdPersonSingular: string;
+      FirstPersonPlural: string;
+      SecondPersonPlural: string;
+      ThirdPersonPlural: string;
+    };
+    Future: {
+      FirstPersonSingular: string;
+      SecondPersonSingular: string;
+      ThirdPersonSingular: string;
+      FirstPersonPlural: string;
+      SecondPersonPlural: string;
+      ThirdPersonPlural: string;
+    };
+    Conditional: {
+      FirstPersonSingular: string;
+      SecondPersonSingular: string;
+      ThirdPersonSingular: string;
+      FirstPersonPlural: string;
+      SecondPersonPlural: string;
+      ThirdPersonPlural: string;
+    };
+  };
 }
 
 function buildConjugations(verb: string, definition: VerbDefinition): VerbConjugations {
