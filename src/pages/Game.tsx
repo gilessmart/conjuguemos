@@ -30,7 +30,7 @@ export default function Game() {
         <h1>Conjuguemos</h1>
       </header>
       <main>
-        <p>Conjugate <strong>{target.verb}</strong> in the <strong>{target.mood} {target.tense}</strong> tense:</p>
+        <p>Conjugate <strong>{target.infinitive}</strong> in the <strong>{target.mood} {target.tense}</strong> tense:</p>
         <div className="verb-input">
           <span className="pronoun">{target.pronoun}</span>
           <input type="text"
@@ -72,7 +72,7 @@ function generateTarget() {
   const conjugation = chooseRandom(conjugations)
   
   const target = {
-    verb: verb.Verb,
+    infinitive: verb.Infinitive,
     mood: mood.key,
     tense: tense.key,
     pronoun: conjugation.key,

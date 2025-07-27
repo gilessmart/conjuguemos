@@ -16,14 +16,14 @@ export function getRandomVerb(): VerbDetails {
 };
 
 class VerbDetails {
-  readonly Verb: string;
-  readonly TitleCaseVerb: string;
+  readonly Infinitive: string;
+  readonly TitleCaseInfinitive: string;
   readonly Conjugations: VerbConjugations;
 
-  constructor(verb: string, definition: VerbDefinition) {
-    this.Verb = verb;
-    this.TitleCaseVerb = verb.charAt(0).toUpperCase() + verb.slice(1);
-    this.Conjugations = buildConjugations(verb, definition)
+  constructor(infinitive: string, definition: VerbDefinition) {
+    this.Infinitive = infinitive;
+    this.TitleCaseInfinitive = infinitive.charAt(0).toUpperCase() + infinitive.slice(1);
+    this.Conjugations = buildConjugations(infinitive, definition)
   }
 };
 
@@ -72,9 +72,9 @@ interface VerbConjugations {
   };
 }
 
-function buildConjugations(verb: string, definition: VerbDefinition): VerbConjugations {
-  const ending = verb.slice(-2);
-  const stem = verb.slice(0, -2);
+function buildConjugations(infinitive: string, definition: VerbDefinition): VerbConjugations {
+  const ending = infinitive.slice(-2);
+  const stem = infinitive.slice(0, -2);
   switch (ending) {
     case "ar":
       return buildArConjugations(stem, definition.IrregularConjugations);
