@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Menu from "../components/Menu";
 import { getRandomVerb } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
@@ -7,20 +7,48 @@ import { chooseRandomEntry } from "../utils/chooseRandom";
 export default function Game() {
   usePageTitle("Play");
   const [answer, setAnswer] = useState("");
-  const [showHint, setShowHint] = useState(false);
   const [target, setTarget] = useState(generateTarget());
+  const [showAnswer, setShowAnswer] = useState(false);
+  const answerTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (answerTimeout.current) {
+        clearTimeout(answerTimeout.current);
+      }
+    };
+  }, []);
 
   function onChangeAnswer(newAnswer: string) {
-    setAnswer(newAnswer);
+    setAnswer(newAnswer);    
+    stopShowAnswer();
     if (isCorrectAnswer(newAnswer)) {
-      setTarget(generateTarget());
-      setAnswer("");
-      setShowHint(false);
+      nextVerb();
     }
   }
 
   function isCorrectAnswer(candidate: string): boolean {
     return candidate.trim().toLowerCase() === target.conjugation.trim().toLowerCase();
+  }
+
+  function nextVerb() {
+    setTarget(generateTarget());
+    setAnswer("");
+  }
+
+  function startShowAnswer() {
+    setShowAnswer(true);
+    answerTimeout.current = setTimeout(() => {
+      stopShowAnswer();
+    }, 2500);
+  }
+
+  function stopShowAnswer() {
+    setShowAnswer(false);
+    if (answerTimeout.current) {
+      clearTimeout(answerTimeout.current);
+      answerTimeout.current = null;
+    }
   }
 
   return (
@@ -36,8 +64,8 @@ export default function Game() {
           <input type="text"
                  value={answer}
                  onChange={e => { onChangeAnswer(e.target.value); }} />
-          { !showHint && <button type="button" onClick={() => { setShowHint(true); }}>Reveal</button> }
-          { showHint && <span>{target.conjugation}</span> }
+          { !showAnswer && <button type="button" onClick={() => { startShowAnswer(); }}>Show answer</button> }
+          { showAnswer && <span>{target.conjugation}</span> }
         </div>
       </main>
     </div>
