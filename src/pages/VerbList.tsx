@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { getVerbNames } from "../data/verbs";
+import { getInfinitives } from "../data/verbDefinitions";
 import { usePageTitle } from "../hooks/usePageTitle";
 import Menu from "../components/Menu";
 import styles from "./VerbList.module.css";
 
 export default function VerbList() {
   usePageTitle("Conjuguemos - Verb Reference");
-  const verbs = getVerbNames();
+  const infinitives = getInfinitives();
   return (
     <div>
       <header>
@@ -15,9 +15,9 @@ export default function VerbList() {
       </header>
       <main>
         <ul className={styles.verbList}>
-          {verbs.map(verb => (
-            <li key={verb}>
-              <Link to={`/verbs/${verb}`}>{verb}</Link>
+          {infinitives.map(infinitive => (
+            <li key={infinitive}>
+              <Link to={`/verbs/${infinitive}`}>{infinitive}</Link>
             </li>
           ))}          
         </ul>

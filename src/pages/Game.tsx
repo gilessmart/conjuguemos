@@ -2,7 +2,7 @@ import { useState } from "react";
 import Menu from "../components/Menu";
 import { getRandomVerb } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
-import chooseRandom from "../utils/chooseRandom";
+import { chooseRandomEntry } from "../utils/chooseRandom";
 
 export default function Game() {
   usePageTitle("Play");
@@ -50,33 +50,33 @@ function generateTarget() {
   const moods = {
     indicative: verb.Conjugations.Indicative
   };
-  const mood = chooseRandom(moods);
+  const [ moodLabel, mood ] = chooseRandomEntry(moods);
   
   const tenses = {
-    present: mood.value.Present,
-    preterite: mood.value.Preterite,
-    imperfect: mood.value.Imperfect,
-    future: mood.value.Future,
-    conditional: mood.value.Conditional
+    present: mood.Present,
+    preterite: mood.Preterite,
+    imperfect: mood.Imperfect,
+    future: mood.Future,
+    conditional: mood.Conditional
   };
-  const tense = chooseRandom(tenses);
+  const [ tenseLabel, tense ] = chooseRandomEntry(tenses);
 
   const conjugations = {
-    "yo": tense.value.FirstPersonSingular,
-    "tú": tense.value.SecondPersonSingular,
-    "él/ella/usted": tense.value.ThirdPersonSingular,
-    "nosotros/nosotras": tense.value.FirstPersonPlural,
-    "vosotros/vosotras": tense.value.SecondPersonPlural,
-    "ellos/ellas/ustedes": tense.value.ThirdPersonPlural
+    "yo": tense.FirstPersonSingular,
+    "tú": tense.SecondPersonSingular,
+    "él / ella / usted": tense.ThirdPersonSingular,
+    "nosotros / nosotras": tense.FirstPersonPlural,
+    "vosotros / vosotras": tense.SecondPersonPlural,
+    "ellos / ellas / ustedes": tense.ThirdPersonPlural
   };
-  const conjugation = chooseRandom(conjugations)
+  const [ conjugationLabel, conjugation ] = chooseRandomEntry(conjugations)
   
   const target = {
     infinitive: verb.Infinitive,
-    mood: mood.key,
-    tense: tense.key,
-    pronoun: conjugation.key,
-    conjugation: conjugation.value
+    mood: moodLabel,
+    tense: tenseLabel,
+    pronoun: conjugationLabel,
+    conjugation: conjugation
   };
   
   return target;

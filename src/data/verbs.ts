@@ -1,19 +1,14 @@
-import chooseRandom from "../utils/chooseRandom";
 import { buildConjugations } from "./conjugation";
-import { definitions, type VerbDefinition } from "./verbDefinitions"
+import { getVerbDefinition, getRandomVerbDefinition, type VerbDefinition } from "./verbDefinitions"
 
-export function getVerbNames(): string[] {
-  return Object.keys(definitions).sort();
-};
-
-export function getVerbDetails(verb: string): VerbDetails | undefined {
-  const definition = definitions[verb];
-  return definition ? new VerbDetails(verb, definition) : undefined;
+export function getVerbDetails(infinitive: string): VerbDetails | undefined {
+  const definition = getVerbDefinition(infinitive);
+  return definition ? new VerbDetails(definition) : undefined;
 };
 
 export function getRandomVerb(): VerbDetails {
-  const definition = chooseRandom(definitions);
-  return new VerbDetails(definition.key, definition.value ?? {});
+  const definition = getRandomVerbDefinition();
+  return new VerbDetails(definition);
 };
 
 class VerbDetails {
@@ -21,10 +16,10 @@ class VerbDetails {
   readonly TitleCaseInfinitive: string;
   readonly Conjugations: VerbConjugations;
 
-  constructor(infinitive: string, definition: VerbDefinition) {
-    this.Infinitive = infinitive;
-    this.TitleCaseInfinitive = infinitive.charAt(0).toUpperCase() + infinitive.slice(1);
-    this.Conjugations = buildConjugations(infinitive, definition)
+  constructor(definition: VerbDefinition) {
+    this.Infinitive = definition.Infinitive;
+    this.TitleCaseInfinitive = definition.Infinitive.charAt(0).toUpperCase() + definition.Infinitive.slice(1);
+    this.Conjugations = buildConjugations(definition)
   }
 };
 

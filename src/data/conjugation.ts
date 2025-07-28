@@ -1,9 +1,9 @@
 import type { VerbDefinition, IrregularConjugations } from "./verbDefinitions";
 import type { VerbConjugations } from "./verbs";
 
-export function buildConjugations(infinitive: string, definition: VerbDefinition): VerbConjugations {
-  const ending = infinitive.slice(-2);
-  const stem = infinitive.slice(0, -2);
+export function buildConjugations(definition: VerbDefinition): VerbConjugations {
+  const ending = definition.Infinitive.slice(-2);
+  const stem = definition.Infinitive.slice(0, -2);
   switch (ending) {
     case "ar":
       return buildArConjugations(stem, definition.IrregularConjugations);

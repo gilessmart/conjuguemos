@@ -1,6 +1,9 @@
+import { chooseRandomElement } from "../utils/chooseRandom";
+
 export interface VerbDefinition {
+  Infinitive: string;
   IrregularConjugations?: IrregularConjugations
-}
+};
 
 export interface IrregularConjugations {
   Indicative?: {
@@ -45,64 +48,65 @@ export interface IrregularConjugations {
       ThirdPersonPlural?: string;
     };
   };
-}
+};
 
-export const definitions: Record<string, VerbDefinition | undefined> = {
+const definitions: VerbDefinition[] = [
   // regular ar verbs
-  acabar: { },
-  ayudar: { },
-  bailar: { },
-  cambiar: { },
-  caminar: { },
-  cantar: { },
-  comprar: { },
-  dibujar: { },
-  disculpar: { },
-  disfrutar: { },
-  enseñar: { },
-  escuchar: { },
-  esperar: { },
-  estudiar: { },
-  gastar: { },
-  hablar: { },
-  intentar: { },
-  lavar: { },
-  llenar: { },
-  limpiar: { },
-  llamar: { },
-  llevar: { },
-  mandar: { },
-  manejar: { },
-  necesitar: { },
-  mirar: { },
-  odiar: { },
-  olvidar: { },
-  pasar: { },
-  preguntar: { },
-  preparar: { },
-  tomar: { },
-  trabajar: { },
-  usar: { },
+  { Infinitive: "acabar" },
+  { Infinitive: "ayudar" },
+  { Infinitive: "bailar" },
+  { Infinitive: "cambiar" },
+  { Infinitive: "caminar" },
+  { Infinitive: "cantar" },
+  { Infinitive: "comprar" },
+  { Infinitive: "dibujar" },
+  { Infinitive: "disculpar" },
+  { Infinitive: "disfrutar" },
+  { Infinitive: "enseñar" },
+  { Infinitive: "escuchar" },
+  { Infinitive: "esperar" },
+  { Infinitive: "estudiar" },
+  { Infinitive: "gastar" },
+  { Infinitive: "hablar" },
+  { Infinitive: "intentar" },
+  { Infinitive: "lavar" },
+  { Infinitive: "llenar" },
+  { Infinitive: "limpiar" },
+  { Infinitive: "llamar" },
+  { Infinitive: "llevar" },
+  { Infinitive: "mandar" },
+  { Infinitive: "manejar" },
+  { Infinitive: "necesitar" },
+  { Infinitive: "mirar" },
+  { Infinitive: "odiar" },
+  { Infinitive: "olvidar" },
+  { Infinitive: "pasar" },
+  { Infinitive: "preguntar" },
+  { Infinitive: "preparar" },
+  { Infinitive: "tomar" },
+  { Infinitive: "trabajar" },
+  { Infinitive: "usar" },
   // regular er verbs
-  aprender: { },
-  beber: { },
-  comer: { },
-  comprender: { },
-  correr: { },
-  deber: { },
-  leer: { },
-  responder: { },
-  vender: { },
+  { Infinitive: "aprender" },
+  { Infinitive: "beber" },
+  { Infinitive: "comer" },
+  { Infinitive: "comprender" },
+  { Infinitive: "correr" },
+  { Infinitive: "deber" },
+  { Infinitive: "leer" },
+  { Infinitive: "responder" },
+  { Infinitive: "vender" },
   // regular ir verbs
-  vivir: { },
-  recibir: { },
-  decidir: { },
-  dividir: { },
-  compartir: { },
-  permitir: { },
-  subir: { },
+  { Infinitive: "vivir" },
+  { Infinitive: "recibir" },
+  { Infinitive: "decidir" },
+  { Infinitive: "dividir" },
+  { Infinitive: "compartir" },
+  { Infinitive: "permitir" },
+  { Infinitive: "subir" },
   // common irregular verbs
-  conocer: {
+  {
+    Infinitive: "conocer",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -111,7 +115,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  creer: {
+  {
+    Infinitive: "creer",
     IrregularConjugations: {
       Indicative: {
         Preterite: {
@@ -124,7 +129,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  dar: {
+  {
+    Infinitive: "dar",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -142,7 +148,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  decir: {
+  {
+    Infinitive: "decir",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -178,7 +185,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  encender: {
+  {
+    Infinitive: "encender",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -190,7 +198,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  encontrar: {
+  {
+    Infinitive: "encontrar",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -202,7 +211,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  entender: {
+  {
+    Infinitive: "entender",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -214,7 +224,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  estar: {
+  {
+    Infinitive: "estar",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -236,7 +247,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  haber: {
+  {
+    Infinitive: "haber",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -274,7 +286,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  hacer: {
+  {
+    Infinitive: "hacer",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -307,7 +320,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  ir: {
+  {
+    Infinitive: "ir",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -337,7 +351,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  llegar: {
+  {
+    Infinitive: "llegar",
     IrregularConjugations: {
       Indicative: {
         Preterite: {
@@ -346,7 +361,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  pensar: {
+  {
+    Infinitive: "pensar",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -358,7 +374,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  poder: {
+  {
+    Infinitive: "poder",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -394,7 +411,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  poner: {
+  {
+    Infinitive: "poner",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -427,7 +445,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  querer: {
+  {
+    Infinitive: "querer",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -463,7 +482,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  saber: {
+  {
+    Infinitive: "saber",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -496,7 +516,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  salir: {
+  {
+    Infinitive: "salir",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -521,7 +542,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  ser: {
+  {
+    Infinitive: "ser",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -551,7 +573,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  tener: {
+  {
+    Infinitive: "tener",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -587,7 +610,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  venir: {
+  {
+    Infinitive: "venir",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -623,7 +647,8 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   },
-  ver: {
+  {
+    Infinitive: "ver",
     IrregularConjugations: {
       Indicative: {
         Present: {
@@ -645,34 +670,18 @@ export const definitions: Record<string, VerbDefinition | undefined> = {
       }
     }
   }
-  // more common irregular verbs
-  // abrir: {},
-  // acordar: {},
-  // andar: {},
-  // buscar: {},
-  // caer: {},
-  // cerrar: {},
-  // comenzar: {},
-  // conducir: {},
-  // dormir: {},
-  // elegir: {},
-  // empezar: {},
-  // escribir: {},
-  // jugar: {},
-  // ofrecer: {},
-  // oír: {},
-  // pagar: {},
-  // pedir: {},
-  // perder: {},
-  // practicar: {},
-  // preferir: {},
-  // parecer: {},
-  // recordar: {},
-  // seguir: {},
-  // sentir: {},
-  // significar: {},
-  // soñar: {},
-  // tocar: {},
-  // traer: {},
-  // volver: {},
+];
+
+const definitionMap = new Map<string, VerbDefinition>(definitions.map(def => [def.Infinitive, def]));
+
+export function getInfinitives(): string[] {
+  return definitions.map(def => def.Infinitive).sort();
+};
+
+export function getVerbDefinition(infinitive: string): VerbDefinition | undefined {
+  return definitionMap.get(infinitive);
+};
+
+export function getRandomVerbDefinition(): VerbDefinition {
+  return chooseRandomElement(definitions)
 };

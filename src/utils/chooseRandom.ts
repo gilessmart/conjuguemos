@@ -1,6 +1,9 @@
-export default function chooseRandom<T>(obj: Record<string, T>): { key: string, value: T } {
+export function chooseRandomEntry<T>(obj: Record<string, T>): [ string, T ] {
   const entries = Object.entries(obj);
-  const randomIndex = Math.floor(Math.random() * entries.length);
-  const chosenEntry = entries[randomIndex];
-  return { key: chosenEntry[0], value: chosenEntry[1] };
+  return chooseRandomElement(entries);
+};
+
+export function chooseRandomElement<T>(array: T[]): T {
+  const randomIndex = Math.floor(Math.random() * array.length);
+  return array[randomIndex];
 };
