@@ -1,11 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Menu from "../components/Menu";
 import { getRandomVerb } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
 import { chooseRandomEntry } from "../utils/chooseRandom";
+import styles from "./Game.module.css";
 
 export default function Game() {
   usePageTitle("Play");
+  const inputId = useId();
   const [answer, setAnswer] = useState("");
   const [target, setTarget] = useState(generateTarget());
   const [showAnswer, setShowAnswer] = useState(false);
@@ -59,13 +61,13 @@ export default function Game() {
       </header>
       <main>
         <p>Conjugate <strong>{target.infinitive}</strong> in the <strong>{target.mood} {target.tense}</strong> tense:</p>
-        <div className="verb-input">
-          <span className="pronoun">{target.pronoun}</span>
-          <input type="text"
-                 value={answer}
+        <div className={styles.verbInputRow}>
+          <label htmlFor={inputId}>{target.pronoun}</label>
+          <input type="text" id={inputId} value={answer}
                  onChange={e => { onChangeAnswer(e.target.value); }} />
-          { !showAnswer && <button type="button" onClick={() => { startShowAnswer(); }}>Show answer</button> }
-          { showAnswer && <span>{target.conjugation}</span> }
+          { !showAnswer && <button className={styles.showAnswerButton} type="button" 
+                                   onClick={() => { startShowAnswer(); }}>Show answer</button> }
+          { showAnswer && <span className={styles.answer}>{target.conjugation}</span> }
         </div>
       </main>
     </div>
