@@ -6,7 +6,7 @@ import { chooseRandomEntry } from "../utils/chooseRandom";
 import styles from "./Game.module.css";
 
 export default function Game() {
-  usePageTitle("Play");
+  usePageTitle("");
   const inputId = useId();
   const [answer, setAnswer] = useState("");
   const [target, setTarget] = useState(generateTarget());

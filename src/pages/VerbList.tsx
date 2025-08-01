@@ -5,13 +5,15 @@ import Menu from "../components/Menu";
 import styles from "./VerbList.module.css";
 
 export default function VerbList() {
-  usePageTitle("Conjuguemos - Verb Reference");
+  const title = "Verb Reference";
+  usePageTitle(title);  
   const infinitives = getInfinitives();
+  
   return (
     <div>
       <header>
         <Menu />
-        <h1>Verb Reference</h1>
+        <h1>{title}</h1>
       </header>
       <main>
         <ul className={styles.verbList}>
