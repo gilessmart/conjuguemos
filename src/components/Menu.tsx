@@ -7,7 +7,7 @@ export default function Menu() {
   return (
     <nav>
       <ul className={styles.mainMenu}>
-        <li>{path === "" ? "Home" : <Link to="/">Home</Link>}</li>
+        <li>{path === "" ? "Game" : <Link to="/">Game</Link>}</li>
         <li>{path === "/settings" ? "Settings" : <Link to="/settings">Settings</Link>}</li>
         <li>{path === "/verbs" ? "Verb Reference" : <Link to="/verbs">Verb Reference</Link>}</li>
       </ul>
