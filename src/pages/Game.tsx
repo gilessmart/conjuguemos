@@ -1,9 +1,10 @@
 import { useEffect, useId, useRef, useState } from "react";
 import Menu from "../components/Menu";
-import { getRandomVerb } from "../data/verbs";
+import { getRandomVerb, type MoodConjugations, type TenseConjugations, type VerbConjugations } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
-import { chooseRandomEntry } from "../utils/chooseRandom";
+import { chooseRandomElement } from "../utils/chooseRandom";
 import styles from "./Game.module.css";
+import { getSettings, type Settings } from "../data/settings";
 
 export default function Game() {
   usePageTitle("");
@@ -76,30 +77,16 @@ export default function Game() {
 
 function generateTarget() {
   const verb = getRandomVerb();
+  const settings = getSettings();
   
-  const moods = {
-    indicative: verb.Conjugations.Indicative
-  };
-  const [ moodLabel, mood ] = chooseRandomEntry(moods);
+  const moods = getActiveMoods(verb.Conjugations);
+  const [ moodLabel, mood ] = chooseRandomElement(moods);
   
-  const tenses = {
-    present: mood.Present,
-    preterite: mood.Preterite,
-    imperfect: mood.Imperfect,
-    future: mood.Future,
-    conditional: mood.Conditional
-  };
-  const [ tenseLabel, tense ] = chooseRandomEntry(tenses);
+  const tenses = getActiveTenses(mood, settings);
+  const [ tenseLabel, tense ] = chooseRandomElement(tenses);
 
-  const conjugations = {
-    "yo": tense.FirstPersonSingular,
-    "tú": tense.SecondPersonSingular,
-    "él / ella / usted": tense.ThirdPersonSingular,
-    "nosotros / nosotras": tense.FirstPersonPlural,
-    "vosotros / vosotras": tense.SecondPersonPlural,
-    "ellos / ellas / ustedes": tense.ThirdPersonPlural
-  };
-  const [ conjugationLabel, conjugation ] = chooseRandomEntry(conjugations)
+  const conjugations = getActiveConjugations(tense, settings);
+  const [ conjugationLabel, conjugation ] = chooseRandomElement(conjugations)
   
   const target = {
     infinitive: verb.Infinitive,
@@ -110,4 +97,35 @@ function generateTarget() {
   };
   
   return target;
+}
+
+function getActiveMoods(verbConjugations: VerbConjugations) : [string, MoodConjugations][] {
+  const moods: [string, MoodConjugations][] = [];
+  moods.push([ "indicative", verbConjugations.Indicative ]);
+  return moods;
+}
+
+function getActiveTenses(moodConjugations: MoodConjugations, settings: Settings) : [string, TenseConjugations][] {
+  const tenses: [string, TenseConjugations][] = [];
+  
+  if (settings.indicativePresent) tenses.push([ "present", moodConjugations.Present ]);
+  if (settings.indicativePreterite) tenses.push([ "preterite", moodConjugations.Preterite ]);
+  if (settings.indicativeImperfect) tenses.push([ "imperfect", moodConjugations.Imperfect ]);
+  if (settings.indicativeFuture) tenses.push([ "future", moodConjugations.Future ]);
+  if (settings.indicativeConditional) tenses.push([ "conditional", moodConjugations.Conditional ]);
+
+  return tenses;
+}
+
+function getActiveConjugations(tenseConjugations: TenseConjugations, settings: Settings) : [string, string][] {
+  const conjugations: [string, string][] = [];
+  
+  if (settings.yo) conjugations.push([ "yo", tenseConjugations.FirstPersonSingular ]);
+  if (settings.tú) conjugations.push([ "tú", tenseConjugations.SecondPersonSingular ]);
+  if (settings.él) conjugations.push([ "él / ella / usted", tenseConjugations.ThirdPersonSingular ]);
+  if (settings.nosotros) conjugations.push([ "nosotros / nosotras", tenseConjugations.FirstPersonPlural ]);
+  if (settings.vosotros) conjugations.push([ "vosotros / vosotras", tenseConjugations.SecondPersonPlural ]);
+  if (settings.ellos) conjugations.push([ "ellos / ellas / ustedes", tenseConjugations.ThirdPersonPlural ]);
+
+  return conjugations;
 }

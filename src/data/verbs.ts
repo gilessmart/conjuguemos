@@ -21,49 +21,25 @@ class VerbDetails {
     this.TitleCaseInfinitive = definition.Infinitive.charAt(0).toUpperCase() + definition.Infinitive.slice(1);
     this.Conjugations = buildConjugations(definition)
   }
+}
+
+export interface TenseConjugations {
+  FirstPersonSingular: string;
+  SecondPersonSingular: string;
+  ThirdPersonSingular: string;
+  FirstPersonPlural: string;
+  SecondPersonPlural: string;
+  ThirdPersonPlural: string;
+};
+
+export interface MoodConjugations {
+  Present: TenseConjugations;
+  Preterite: TenseConjugations;
+  Imperfect: TenseConjugations;
+  Future: TenseConjugations;
+  Conditional: TenseConjugations;
 };
 
 export interface VerbConjugations {
-  Indicative: {
-    Present: {
-      FirstPersonSingular: string;
-      SecondPersonSingular: string;
-      ThirdPersonSingular: string;
-      FirstPersonPlural: string;
-      SecondPersonPlural: string;
-      ThirdPersonPlural: string;
-    };
-    Preterite: {
-      FirstPersonSingular: string;
-      SecondPersonSingular: string;
-      ThirdPersonSingular: string;
-      FirstPersonPlural: string;
-      SecondPersonPlural: string;
-      ThirdPersonPlural: string;
-    };
-    Imperfect: {
-      FirstPersonSingular: string;
-      SecondPersonSingular: string;
-      ThirdPersonSingular: string;
-      FirstPersonPlural: string;
-      SecondPersonPlural: string;
-      ThirdPersonPlural: string;
-    };
-    Future: {
-      FirstPersonSingular: string;
-      SecondPersonSingular: string;
-      ThirdPersonSingular: string;
-      FirstPersonPlural: string;
-      SecondPersonPlural: string;
-      ThirdPersonPlural: string;
-    };
-    Conditional: {
-      FirstPersonSingular: string;
-      SecondPersonSingular: string;
-      ThirdPersonSingular: string;
-      FirstPersonPlural: string;
-      SecondPersonPlural: string;
-      ThirdPersonPlural: string;
-    };
-  };
-}
+  Indicative: MoodConjugations;
+};
