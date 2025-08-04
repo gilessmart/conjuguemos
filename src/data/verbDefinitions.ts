@@ -5,6 +5,7 @@ export interface VerbDefinition {
   IrregularConjugations?: IrregularConjugations
 };
 
+// TODO - user Partial<Conjugations>?
 export interface IrregularConjugations {
   Indicative?: {
     Present?: {
@@ -46,6 +47,15 @@ export interface IrregularConjugations {
       FirstPersonPlural?: string;
       SecondPersonPlural?: string;
       ThirdPersonPlural?: string;
+    };
+  };
+  Imperative?: {
+    Affirmative?: {
+      SecondPersonSingular?: string;
+      SecondPersonSingularFormal?: string;
+      FirstPersonPlural?: string;
+      SecondPersonPlural?: string;
+      SecondPersonPluralFormal?: string;
     };
   };
 };
@@ -112,6 +122,13 @@ const definitions: VerbDefinition[] = [
         Present: {
           FirstPersonSingular: "conozco"
         }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingularFormal: "conozca",
+          FirstPersonPlural: "conozcamos",
+          SecondPersonPluralFormal: "conozcan"
+        }
       }
     }
   },
@@ -144,6 +161,11 @@ const definitions: VerbDefinition[] = [
           FirstPersonPlural: "dimos",
           SecondPersonPlural: "disteis",
           ThirdPersonPlural: "dieron"
+        }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingularFormal: "dé"
         }
       }
     }
@@ -182,6 +204,14 @@ const definitions: VerbDefinition[] = [
           SecondPersonPlural: "diríais",
           ThirdPersonPlural: "dirían"
         }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "di",
+          SecondPersonSingularFormal: "diga",
+          FirstPersonPlural: "digamos",
+          SecondPersonPluralFormal: "digan"
+        }
       }
     }
   },
@@ -194,6 +224,13 @@ const definitions: VerbDefinition[] = [
           SecondPersonSingular: "enciendes",
           ThirdPersonSingular: "enciende",
           ThirdPersonPlural: "encienden"
+        }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "enciende",
+          SecondPersonSingularFormal: "encienda",
+          SecondPersonPluralFormal: "enciendan"
         }
       }
     }
@@ -208,6 +245,13 @@ const definitions: VerbDefinition[] = [
           ThirdPersonSingular: "encuentra",
           ThirdPersonPlural: "encuentran"
         }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "encuentra",
+          SecondPersonSingularFormal: "encuentre",
+          SecondPersonPluralFormal: "encuentren"
+        }
       }
     }
   },
@@ -220,6 +264,13 @@ const definitions: VerbDefinition[] = [
           SecondPersonSingular: "entiendes",
           ThirdPersonSingular: "entiende",
           ThirdPersonPlural: "entienden"
+        }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "entiende",
+          SecondPersonSingularFormal: "entienda",
+          SecondPersonPluralFormal: "entiendan"
         }
       }
     }
@@ -243,6 +294,13 @@ const definitions: VerbDefinition[] = [
           FirstPersonPlural: "estuvimos",
           SecondPersonPlural: "estuvisteis",
           ThirdPersonPlural: "estuvieron"
+        }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "está",
+          SecondPersonSingularFormal: "esté",
+          SecondPersonPluralFormal: "estén"
         }
       }
     }
@@ -283,6 +341,14 @@ const definitions: VerbDefinition[] = [
           SecondPersonPlural: "habríais",
           ThirdPersonPlural: "habrían"
         }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "he",
+          SecondPersonSingularFormal: "haya",
+          FirstPersonPlural: "hayamos",
+          SecondPersonPluralFormal: "hayan"
+        }
       }
     }
   },
@@ -317,6 +383,14 @@ const definitions: VerbDefinition[] = [
           SecondPersonPlural: "haríais",
           ThirdPersonPlural: "harían"
         }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "haz",
+          SecondPersonSingularFormal: "haga",
+          FirstPersonPlural: "hagamos",
+          SecondPersonPluralFormal: "hagan"
+        }
       }
     }
   },
@@ -348,6 +422,14 @@ const definitions: VerbDefinition[] = [
           SecondPersonPlural: "ibais",
           ThirdPersonPlural: "iban"
         }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "ve",
+          SecondPersonSingularFormal: "vaya",
+          FirstPersonPlural: "vamos",
+          SecondPersonPluralFormal: "vayan"
+        }
       }
     }
   },
@@ -357,6 +439,14 @@ const definitions: VerbDefinition[] = [
       Indicative: {
         Preterite: {
           FirstPersonSingular: "llegué"
+        }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "llega",
+          SecondPersonSingularFormal: "llegue",
+          FirstPersonPlural: "lleguemos",
+          SecondPersonPluralFormal: "lleguen"
         }
       }
     }
@@ -370,6 +460,13 @@ const definitions: VerbDefinition[] = [
           SecondPersonSingular: "piensas",
           ThirdPersonSingular: "piensa",
           ThirdPersonPlural: "piensan"
+        }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "piensa",
+          SecondPersonSingularFormal: "piense",
+          SecondPersonPluralFormal: "piensen"
         }
       }
     }
@@ -408,6 +505,13 @@ const definitions: VerbDefinition[] = [
           SecondPersonPlural: "podríais",
           ThirdPersonPlural: "podrían"
         }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "puede",
+          SecondPersonSingularFormal: "pueda",
+          SecondPersonPluralFormal: "puedan"
+        }
       }
     }
   },
@@ -441,6 +545,14 @@ const definitions: VerbDefinition[] = [
           FirstPersonPlural: "pondríamos",
           SecondPersonPlural: "pondríais",
           ThirdPersonPlural: "pondrían"
+        }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "pon",
+          SecondPersonSingularFormal: "ponga",
+          FirstPersonPlural: "pongamos",
+          SecondPersonPluralFormal: "pongan"
         }
       }
     }
@@ -479,6 +591,13 @@ const definitions: VerbDefinition[] = [
           SecondPersonPlural: "querríais",
           ThirdPersonPlural: "querrían"
         }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "quiere",
+          SecondPersonSingularFormal: "quiera",
+          SecondPersonPluralFormal: "quieran"
+        }
       }
     }
   },
@@ -513,6 +632,13 @@ const definitions: VerbDefinition[] = [
           SecondPersonPlural: "sabríais",
           ThirdPersonPlural: "sabrían"
         }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingularFormal: "sepa",
+          FirstPersonPlural: "sepamos",
+          SecondPersonPluralFormal: "sepan"
+        }
       }
     }
   },
@@ -538,6 +664,14 @@ const definitions: VerbDefinition[] = [
           FirstPersonPlural: "saldríamos",
           SecondPersonPlural: "saldríais",
           ThirdPersonPlural: "saldrían"
+        }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "sal",
+          SecondPersonSingularFormal: "salga",
+          FirstPersonPlural: "salgamos",
+          SecondPersonPluralFormal: "salgan"
         }
       }
     }
@@ -569,6 +703,14 @@ const definitions: VerbDefinition[] = [
           FirstPersonPlural: "éramos",
           SecondPersonPlural: "erais",
           ThirdPersonPlural: "eran"
+        }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "sé",
+          SecondPersonSingularFormal: "sea",
+          FirstPersonPlural: "seamos",
+          SecondPersonPluralFormal: "sean"
         }
       }
     }
@@ -607,6 +749,14 @@ const definitions: VerbDefinition[] = [
           SecondPersonPlural: "tendríais",
           ThirdPersonPlural: "tendrían"
         }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "ten",
+          SecondPersonSingularFormal: "tenga",
+          FirstPersonPlural: "tengamos",
+          SecondPersonPluralFormal: "tengan"
+        }
       }
     }
   },
@@ -644,6 +794,14 @@ const definitions: VerbDefinition[] = [
           SecondPersonPlural: "vendríais",
           ThirdPersonPlural: "vendrían"
         }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "ven",
+          SecondPersonSingularFormal: "venga",
+          FirstPersonPlural: "vengamos",
+          SecondPersonPluralFormal: "vengan"
+        }
       }
     }
   },
@@ -666,6 +824,14 @@ const definitions: VerbDefinition[] = [
           FirstPersonPlural: "veíamos",
           SecondPersonPlural: "veíais",
           ThirdPersonPlural: "veían"
+        }
+      },
+      Imperative: {
+        Affirmative: {
+          SecondPersonSingular: "ve",
+          SecondPersonSingularFormal: "vea",
+          FirstPersonPlural: "veamos",
+          SecondPersonPluralFormal: "vean"
         }
       }
     }
