@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
-h1, h2, h3, h4, p, ol, ul, dl, dt, dd, pre, blockquote {
+h1, h2, h3, h4, p, ol, ul, dl, dt, dd, pre, blockquote, table {
   margin-bottom: 1.5rem;
 }
 

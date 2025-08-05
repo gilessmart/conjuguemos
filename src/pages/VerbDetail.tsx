@@ -35,6 +35,7 @@ export default function VerbDetail() {
       </header>
       <main>
         <h2>Conjugations</h2>
+        
         <h3>Indicative</h3>
         <table className={styles.verbTable}>
           <thead>
@@ -95,6 +96,38 @@ export default function VerbDetail() {
               <td>{conjugations.Indicative.Imperfect.ThirdPersonPlural}</td>
               <td>{conjugations.Indicative.Future.ThirdPersonPlural}</td>
               <td>{conjugations.Indicative.Conditional.ThirdPersonPlural}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Imperative</h3>
+        <table className={styles.verbTable}>
+          <thead>
+            <tr>
+              <th>Pronoun</th>
+              <th>Affirmative</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>tú</td>
+              <td>{conjugations.Imperative.Affirmative.SecondPersonSingular}</td>
+            </tr>
+            <tr>
+              <td>usted</td>
+              <td>{conjugations.Imperative.Affirmative.SecondPersonSingularFormal}</td>
+            </tr>
+            <tr>
+              <td>nosotros / nosotras</td>
+              <td>{conjugations.Imperative.Affirmative.FirstPersonPlural}</td>
+            </tr>
+            <tr>
+              <td>vosotros / vosotras</td>
+              <td>{conjugations.Imperative.Affirmative.SecondPersonPlural}</td>
+            </tr>
+            <tr>
+              <td>ustedes</td>
+              <td>{conjugations.Imperative.Affirmative.SecondPersonPluralFormal}</td>
             </tr>
           </tbody>
         </table>

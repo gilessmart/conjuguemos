@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react";
 import Menu from "../components/Menu";
-import { getRandomVerb, type MoodConjugations, type TenseConjugations, type VerbConjugations } from "../data/verbs";
+import { getRandomVerb, type IndicativeMoodConjugations, type TenseConjugations, type VerbConjugations } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
 import { chooseRandomElement } from "../utils/chooseRandom";
 import styles from "./Game.module.css";
@@ -99,13 +99,13 @@ function generateTarget() {
   return target;
 }
 
-function getActiveMoods(verbConjugations: VerbConjugations) : [string, MoodConjugations][] {
-  const moods: [string, MoodConjugations][] = [];
+function getActiveMoods(verbConjugations: VerbConjugations) : [string, IndicativeMoodConjugations][] {
+  const moods: [string, IndicativeMoodConjugations][] = [];
   moods.push([ "indicative", verbConjugations.Indicative ]);
   return moods;
 }
 
-function getActiveTenses(moodConjugations: MoodConjugations, settings: Settings) : [string, TenseConjugations][] {
+function getActiveTenses(moodConjugations: IndicativeMoodConjugations, settings: Settings) : [string, TenseConjugations][] {
   const tenses: [string, TenseConjugations][] = [];
   
   if (settings.indicativePresent) tenses.push([ "present", moodConjugations.Present ]);

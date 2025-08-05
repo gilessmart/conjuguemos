@@ -32,7 +32,7 @@ export interface TenseConjugations {
   ThirdPersonPlural: string;
 };
 
-export interface MoodConjugations {
+export interface IndicativeMoodConjugations {
   Present: TenseConjugations;
   Preterite: TenseConjugations;
   Imperfect: TenseConjugations;
@@ -40,6 +40,19 @@ export interface MoodConjugations {
   Conditional: TenseConjugations;
 };
 
+export interface ImperativePolarityConjugations {
+  SecondPersonSingular: string;
+  SecondPersonSingularFormal: string;
+  FirstPersonPlural: string;
+  SecondPersonPlural: string;
+  SecondPersonPluralFormal: string;
+};
+
+export interface ImperativeMoodConjugations {
+  Affirmative: ImperativePolarityConjugations;
+};
+
 export interface VerbConjugations {
-  Indicative: MoodConjugations;
+  Indicative: IndicativeMoodConjugations;
+  Imperative: ImperativeMoodConjugations;
 };

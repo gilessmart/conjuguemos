@@ -59,6 +59,15 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
         SecondPersonPlural: irregularConjugations?.Indicative?.Conditional?.SecondPersonPlural ?? `${stem}aríais`,
         ThirdPersonPlural: irregularConjugations?.Indicative?.Conditional?.ThirdPersonPlural ?? `${stem}arían`
       }
+    },
+    Imperative: {
+      Affirmative: {
+        SecondPersonSingular: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingular ?? `${stem}a`,
+        SecondPersonSingularFormal: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingularFormal ?? `${stem}e`,
+        FirstPersonPlural: irregularConjugations?.Imperative?.Affirmative?.FirstPersonPlural ?? `${stem}emos`,
+        SecondPersonPlural: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPlural ?? `${stem}ad`,
+        SecondPersonPluralFormal: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPluralFormal ?? `${stem}en`
+      }
     }
   };
 }
@@ -106,6 +115,15 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
         SecondPersonPlural: irregularConjugations?.Indicative?.Conditional?.SecondPersonPlural ?? `${stem}eríais`,
         ThirdPersonPlural: irregularConjugations?.Indicative?.Conditional?.ThirdPersonPlural ?? `${stem}erían`
       }
+    },
+    Imperative: {
+      Affirmative: {
+        SecondPersonSingular: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingular ?? `${stem}e`,
+        SecondPersonSingularFormal: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingularFormal ?? `${stem}a`,
+        FirstPersonPlural: irregularConjugations?.Imperative?.Affirmative?.FirstPersonPlural ?? `${stem}amos`,
+        SecondPersonPlural: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPlural ?? `${stem}ed`,
+        SecondPersonPluralFormal: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPluralFormal ?? `${stem}an`
+      }
     }
   };
 }
@@ -152,6 +170,15 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
         FirstPersonPlural: irregularConjugations?.Indicative?.Conditional?.FirstPersonPlural ?? `${stem}iríamos`,
         SecondPersonPlural: irregularConjugations?.Indicative?.Conditional?.SecondPersonPlural ?? `${stem}iríais`,
         ThirdPersonPlural: irregularConjugations?.Indicative?.Conditional?.ThirdPersonPlural ?? `${stem}irían`
+      }
+    },
+    Imperative: {
+      Affirmative: {
+        SecondPersonSingular: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingular ?? `${stem}e`,
+        SecondPersonSingularFormal: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingularFormal ?? `${stem}a`,
+        FirstPersonPlural: irregularConjugations?.Imperative?.Affirmative?.FirstPersonPlural ?? `${stem}amos`,
+        SecondPersonPlural: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPlural ?? `${stem}id`,
+        SecondPersonPluralFormal: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPluralFormal ?? `${stem}an`
       }
     }
   };
