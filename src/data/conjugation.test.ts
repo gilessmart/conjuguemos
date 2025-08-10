@@ -16,32 +16,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "hablo"
+                Value: "hablo"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "hablas"
+                Value: "hablas"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "habla"
+                Value: "habla"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "hablamos"
+                Value: "hablamos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "habláis"
+                Value: "habláis"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "hablan"
+                Value: "hablan"
               }
             ]
           },
@@ -51,32 +51,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "hablé"
+                Value: "hablé"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "hablaste"
+                Value: "hablaste"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "habló"
+                Value: "habló"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "hablamos"
+                Value: "hablamos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "hablasteis"
+                Value: "hablasteis"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "hablaron"
+                Value: "hablaron"
               }
             ]
           },
@@ -86,32 +86,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "hablaba"
+                Value: "hablaba"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "hablabas"
+                Value: "hablabas"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "hablaba"
+                Value: "hablaba"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "hablábamos"
+                Value: "hablábamos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "hablabais"
+                Value: "hablabais"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "hablaban"
+                Value: "hablaban"
               }
             ]
           },
@@ -121,32 +121,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "hablaré"
+                Value: "hablaré"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "hablarás"
+                Value: "hablarás"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "hablará"
+                Value: "hablará"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "hablaremos"
+                Value: "hablaremos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "hablaréis"
+                Value: "hablaréis"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "hablarán"
+                Value: "hablarán"
               }
             ]
           },
@@ -156,32 +156,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "hablaría"
+                Value: "hablaría"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "hablarías"
+                Value: "hablarías"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "hablaría"
+                Value: "hablaría"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "hablaríamos"
+                Value: "hablaríamos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "hablaríais"
+                Value: "hablaríais"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "hablarían"
+                Value: "hablarían"
               }
             ]
           }
@@ -196,27 +196,27 @@ describe("buildConjugations()", () => {
               { 
                 Person: "informal second person singular",
                 Pronouns: [ "tú" ],
-                Text: "habla"
+                Value: "habla"
               },
               { 
                 Person: "formal second person singular",
                 Pronouns: [ "usted" ],
-                Text: "hable"
+                Value: "hable"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "hablemos"
+                Value: "hablemos"
               },
               { 
                 Person: "informal second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "hablad"
+                Value: "hablad"
               },
               { 
                 Person: "formal second person plural",
                 Pronouns: [ "ustedes" ],
-                Text: "hablen"
+                Value: "hablen"
               }
             ]
           }
@@ -239,32 +239,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "como"
+                Value: "como"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "comes"
+                Value: "comes"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "come"
+                Value: "come"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "comemos"
+                Value: "comemos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "coméis"
+                Value: "coméis"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "comen"
+                Value: "comen"
               }
             ]
           },
@@ -274,32 +274,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "comí"
+                Value: "comí"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "comiste"
+                Value: "comiste"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "comió"
+                Value: "comió"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "comimos"
+                Value: "comimos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "comisteis"
+                Value: "comisteis"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "comieron"
+                Value: "comieron"
               }
             ]
           },
@@ -309,32 +309,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "comía"
+                Value: "comía"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "comías"
+                Value: "comías"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "comía"
+                Value: "comía"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "comíamos"
+                Value: "comíamos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "comíais"
+                Value: "comíais"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "comían"
+                Value: "comían"
               }
             ]
           },
@@ -344,32 +344,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "comeré"
+                Value: "comeré"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "comerás"
+                Value: "comerás"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "comerá"
+                Value: "comerá"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "comeremos"
+                Value: "comeremos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "comeréis"
+                Value: "comeréis"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "comerán"
+                Value: "comerán"
               }
             ]
           },
@@ -379,32 +379,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "comería"
+                Value: "comería"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "comerías"
+                Value: "comerías"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "comería"
+                Value: "comería"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "comeríamos"
+                Value: "comeríamos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "comeríais"
+                Value: "comeríais"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "comerían"
+                Value: "comerían"
               }
             ]
           }
@@ -419,27 +419,27 @@ describe("buildConjugations()", () => {
               { 
                 Person: "informal second person singular",
                 Pronouns: [ "tú" ],
-                Text: "come"
+                Value: "come"
               },
               { 
                 Person: "formal second person singular",
                 Pronouns: [ "usted" ],
-                Text: "coma"
+                Value: "coma"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "comamos"
+                Value: "comamos"
               },
               { 
                 Person: "informal second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "comed"
+                Value: "comed"
               },
               { 
                 Person: "formal second person plural",
                 Pronouns: [ "ustedes" ],
-                Text: "coman"
+                Value: "coman"
               }
             ]
           }
@@ -462,32 +462,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "vivo"
+                Value: "vivo"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "vives"
+                Value: "vives"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "vive"
+                Value: "vive"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "vivimos"
+                Value: "vivimos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "vivís"
+                Value: "vivís"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "viven"
+                Value: "viven"
               }
             ]
           },
@@ -497,32 +497,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "viví"
+                Value: "viví"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "viviste"
+                Value: "viviste"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "vivió"
+                Value: "vivió"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "vivimos"
+                Value: "vivimos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "vivisteis"
+                Value: "vivisteis"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "vivieron"
+                Value: "vivieron"
               }
             ]
           },
@@ -532,32 +532,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "vivía"
+                Value: "vivía"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "vivías"
+                Value: "vivías"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "vivía"
+                Value: "vivía"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "vivíamos"
+                Value: "vivíamos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "vivíais"
+                Value: "vivíais"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "vivían"
+                Value: "vivían"
               }
             ]
           },
@@ -567,32 +567,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "viviré"
+                Value: "viviré"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "vivirás"
+                Value: "vivirás"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "vivirá"
+                Value: "vivirá"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "viviremos"
+                Value: "viviremos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "viviréis"
+                Value: "viviréis"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "vivirán"
+                Value: "vivirán"
               }
             ]
           },
@@ -602,32 +602,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "viviría"
+                Value: "viviría"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "vivirías"
+                Value: "vivirías"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "viviría"
+                Value: "viviría"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "viviríamos"
+                Value: "viviríamos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "viviríais"
+                Value: "viviríais"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "vivirían"
+                Value: "vivirían"
               }
             ]
           }
@@ -642,27 +642,27 @@ describe("buildConjugations()", () => {
               { 
                 Person: "informal second person singular",
                 Pronouns: [ "tú" ],
-                Text: "vive"
+                Value: "vive"
               },
               { 
                 Person: "formal second person singular",
                 Pronouns: [ "usted" ],
-                Text: "viva"
+                Value: "viva"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "vivamos"
+                Value: "vivamos"
               },
               { 
                 Person: "informal second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "vivid"
+                Value: "vivid"
               },
               { 
                 Person: "formal second person plural",
                 Pronouns: [ "ustedes" ],
-                Text: "vivan"
+                Value: "vivan"
               }
             ]
           }
@@ -685,32 +685,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "he"
+                Value: "he"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "has"
+                Value: "has"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "ha"
+                Value: "ha"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "hemos"
+                Value: "hemos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "habéis"
+                Value: "habéis"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "han"
+                Value: "han"
               }
             ]
           },
@@ -720,32 +720,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "hube"
+                Value: "hube"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "hubiste"
+                Value: "hubiste"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "hubo"
+                Value: "hubo"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "hubimos"
+                Value: "hubimos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "hubisteis"
+                Value: "hubisteis"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "hubieron"
+                Value: "hubieron"
               }
             ]
           },
@@ -755,32 +755,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "había"
+                Value: "había"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "habías"
+                Value: "habías"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "había"
+                Value: "había"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "habíamos"
+                Value: "habíamos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "habíais"
+                Value: "habíais"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "habían"
+                Value: "habían"
               }
             ]
           },
@@ -790,32 +790,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "habré"
+                Value: "habré"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "habrás"
+                Value: "habrás"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "habrá"
+                Value: "habrá"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "habremos"
+                Value: "habremos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "habréis"
+                Value: "habréis"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "habrán"
+                Value: "habrán"
               }
             ]
           },
@@ -825,32 +825,32 @@ describe("buildConjugations()", () => {
               {
                 Person: "first person singular",
                 Pronouns: [ "yo" ],
-                Text: "habría"
+                Value: "habría"
               },
               { 
                 Person: "second person singular",
                 Pronouns: [ "tú" ],
-                Text: "habrías"
+                Value: "habrías"
               },
               { 
                 Person: "third person singular",
                 Pronouns: [ "él", "ella", "usted" ],
-                Text: "habría"
+                Value: "habría"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "habríamos"
+                Value: "habríamos"
               },
               { 
                 Person: "second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "habríais"
+                Value: "habríais"
               },
               { 
                 Person: "third person plural",
                 Pronouns: [ "ellos", "ellas", "ustedes" ],
-                Text: "habrían"
+                Value: "habrían"
               }
             ]
           }
@@ -865,27 +865,27 @@ describe("buildConjugations()", () => {
               { 
                 Person: "informal second person singular",
                 Pronouns: [ "tú" ],
-                Text: "he"
+                Value: "he"
               },
               { 
                 Person: "formal second person singular",
                 Pronouns: [ "usted" ],
-                Text: "haya"
+                Value: "haya"
               },
               { 
                 Person: "first person plural",
                 Pronouns: [ "nosotros", "nosotras" ],
-                Text: "hayamos"
+                Value: "hayamos"
               },
               { 
                 Person: "informal second person plural",
                 Pronouns: [ "vosotros", "vosotras" ],
-                Text: "habed"
+                Value: "habed"
               },
               { 
                 Person: "formal second person plural",
                 Pronouns: [ "ustedes" ],
-                Text: "hayan"
+                Value: "hayan"
               }
             ]
           }

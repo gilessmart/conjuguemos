@@ -74,7 +74,7 @@ function renderMood(mood: Mood) {
 }
 
 function getConjugationByPronouns(conjugations: Conjugation[], pronouns: string[]) {
-  return conjugations.find(c => groupsMatch(c.Pronouns, pronouns))?.Text;
+  return conjugations.find(c => groupsMatch(c.Pronouns, pronouns))?.Value;
 }
 
 function setIncludesGroup(set: string[][], group: string[]) {

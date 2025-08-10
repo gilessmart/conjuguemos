@@ -137,25 +137,25 @@ function getActiveConjugations(moodName: string, tense: Tense, settings: Setting
 
   if (moodName === "indicative") {
     const firstPersonSingular = tense.Conjugations.find(c => c.Person === "first person singular");
-    if (firstPersonSingular && settings.yo) conjugations.push([ "yo", firstPersonSingular.Text ]);
+    if (firstPersonSingular && settings.yo) conjugations.push([ "yo", firstPersonSingular.Value ]);
 
     const secondPersonSingular = tense.Conjugations.find(c => c.Person === "second person singular");
-    if (secondPersonSingular && settings.tú) conjugations.push([ "tú", secondPersonSingular.Text ]);
+    if (secondPersonSingular && settings.tú) conjugations.push([ "tú", secondPersonSingular.Value ]);
 
     const thirdPersonSingular = tense.Conjugations.find(c => c.Person === "third person singular");
-    if (thirdPersonSingular && settings.él) conjugations.push([ "él / ella / usted", thirdPersonSingular.Text ]);
+    if (thirdPersonSingular && settings.él) conjugations.push([ "él / ella / usted", thirdPersonSingular.Value ]);
 
     const firstPersonPlural = tense.Conjugations.find(c => c.Person === "first person plural");
-    if (firstPersonPlural && settings.nosotros) conjugations.push([ "nosotros / nosotras", firstPersonPlural.Text ]);
+    if (firstPersonPlural && settings.nosotros) conjugations.push([ "nosotros / nosotras", firstPersonPlural.Value ]);
 
     const secondPersonPlural = tense.Conjugations.find(c => c.Person === "second person plural");
-    if (secondPersonPlural && settings.vosotros) conjugations.push([ "vosotros / vosotras", secondPersonPlural.Text ]);
+    if (secondPersonPlural && settings.vosotros) conjugations.push([ "vosotros / vosotras", secondPersonPlural.Value ]);
 
     const thirdPersonPlural = tense.Conjugations.find(c => c.Person === "third person plural");
-    if (thirdPersonPlural && settings.ellos) conjugations.push([ "ellos / ellas / ustedes", thirdPersonPlural.Text ]);
+    if (thirdPersonPlural && settings.ellos) conjugations.push([ "ellos / ellas / ustedes", thirdPersonPlural.Value ]);
   }
   else {
-    const otherConjugations = tense.Conjugations.map(c => [ c.Pronouns.join(" / "), c.Text ] as [ string, string ]);
+    const otherConjugations = tense.Conjugations.map(c => [ c.Pronouns.join(" / "), c.Value ] as [ string, string ]);
     conjugations.push(...otherConjugations);
   }
 
