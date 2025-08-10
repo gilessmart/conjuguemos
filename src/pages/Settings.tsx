@@ -23,10 +23,8 @@ export default function SettingsComponent() {
         <h1>{title}</h1>
       </header>
       <main>
-          <h2>Verb Forms</h2>
+          <h2>Tenses</h2>
           <p>Select the verb forms to include in the game.</p>
-
-          <h3>Tenses</h3>
           <ul className={styles.settingsList}>
             <li className={styles.settingsListItem}>
               <input type="checkbox" id="indicativePresent"
@@ -60,43 +58,13 @@ export default function SettingsComponent() {
             </li>
           </ul>
 
-          <h3>Persons</h3>
+          <h2>Other</h2>
           <ul className={styles.settingsList}>
             <li className={styles.settingsListItem}>
-              <input type="checkbox" id="yo"
-                     checked={settings.yo}
-                     onChange={ (e) => { updateSettings({ yo: e.target.checked }); } } />
-              <label htmlFor="yo">First person singular (yo)</label>
-            </li>
-            <li className={styles.settingsListItem}>
-              <input type="checkbox" id="tú"
-                     checked={settings.tú}
-                     onChange={ (e) => { updateSettings({ tú: e.target.checked }); } } />
-              <label htmlFor="tú">Second person singular (tú)</label>
-            </li>
-            <li className={styles.settingsListItem}>
-              <input type="checkbox" id="él"
-                     checked={settings.él}
-                     onChange={ (e) => { updateSettings({ él: e.target.checked }); } } />
-              <label htmlFor="él">Third person singular (él / ella / usted)</label>
-            </li>
-            <li className={styles.settingsListItem}>
-              <input type="checkbox" id="nosotros"
-                     checked={settings.nosotros}
-                     onChange={ (e) => { updateSettings({ nosotros: e.target.checked }); } } />
-              <label htmlFor="nosotros">First person plural (nosotros / nosotras)</label>
-            </li>
-            <li className={styles.settingsListItem}>
               <input type="checkbox" id="vosotros"
-                     checked={settings.vosotros}
-                     onChange={ (e) => { updateSettings({ vosotros: e.target.checked }); } } />
-              <label htmlFor="vosotros">Second person plural (vosotros / vosotras)</label>
-            </li>
-            <li className={styles.settingsListItem}>
-              <input type="checkbox" id="ellos"
-                     checked={settings.ellos}
-                     onChange={ (e) => { updateSettings({ ellos: e.target.checked }); } } />
-              <label htmlFor="ellos">Third person plural (ellos / ellas / ustedes)</label>
+                     checked={settings.includeVosotros}
+                     onChange={ (e) => { updateSettings({ includeVosotros: e.target.checked }); } } />
+              <label htmlFor="vosotros">Include second person plural (vosotros / vosotras)</label>
             </li>
           </ul>
       </main>

@@ -86,7 +86,7 @@ function generateTarget() {
   const tenses = getActiveTenses(mood, settings);
   const [ tenseLabel, tense ] = chooseRandomElement(tenses);
 
-  const conjugations = getActiveConjugations(moodLabel, tense, settings);
+  const conjugations = getActiveConjugations(tense, settings);
   const [ conjugationLabel, conjugation ] = chooseRandomElement(conjugations)
   
   const target = {
@@ -132,32 +132,8 @@ function getActiveTenses(mood: Mood, settings: Settings) : [string, Tense][] {
   return tenses;
 }
 
-function getActiveConjugations(moodName: string, tense: Tense, settings: Settings) : [string, string][] {
-  const conjugations: [string, string][] = [];
-
-  if (moodName === "indicative") {
-    const firstPersonSingular = tense.Conjugations.find(c => c.Person === "first person singular");
-    if (firstPersonSingular && settings.yo) conjugations.push([ "yo", firstPersonSingular.Value ]);
-
-    const secondPersonSingular = tense.Conjugations.find(c => c.Person === "second person singular");
-    if (secondPersonSingular && settings.tú) conjugations.push([ "tú", secondPersonSingular.Value ]);
-
-    const thirdPersonSingular = tense.Conjugations.find(c => c.Person === "third person singular");
-    if (thirdPersonSingular && settings.él) conjugations.push([ "él / ella / usted", thirdPersonSingular.Value ]);
-
-    const firstPersonPlural = tense.Conjugations.find(c => c.Person === "first person plural");
-    if (firstPersonPlural && settings.nosotros) conjugations.push([ "nosotros / nosotras", firstPersonPlural.Value ]);
-
-    const secondPersonPlural = tense.Conjugations.find(c => c.Person === "second person plural");
-    if (secondPersonPlural && settings.vosotros) conjugations.push([ "vosotros / vosotras", secondPersonPlural.Value ]);
-
-    const thirdPersonPlural = tense.Conjugations.find(c => c.Person === "third person plural");
-    if (thirdPersonPlural && settings.ellos) conjugations.push([ "ellos / ellas / ustedes", thirdPersonPlural.Value ]);
-  }
-  else {
-    const otherConjugations = tense.Conjugations.map(c => [ c.Pronouns.join(" / "), c.Value ] as [ string, string ]);
-    conjugations.push(...otherConjugations);
-  }
-
-  return conjugations;
+function getActiveConjugations(tense: Tense, settings: Settings) : [string, string][] {
+  return tense.Conjugations
+    .filter(c => settings.includeVosotros || c.Person !== "second person plural")
+    .map(c => [ c.Pronouns.join(" / "), c.Value ]);
 }

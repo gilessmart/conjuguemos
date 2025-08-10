@@ -5,12 +5,7 @@ export interface Settings {
   indicativeFuture: boolean;
   indicativeConditional: boolean;
 
-  yo: boolean;
-  tú: boolean;
-  él: boolean;
-  nosotros: boolean;
-  vosotros: boolean;
-  ellos: boolean;
+  includeVosotros: boolean;
 };
 
 export function getSettings(): Settings {
@@ -21,12 +16,7 @@ export function getSettings(): Settings {
     indicativeFuture: true,
     indicativeConditional: true,
 
-    yo: true,
-    tú: true,
-    él: true,
-    nosotros: true,
-    vosotros: true,
-    ellos: true
+    includeVosotros: true,
   };
 
   const storedJson = localStorage.getItem("settings");
@@ -52,23 +42,8 @@ export function getSettings(): Settings {
       result.indicativeConditional = storedObj.indicativeConditional;
     }
 
-    if ("yo" in storedObj && typeof storedObj.yo === "boolean") {
-      result.yo = storedObj.yo;
-    }
-    if ("tú" in storedObj && typeof storedObj.tú === "boolean") {
-      result.tú = storedObj.tú;
-    }
-    if ("él" in storedObj && typeof storedObj.él === "boolean") {
-      result.él = storedObj.él;
-    }
-    if ("nosotros" in storedObj && typeof storedObj.nosotros === "boolean") {
-      result.nosotros = storedObj.nosotros;
-    }
-    if ("vosotros" in storedObj && typeof storedObj.vosotros === "boolean") {
-      result.vosotros = storedObj.vosotros;
-    }
-    if ("ellos" in storedObj && typeof storedObj.ellos === "boolean") {
-      result.ellos = storedObj.ellos;
+    if ("includeVosotros" in storedObj && typeof storedObj.includeVosotros === "boolean") {
+      result.includeVosotros = storedObj.includeVosotros;
     }
   }
 
