@@ -9,7 +9,7 @@ export default function VerbDetail() {
   const params = useParams<{ verb: string }>();
   const verbParam = params.verb!;
   const verbDetails = getVerbDetails(verbParam);
-  const title = verbDetails?.TitleCaseInfinitive ?? "Verb Not Found";
+  const title = verbDetails?.Infinitive ?? "Verb Not Found";
   usePageTitle(title);
   
   if (!verbDetails) {    

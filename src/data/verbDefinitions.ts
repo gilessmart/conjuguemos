@@ -5,7 +5,6 @@ export interface VerbDefinition {
   IrregularConjugations?: IrregularConjugations
 };
 
-// TODO - user Partial<Conjugations>?
 export interface IrregularConjugations {
   Indicative?: {
     Present?: {

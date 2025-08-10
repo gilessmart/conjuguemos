@@ -13,12 +13,10 @@ export function getRandomVerb(): VerbDetails {
 
 class VerbDetails {
   readonly Infinitive: string;
-  readonly TitleCaseInfinitive: string;
   readonly Conjugations: Mood[];
 
   constructor(definition: VerbDefinition) {
     this.Infinitive = definition.Infinitive;
-    this.TitleCaseInfinitive = definition.Infinitive.charAt(0).toUpperCase() + definition.Infinitive.slice(1);
     this.Conjugations = buildConjugations(definition)
   }
 }
