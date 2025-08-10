@@ -1,5 +1,5 @@
-import { buildConjugations } from "./conjugation";
-import { getVerbDefinition, getRandomVerbDefinition, type VerbDefinition } from "./verbDefinitions"
+import { buildConjugations, type Mood } from "./conjugation";
+import { getVerbDefinition, getRandomVerbDefinition, type VerbDefinition } from "./verbDefinitions";
 
 export function getVerbDetails(infinitive: string): VerbDetails | undefined {
   const definition = getVerbDefinition(infinitive);
@@ -14,7 +14,7 @@ export function getRandomVerb(): VerbDetails {
 class VerbDetails {
   readonly Infinitive: string;
   readonly TitleCaseInfinitive: string;
-  readonly Conjugations: VerbConjugations;
+  readonly Conjugations: Mood[];
 
   constructor(definition: VerbDefinition) {
     this.Infinitive = definition.Infinitive;
@@ -22,37 +22,3 @@ class VerbDetails {
     this.Conjugations = buildConjugations(definition)
   }
 }
-
-export interface TenseConjugations {
-  FirstPersonSingular: string;
-  SecondPersonSingular: string;
-  ThirdPersonSingular: string;
-  FirstPersonPlural: string;
-  SecondPersonPlural: string;
-  ThirdPersonPlural: string;
-};
-
-export interface IndicativeMoodConjugations {
-  Present: TenseConjugations;
-  Preterite: TenseConjugations;
-  Imperfect: TenseConjugations;
-  Future: TenseConjugations;
-  Conditional: TenseConjugations;
-};
-
-export interface ImperativePolarityConjugations {
-  SecondPersonSingular: string;
-  SecondPersonSingularFormal: string;
-  FirstPersonPlural: string;
-  SecondPersonPlural: string;
-  SecondPersonPluralFormal: string;
-};
-
-export interface ImperativeMoodConjugations {
-  Affirmative: ImperativePolarityConjugations;
-};
-
-export interface VerbConjugations {
-  Indicative: IndicativeMoodConjugations;
-  Imperative: ImperativeMoodConjugations;
-};

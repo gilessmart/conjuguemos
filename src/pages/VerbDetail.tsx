@@ -3,6 +3,7 @@ import { getVerbDetails } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
 import Menu from "../components/Menu";
 import styles from "./VerbDetail.module.css";
+import type { Conjugation, Mood } from "../data/conjugation";
 
 export default function VerbDetail() {
   const params = useParams<{ verb: string }>();
@@ -35,103 +36,62 @@ export default function VerbDetail() {
       </header>
       <main>
         <h2>Conjugations</h2>
-        
-        <h3>Indicative</h3>
-        <table className={styles.verbTable}>
-          <thead>
-            <tr>
-              <th>Pronoun</th>
-              <th>Present</th>
-              <th>Preterite</th>
-              <th>Imperfect</th>
-              <th>Future</th>
-              <th>Conditional</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>yo</td>
-              <td>{conjugations.Indicative.Present.FirstPersonSingular}</td>
-              <td>{conjugations.Indicative.Preterite.FirstPersonSingular}</td>
-              <td>{conjugations.Indicative.Imperfect.FirstPersonSingular}</td>
-              <td>{conjugations.Indicative.Future.FirstPersonSingular}</td>
-              <td>{conjugations.Indicative.Conditional.FirstPersonSingular}</td>
-            </tr>
-            <tr>
-              <td>tú</td>
-              <td>{conjugations.Indicative.Present.SecondPersonSingular}</td>
-              <td>{conjugations.Indicative.Preterite.SecondPersonSingular}</td>
-              <td>{conjugations.Indicative.Imperfect.SecondPersonSingular}</td>
-              <td>{conjugations.Indicative.Future.SecondPersonSingular}</td>
-              <td>{conjugations.Indicative.Conditional.SecondPersonSingular}</td>
-            </tr>
-            <tr>
-              <td>él / ella / usted</td>
-              <td>{conjugations.Indicative.Present.ThirdPersonSingular}</td>
-              <td>{conjugations.Indicative.Preterite.ThirdPersonSingular}</td>
-              <td>{conjugations.Indicative.Imperfect.ThirdPersonSingular}</td>
-              <td>{conjugations.Indicative.Future.ThirdPersonSingular}</td>
-              <td>{conjugations.Indicative.Conditional.ThirdPersonSingular}</td>
-            </tr>
-            <tr>
-              <td>nosotros / nosotras</td>
-              <td>{conjugations.Indicative.Present.FirstPersonPlural}</td>
-              <td>{conjugations.Indicative.Preterite.FirstPersonPlural}</td>
-              <td>{conjugations.Indicative.Imperfect.FirstPersonPlural}</td>
-              <td>{conjugations.Indicative.Future.FirstPersonPlural}</td>
-              <td>{conjugations.Indicative.Conditional.FirstPersonPlural}</td>
-            </tr>
-            <tr>
-              <td>vosotros / vosotras</td>
-              <td>{conjugations.Indicative.Present.SecondPersonPlural}</td>
-              <td>{conjugations.Indicative.Preterite.SecondPersonPlural}</td>
-              <td>{conjugations.Indicative.Imperfect.SecondPersonPlural}</td>
-              <td>{conjugations.Indicative.Future.SecondPersonPlural}</td>
-              <td>{conjugations.Indicative.Conditional.SecondPersonPlural}</td>
-            </tr>
-            <tr>
-              <td>ellos / ellas / ustedes</td>
-              <td>{conjugations.Indicative.Present.ThirdPersonPlural}</td>
-              <td>{conjugations.Indicative.Preterite.ThirdPersonPlural}</td>
-              <td>{conjugations.Indicative.Imperfect.ThirdPersonPlural}</td>
-              <td>{conjugations.Indicative.Future.ThirdPersonPlural}</td>
-              <td>{conjugations.Indicative.Conditional.ThirdPersonPlural}</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3>Imperative</h3>
-        <table className={styles.verbTable}>
-          <thead>
-            <tr>
-              <th>Pronoun</th>
-              <th>Affirmative</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>tú</td>
-              <td>{conjugations.Imperative.Affirmative.SecondPersonSingular}</td>
-            </tr>
-            <tr>
-              <td>usted</td>
-              <td>{conjugations.Imperative.Affirmative.SecondPersonSingularFormal}</td>
-            </tr>
-            <tr>
-              <td>nosotros / nosotras</td>
-              <td>{conjugations.Imperative.Affirmative.FirstPersonPlural}</td>
-            </tr>
-            <tr>
-              <td>vosotros / vosotras</td>
-              <td>{conjugations.Imperative.Affirmative.SecondPersonPlural}</td>
-            </tr>
-            <tr>
-              <td>ustedes</td>
-              <td>{conjugations.Imperative.Affirmative.SecondPersonPluralFormal}</td>
-            </tr>
-          </tbody>
-        </table>
+        {conjugations.map(renderMood)}
       </main>
     </div>
   );
 };
+
+function renderMood(mood: Mood) {
+  const uniquePronounGroups = mood.Tenses
+    .flatMap(t => t.Conjugations)
+    .map(c => c.Pronouns)
+    .reduce((acc: string[][], cur) => setIncludesGroup(acc, cur) ? acc : [...acc, cur], []);
+  
+  return <section key={mood.Name}>
+    <h3>{mood.Name}</h3>
+
+    <table className={styles.verbTable}>
+      <thead>
+        <tr>
+          <th>Pronoun</th>
+          {mood.Tenses.map(tense => <th key={tense.Name}>{tense.Name}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {uniquePronounGroups.map(pronouns => {
+          const label = pronouns.join(" / ");
+          return <tr key={label}>
+            <td>{label}</td>
+            {mood.Tenses.map(tense => <td key={tense.Name}>
+              {getConjugationByPronouns(tense.Conjugations, pronouns)}
+            </td>)}
+          </tr>}
+        )}
+      </tbody>
+    </table>
+  </section>
+}
+
+function getConjugationByPronouns(conjugations: Conjugation[], pronouns: string[]) {
+  return conjugations.find(c => groupsMatch(c.Pronouns, pronouns))?.Text;
+}
+
+function setIncludesGroup(set: string[][], group: string[]) {
+  return set.some(candidate => groupsMatch(candidate, group));
+}
+
+function groupsMatch(a: string[], b: string[]) {
+  if (a.length !== b.length)
+    return false;
+
+  // TODO sort but don't sort in place?
+  // or key by person, and make person a reference that holds the pronouns..?
+  const orderedCandidate = a//.sort();
+  const orderedGroup = b//.sort();
+  for (let i = 0; i < a.length; i++)
+    if (orderedCandidate[i] !== orderedGroup[i])
+      return false;
+
+  return true;
+}
