@@ -7,7 +7,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug Tests",
+      "name": "Run Tests",
       "runtimeExecutable": "npm",
       "runtimeArgs": [
         "run",
