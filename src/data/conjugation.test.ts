@@ -1,12 +1,12 @@
 import { describe, expect, test } from "vitest";
-import { buildConjugations } from "./conjugation";
+import { buildConjugations, persons, type Mood } from "./conjugation";
 import { getVerbDefinition } from "./verbDefinitions";
 
 describe("buildConjugations()", () => {
   test("conjugates a regular AR verb", () => {
     const definition = getVerbDefinition("hablar");
     const actual = buildConjugations(definition!);
-    const expected = [
+    const expected: Mood[] = [
       {
         Name: "indicative",
         Tenses: [
@@ -14,33 +14,27 @@ describe("buildConjugations()", () => {
             Name: "present",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "hablo"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "hablas"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "habla"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "hablamos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "habláis"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "hablan"
               }
             ]
@@ -49,33 +43,27 @@ describe("buildConjugations()", () => {
             Name: "preterite",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "hablé"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "hablaste"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "habló"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "hablamos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "hablasteis"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "hablaron"
               }
             ]
@@ -84,33 +72,27 @@ describe("buildConjugations()", () => {
             Name: "imperfect",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "hablaba"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "hablabas"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "hablaba"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "hablábamos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "hablabais"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "hablaban"
               }
             ]
@@ -119,33 +101,27 @@ describe("buildConjugations()", () => {
             Name: "future",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "hablaré"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "hablarás"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "hablará"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "hablaremos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "hablaréis"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "hablarán"
               }
             ]
@@ -154,33 +130,27 @@ describe("buildConjugations()", () => {
             Name: "conditional",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "hablaría"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "hablarías"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "hablaría"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "hablaríamos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "hablaríais"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "hablarían"
               }
             ]
@@ -194,28 +164,23 @@ describe("buildConjugations()", () => {
             Name: "affirmative",
             Conjugations: [
               { 
-                Person: "informal second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "habla"
               },
               { 
-                Person: "formal second person singular",
-                Pronouns: [ "usted" ],
+                Person: persons.SecondSingularFormal,
                 Value: "hable"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "hablemos"
               },
               { 
-                Person: "informal second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "hablad"
               },
               { 
-                Person: "formal second person plural",
-                Pronouns: [ "ustedes" ],
+                Person: persons.SecondPluralFormal,
                 Value: "hablen"
               }
             ]
@@ -229,7 +194,7 @@ describe("buildConjugations()", () => {
   test("conjugates a regular ER verb", () => {
     const definition = getVerbDefinition("comer");
     const actual = buildConjugations(definition!);
-    const expected = [
+    const expected: Mood[] = [
       {
         Name: "indicative",
         Tenses: [
@@ -237,33 +202,27 @@ describe("buildConjugations()", () => {
             Name: "present",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "como"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "comes"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "come"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "comemos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "coméis"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "comen"
               }
             ]
@@ -272,33 +231,27 @@ describe("buildConjugations()", () => {
             Name: "preterite",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "comí"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "comiste"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "comió"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "comimos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "comisteis"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "comieron"
               }
             ]
@@ -307,33 +260,27 @@ describe("buildConjugations()", () => {
             Name: "imperfect",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "comía"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "comías"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "comía"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "comíamos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "comíais"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "comían"
               }
             ]
@@ -342,33 +289,27 @@ describe("buildConjugations()", () => {
             Name: "future",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "comeré"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "comerás"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "comerá"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "comeremos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "comeréis"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "comerán"
               }
             ]
@@ -377,33 +318,27 @@ describe("buildConjugations()", () => {
             Name: "conditional",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "comería"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "comerías"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "comería"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "comeríamos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "comeríais"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "comerían"
               }
             ]
@@ -417,28 +352,23 @@ describe("buildConjugations()", () => {
             Name: "affirmative",
             Conjugations: [
               { 
-                Person: "informal second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "come"
               },
               { 
-                Person: "formal second person singular",
-                Pronouns: [ "usted" ],
+                Person: persons.SecondSingularFormal,
                 Value: "coma"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "comamos"
               },
               { 
-                Person: "informal second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "comed"
               },
               { 
-                Person: "formal second person plural",
-                Pronouns: [ "ustedes" ],
+                Person: persons.SecondPluralFormal,
                 Value: "coman"
               }
             ]
@@ -452,7 +382,7 @@ describe("buildConjugations()", () => {
   test("conjugates a regular IR verb", () => {
     const definition = getVerbDefinition("vivir");
     const actual = buildConjugations(definition!);
-    const expected = [
+    const expected: Mood[] = [
       {
         Name: "indicative",
         Tenses: [
@@ -460,33 +390,27 @@ describe("buildConjugations()", () => {
             Name: "present",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "vivo"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "vives"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "vive"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "vivimos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "vivís"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "viven"
               }
             ]
@@ -495,33 +419,27 @@ describe("buildConjugations()", () => {
             Name: "preterite",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "viví"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "viviste"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "vivió"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "vivimos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "vivisteis"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "vivieron"
               }
             ]
@@ -530,33 +448,27 @@ describe("buildConjugations()", () => {
             Name: "imperfect",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "vivía"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "vivías"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "vivía"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "vivíamos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "vivíais"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "vivían"
               }
             ]
@@ -565,33 +477,27 @@ describe("buildConjugations()", () => {
             Name: "future",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "viviré"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "vivirás"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "vivirá"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "viviremos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "viviréis"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "vivirán"
               }
             ]
@@ -600,33 +506,27 @@ describe("buildConjugations()", () => {
             Name: "conditional",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "viviría"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "vivirías"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "viviría"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "viviríamos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "viviríais"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "vivirían"
               }
             ]
@@ -640,28 +540,23 @@ describe("buildConjugations()", () => {
             Name: "affirmative",
             Conjugations: [
               { 
-                Person: "informal second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "vive"
               },
               { 
-                Person: "formal second person singular",
-                Pronouns: [ "usted" ],
+                Person: persons.SecondSingularFormal,
                 Value: "viva"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "vivamos"
               },
               { 
-                Person: "informal second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "vivid"
               },
               { 
-                Person: "formal second person plural",
-                Pronouns: [ "ustedes" ],
+                Person: persons.SecondPluralFormal,
                 Value: "vivan"
               }
             ]
@@ -675,7 +570,7 @@ describe("buildConjugations()", () => {
   test("conjugates an irregular verb", () => {
     const definition = getVerbDefinition("haber");
     const actual = buildConjugations(definition!);
-    const expected = [
+    const expected: Mood[] = [
       {
         Name: "indicative",
         Tenses: [
@@ -683,33 +578,27 @@ describe("buildConjugations()", () => {
             Name: "present",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "he"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "has"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "ha"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "hemos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "habéis"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "han"
               }
             ]
@@ -718,33 +607,27 @@ describe("buildConjugations()", () => {
             Name: "preterite",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "hube"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "hubiste"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "hubo"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "hubimos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "hubisteis"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "hubieron"
               }
             ]
@@ -753,33 +636,27 @@ describe("buildConjugations()", () => {
             Name: "imperfect",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "había"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "habías"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "había"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "habíamos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "habíais"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "habían"
               }
             ]
@@ -788,33 +665,27 @@ describe("buildConjugations()", () => {
             Name: "future",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "habré"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "habrás"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "habrá"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "habremos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "habréis"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "habrán"
               }
             ]
@@ -823,33 +694,27 @@ describe("buildConjugations()", () => {
             Name: "conditional",
             Conjugations: [
               {
-                Person: "first person singular",
-                Pronouns: [ "yo" ],
+                Person: persons.FirstSingular,
                 Value: "habría"
               },
               { 
-                Person: "second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "habrías"
               },
               { 
-                Person: "third person singular",
-                Pronouns: [ "él", "ella", "usted" ],
+                Person: persons.ThirdSingular,
                 Value: "habría"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "habríamos"
               },
               { 
-                Person: "second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "habríais"
               },
               { 
-                Person: "third person plural",
-                Pronouns: [ "ellos", "ellas", "ustedes" ],
+                Person: persons.ThirdPlural,
                 Value: "habrían"
               }
             ]
@@ -863,28 +728,23 @@ describe("buildConjugations()", () => {
             Name: "affirmative",
             Conjugations: [
               { 
-                Person: "informal second person singular",
-                Pronouns: [ "tú" ],
+                Person: persons.SecondSingularInformal,
                 Value: "he"
               },
               { 
-                Person: "formal second person singular",
-                Pronouns: [ "usted" ],
+                Person: persons.SecondSingularFormal,
                 Value: "haya"
               },
               { 
-                Person: "first person plural",
-                Pronouns: [ "nosotros", "nosotras" ],
+                Person: persons.FirstPlural,
                 Value: "hayamos"
               },
               { 
-                Person: "informal second person plural",
-                Pronouns: [ "vosotros", "vosotras" ],
+                Person: persons.SecondPluralInformal,
                 Value: "habed"
               },
               { 
-                Person: "formal second person plural",
-                Pronouns: [ "ustedes" ],
+                Person: persons.SecondPluralFormal,
                 Value: "hayan"
               }
             ]

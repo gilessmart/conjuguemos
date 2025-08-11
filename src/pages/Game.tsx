@@ -5,7 +5,7 @@ import { usePageTitle } from "../hooks/usePageTitle";
 import { chooseRandomElement } from "../utils/chooseRandom";
 import styles from "./Game.module.css";
 import { getSettings, type Settings } from "../data/settings";
-import type { Mood, Tense } from "../data/conjugation";
+import { persons, type Conjugation, type Mood, type Tense } from "../data/conjugation";
 
 export default function Game() {
   usePageTitle("");
@@ -87,14 +87,14 @@ function generateTarget() {
   const [ tenseLabel, tense ] = chooseRandomElement(tenses);
 
   const conjugations = getActiveConjugations(tense, settings);
-  const [ conjugationLabel, conjugation ] = chooseRandomElement(conjugations)
+  const conjugation = chooseRandomElement(conjugations)
   
   const target = {
     infinitive: verb.Infinitive,
     mood: moodLabel,
     tense: tenseLabel,
-    pronoun: conjugationLabel,
-    conjugation: conjugation
+    pronoun: conjugation.Person.Pronouns.join(" / "),
+    conjugation: conjugation.Value
   };
   
   return target;
@@ -132,8 +132,6 @@ function getActiveTenses(mood: Mood, settings: Settings) : [string, Tense][] {
   return tenses;
 }
 
-function getActiveConjugations(tense: Tense, settings: Settings) : [string, string][] {
-  return tense.Conjugations
-    .filter(c => settings.includeVosotros || c.Person !== "second person plural")
-    .map(c => [ c.Pronouns.join(" / "), c.Value ]);
+function getActiveConjugations(tense: Tense, settings: Settings) : Conjugation[] {
+  return tense.Conjugations.filter(c => settings.includeVosotros || c.Person !== persons.SecondPluralInformal);
 }

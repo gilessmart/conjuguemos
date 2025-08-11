@@ -1,8 +1,49 @@
 import type { VerbDefinition, IrregularConjugations } from "./verbDefinitions";
 
-export interface Conjugation {
-  Person: string;
+export interface Person {
   Pronouns: string[];
+};
+
+interface Persons {
+  FirstSingular: Person;
+  SecondSingularInformal: Person;
+  SecondSingularFormal: Person;
+  ThirdSingular: Person;
+  FirstPlural: Person;
+  SecondPluralInformal: Person;
+  SecondPluralFormal: Person;
+  ThirdPlural: Person;
+}
+
+export const persons: Persons = {
+  FirstSingular: {
+    Pronouns: [ "yo" ]
+  },
+  SecondSingularInformal: {
+    Pronouns: [ "tú" ]
+  },
+  SecondSingularFormal: {
+    Pronouns: [ "usted" ]
+  },
+  ThirdSingular: {
+    Pronouns: [ "él", "ella", "usted" ]
+  },
+  FirstPlural: {
+    Pronouns: [ "nosotros", "nosotras" ]
+  },
+  SecondPluralInformal: {
+    Pronouns: [ "vosotros", "vosotras" ]
+  },
+  SecondPluralFormal: {
+    Pronouns: [ "ustedes" ]
+  },
+  ThirdPlural: {
+    Pronouns: [ "éllos", "ellas", "ustedes" ]
+  }
+};
+
+export interface Conjugation {
+  Person: Person;
   Value: string;
 };
 
@@ -40,33 +81,27 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "present",
           Conjugations: [
             { 
-              Person: "first person singular",
-              Pronouns: [ "yo" ],
+              Person: persons.FirstSingular,
               Value: irregularConjugations?.Indicative?.Present?.FirstPersonSingular ?? `${stem}o`
             },
             { 
-              Person: "second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Indicative?.Present?.SecondPersonSingular ?? `${stem}as`
             },
             { 
-              Person: "third person singular",
-              Pronouns: [ "él", "ella", "usted" ],
+              Person: persons.ThirdSingular,
               Value: irregularConjugations?.Indicative?.Present?.ThirdPersonSingular ?? `${stem}a`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Indicative?.Present?.FirstPersonPlural ?? `${stem}amos`
             },
             { 
-              Person: "second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Indicative?.Present?.SecondPersonPlural ?? `${stem}áis`
             },
             { 
-              Person: "third person plural",
-              Pronouns: [ "ellos", "ellas", "ustedes" ],
+              Person: persons.ThirdPlural,
               Value: irregularConjugations?.Indicative?.Present?.ThirdPersonPlural ?? `${stem}an`
             }
           ]
@@ -75,33 +110,27 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "preterite",
           Conjugations: [
             { 
-              Person: "first person singular",
-              Pronouns: [ "yo" ],
+              Person: persons.FirstSingular,
               Value: irregularConjugations?.Indicative?.Preterite?.FirstPersonSingular ?? `${stem}é`
             },
             { 
-              Person: "second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonSingular ?? `${stem}aste`
             },
             { 
-              Person: "third person singular",
-              Pronouns: [ "él", "ella", "usted" ],
+              Person: persons.ThirdSingular,
               Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonSingular ?? `${stem}ó`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Indicative?.Preterite?.FirstPersonPlural ?? `${stem}amos`
             },
             { 
-              Person: "second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonPlural ?? `${stem}asteis`
             },
             { 
-              Person: "third person plural",
-              Pronouns: [ "ellos", "ellas", "ustedes" ],
+              Person: persons.ThirdPlural,
               Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonPlural ?? `${stem}aron`
             }
           ]
@@ -110,33 +139,27 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "imperfect",
           Conjugations: [
             { 
-              Person: "first person singular",
-              Pronouns: [ "yo" ],
+              Person: persons.FirstSingular,
               Value: irregularConjugations?.Indicative?.Imperfect?.FirstPersonSingular ?? `${stem}aba`
             },
             { 
-              Person: "second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonSingular ?? `${stem}abas`
             },
             { 
-              Person: "third person singular",
-              Pronouns: [ "él", "ella", "usted" ],
+              Person: persons.ThirdSingular,
               Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonSingular ?? `${stem}aba`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Indicative?.Imperfect?.FirstPersonPlural ?? `${stem}ábamos`
             },
             { 
-              Person: "second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonPlural ?? `${stem}abais`
             },
             { 
-              Person: "third person plural",
-              Pronouns: [ "ellos", "ellas", "ustedes" ],
+              Person: persons.ThirdPlural,
               Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonPlural ?? `${stem}aban`
             }
           ]
@@ -145,33 +168,27 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "future",
           Conjugations: [
             { 
-              Person: "first person singular",
-              Pronouns: [ "yo" ],
+              Person: persons.FirstSingular,
               Value: irregularConjugations?.Indicative?.Future?.FirstPersonSingular ?? `${stem}aré`
             },
             { 
-              Person: "second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Indicative?.Future?.SecondPersonSingular ?? `${stem}arás`
             },
             { 
-              Person: "third person singular",
-              Pronouns: [ "él", "ella", "usted" ],
+              Person: persons.ThirdSingular,
               Value: irregularConjugations?.Indicative?.Future?.ThirdPersonSingular ?? `${stem}ará`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Indicative?.Future?.FirstPersonPlural ?? `${stem}aremos`
             },
             { 
-              Person: "second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Indicative?.Future?.SecondPersonPlural ?? `${stem}aréis`
             },
             { 
-              Person: "third person plural",
-              Pronouns: [ "ellos", "ellas", "ustedes" ],
+              Person: persons.ThirdPlural,
               Value: irregularConjugations?.Indicative?.Future?.ThirdPersonPlural ?? `${stem}arán`
             }
           ]
@@ -180,33 +197,27 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "conditional",
           Conjugations: [
             { 
-              Person: "first person singular",
-              Pronouns: [ "yo" ],
+              Person: persons.FirstSingular,
               Value: irregularConjugations?.Indicative?.Conditional?.FirstPersonSingular ?? `${stem}aría`
             },
             { 
-              Person: "second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonSingular ?? `${stem}arías`
             },
             { 
-              Person: "third person singular",
-              Pronouns: [ "él", "ella", "usted" ],
+              Person: persons.ThirdSingular,
               Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonSingular ?? `${stem}aría`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Indicative?.Conditional?.FirstPersonPlural ?? `${stem}aríamos`
             },
             { 
-              Person: "second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonPlural ?? `${stem}aríais`
             },
             { 
-              Person: "third person plural",
-              Pronouns: [ "ellos", "ellas", "ustedes" ],
+              Person: persons.ThirdPlural,
               Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonPlural ?? `${stem}arían`
             }
           ]
@@ -220,28 +231,23 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "affirmative",
           Conjugations: [
             { 
-              Person: "informal second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingular ?? `${stem}a`
             },
             { 
-              Person: "formal second person singular",
-              Pronouns: [ "usted" ],
+              Person: persons.SecondSingularFormal,
               Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingularFormal ?? `${stem}e`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Imperative?.Affirmative?.FirstPersonPlural ?? `${stem}emos`
             },
             { 
-              Person: "informal second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPlural ?? `${stem}ad`
             },
             { 
-              Person: "formal second person plural",
-              Pronouns: [ "ustedes" ],
+              Person: persons.SecondPluralFormal,
               Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPluralFormal ?? `${stem}en`
             }
           ]
@@ -260,33 +266,27 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "present",
           Conjugations: [
             { 
-              Person: "first person singular",
-              Pronouns: [ "yo" ],
+              Person: persons.FirstSingular,
               Value: irregularConjugations?.Indicative?.Present?.FirstPersonSingular ?? `${stem}o`
             },
             { 
-              Person: "second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Indicative?.Present?.SecondPersonSingular ?? `${stem}es`
             },
             { 
-              Person: "third person singular",
-              Pronouns: [ "él", "ella", "usted" ],
+              Person: persons.ThirdSingular,
               Value: irregularConjugations?.Indicative?.Present?.ThirdPersonSingular ?? `${stem}e`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Indicative?.Present?.FirstPersonPlural ?? `${stem}emos`
             },
             { 
-              Person: "second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Indicative?.Present?.SecondPersonPlural ?? `${stem}éis`
             },
             { 
-              Person: "third person plural",
-              Pronouns: [ "ellos", "ellas", "ustedes" ],
+              Person: persons.ThirdPlural,
               Value: irregularConjugations?.Indicative?.Present?.ThirdPersonPlural ?? `${stem}en`
             }
           ]
@@ -295,33 +295,27 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "preterite",
           Conjugations: [
             { 
-              Person: "first person singular",
-              Pronouns: [ "yo" ],
+              Person: persons.FirstSingular,
               Value: irregularConjugations?.Indicative?.Preterite?.FirstPersonSingular ?? `${stem}í`
             },
             { 
-              Person: "second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonSingular ?? `${stem}iste`
             },
             { 
-              Person: "third person singular",
-              Pronouns: [ "él", "ella", "usted" ],
+              Person: persons.ThirdSingular,
               Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonSingular ?? `${stem}ió`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Indicative?.Preterite?.FirstPersonPlural ?? `${stem}imos`
             },
             { 
-              Person: "second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonPlural ?? `${stem}isteis`
             },
             { 
-              Person: "third person plural",
-              Pronouns: [ "ellos", "ellas", "ustedes" ],
+              Person: persons.ThirdPlural,
               Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonPlural ?? `${stem}ieron`
             }
           ]
@@ -330,33 +324,27 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "imperfect",
           Conjugations: [
             { 
-              Person: "first person singular",
-              Pronouns: [ "yo" ],
+              Person: persons.FirstSingular,
               Value: irregularConjugations?.Indicative?.Imperfect?.FirstPersonSingular ?? `${stem}ía`
             },
             { 
-              Person: "second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonSingular ?? `${stem}ías`
             },
             { 
-              Person: "third person singular",
-              Pronouns: [ "él", "ella", "usted" ],
+              Person: persons.ThirdSingular,
               Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonSingular ?? `${stem}ía`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Indicative?.Imperfect?.FirstPersonPlural ?? `${stem}íamos`
             },
             { 
-              Person: "second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonPlural ?? `${stem}íais`
             },
             { 
-              Person: "third person plural",
-              Pronouns: [ "ellos", "ellas", "ustedes" ],
+              Person: persons.ThirdPlural,
               Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonPlural ?? `${stem}ían`
             }
           ]
@@ -365,33 +353,27 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "future",
           Conjugations: [
             { 
-              Person: "first person singular",
-              Pronouns: [ "yo" ],
+              Person: persons.FirstSingular,
               Value: irregularConjugations?.Indicative?.Future?.FirstPersonSingular ?? `${stem}eré`
             },
             { 
-              Person: "second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Indicative?.Future?.SecondPersonSingular ?? `${stem}erás`
             },
             { 
-              Person: "third person singular",
-              Pronouns: [ "él", "ella", "usted" ],
+              Person: persons.ThirdSingular,
               Value: irregularConjugations?.Indicative?.Future?.ThirdPersonSingular ?? `${stem}erá`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Indicative?.Future?.FirstPersonPlural ?? `${stem}eremos`
             },
             { 
-              Person: "second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Indicative?.Future?.SecondPersonPlural ?? `${stem}eréis`
             },
             { 
-              Person: "third person plural",
-              Pronouns: [ "ellos", "ellas", "ustedes" ],
+              Person: persons.ThirdPlural,
               Value: irregularConjugations?.Indicative?.Future?.ThirdPersonPlural ?? `${stem}erán`
             }
           ]
@@ -400,33 +382,27 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "conditional",
           Conjugations: [
             { 
-              Person: "first person singular",
-              Pronouns: [ "yo" ],
+              Person: persons.FirstSingular,
               Value: irregularConjugations?.Indicative?.Conditional?.FirstPersonSingular ?? `${stem}ería`
             },
             { 
-              Person: "second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonSingular ?? `${stem}erías`
             },
             { 
-              Person: "third person singular",
-              Pronouns: [ "él", "ella", "usted" ],
+              Person: persons.ThirdSingular,
               Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonSingular ?? `${stem}ería`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Indicative?.Conditional?.FirstPersonPlural ?? `${stem}eríamos`
             },
             { 
-              Person: "second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonPlural ?? `${stem}eríais`
             },
             { 
-              Person: "third person plural",
-              Pronouns: [ "ellos", "ellas", "ustedes" ],
+              Person: persons.ThirdPlural,
               Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonPlural ?? `${stem}erían`
             }
           ]
@@ -440,28 +416,23 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "affirmative",
           Conjugations: [
             { 
-              Person: "informal second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingular ?? `${stem}e`
             },
             { 
-              Person: "formal second person singular",
-              Pronouns: [ "usted" ],
+              Person: persons.SecondSingularFormal,
               Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingularFormal ?? `${stem}a`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Imperative?.Affirmative?.FirstPersonPlural ?? `${stem}amos`
             },
             { 
-              Person: "informal second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPlural ?? `${stem}ed`
             },
             { 
-              Person: "formal second person plural",
-              Pronouns: [ "ustedes" ],
+              Person: persons.SecondPluralFormal,
               Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPluralFormal ?? `${stem}an`
             }
           ]
@@ -480,33 +451,27 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "present",
           Conjugations: [
             { 
-              Person: "first person singular",
-              Pronouns: [ "yo" ],
+              Person: persons.FirstSingular,
               Value: irregularConjugations?.Indicative?.Present?.FirstPersonSingular ?? `${stem}o`
             },
             { 
-              Person: "second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Indicative?.Present?.SecondPersonSingular ?? `${stem}es`
             },
             { 
-              Person: "third person singular",
-              Pronouns: [ "él", "ella", "usted" ],
+              Person: persons.ThirdSingular,
               Value: irregularConjugations?.Indicative?.Present?.ThirdPersonSingular ?? `${stem}e`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Indicative?.Present?.FirstPersonPlural ?? `${stem}imos`
             },
             { 
-              Person: "second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Indicative?.Present?.SecondPersonPlural ?? `${stem}ís`
             },
             { 
-              Person: "third person plural",
-              Pronouns: [ "ellos", "ellas", "ustedes" ],
+              Person: persons.ThirdPlural,
               Value: irregularConjugations?.Indicative?.Present?.ThirdPersonPlural ?? `${stem}en`
             }
           ]
@@ -515,33 +480,27 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "preterite",
           Conjugations: [
             { 
-              Person: "first person singular",
-              Pronouns: [ "yo" ],
+              Person: persons.FirstSingular,
               Value: irregularConjugations?.Indicative?.Preterite?.FirstPersonSingular ?? `${stem}í`
             },
             { 
-              Person: "second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonSingular ?? `${stem}iste`
             },
             { 
-              Person: "third person singular",
-              Pronouns: [ "él", "ella", "usted" ],
+              Person: persons.ThirdSingular,
               Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonSingular ?? `${stem}ió`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Indicative?.Preterite?.FirstPersonPlural ?? `${stem}imos`
             },
             { 
-              Person: "second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonPlural ?? `${stem}isteis`
             },
             { 
-              Person: "third person plural",
-              Pronouns: [ "ellos", "ellas", "ustedes" ],
+              Person: persons.ThirdPlural,
               Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonPlural ?? `${stem}ieron`
             }
           ]
@@ -550,33 +509,27 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "imperfect",
           Conjugations: [
             { 
-              Person: "first person singular",
-              Pronouns: [ "yo" ],
+              Person: persons.FirstSingular,
               Value: irregularConjugations?.Indicative?.Imperfect?.FirstPersonSingular ?? `${stem}ía`
             },
             { 
-              Person: "second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonSingular ?? `${stem}ías`
             },
             { 
-              Person: "third person singular",
-              Pronouns: [ "él", "ella", "usted" ],
+              Person: persons.ThirdSingular,
               Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonSingular ?? `${stem}ía`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Indicative?.Imperfect?.FirstPersonPlural ?? `${stem}íamos`
             },
             { 
-              Person: "second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonPlural ?? `${stem}íais`
             },
             { 
-              Person: "third person plural",
-              Pronouns: [ "ellos", "ellas", "ustedes" ],
+              Person: persons.ThirdPlural,
               Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonPlural ?? `${stem}ían`
             }
           ]
@@ -585,33 +538,27 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "future",
           Conjugations: [
             { 
-              Person: "first person singular",
-              Pronouns: [ "yo" ],
+              Person: persons.FirstSingular,
               Value: irregularConjugations?.Indicative?.Future?.FirstPersonSingular ?? `${stem}iré`
             },
             { 
-              Person: "second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Indicative?.Future?.SecondPersonSingular ?? `${stem}irás`
             },
             { 
-              Person: "third person singular",
-              Pronouns: [ "él", "ella", "usted" ],
+              Person: persons.ThirdSingular,
               Value: irregularConjugations?.Indicative?.Future?.ThirdPersonSingular ?? `${stem}irá`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Indicative?.Future?.FirstPersonPlural ?? `${stem}iremos`
             },
             { 
-              Person: "second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Indicative?.Future?.SecondPersonPlural ?? `${stem}iréis`
             },
             { 
-              Person: "third person plural",
-              Pronouns: [ "ellos", "ellas", "ustedes" ],
+              Person: persons.ThirdPlural,
               Value: irregularConjugations?.Indicative?.Future?.ThirdPersonPlural ?? `${stem}irán`
             }
           ]
@@ -620,33 +567,27 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "conditional",
           Conjugations: [
             { 
-              Person: "first person singular",
-              Pronouns: [ "yo" ],
+              Person: persons.FirstSingular,
               Value: irregularConjugations?.Indicative?.Conditional?.FirstPersonSingular ?? `${stem}iría`
             },
             { 
-              Person: "second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonSingular ?? `${stem}irías`
             },
             { 
-              Person: "third person singular",
-              Pronouns: [ "él", "ella", "usted" ],
+              Person: persons.ThirdSingular,
               Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonSingular ?? `${stem}iría`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Indicative?.Conditional?.FirstPersonPlural ?? `${stem}iríamos`
             },
             { 
-              Person: "second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonPlural ?? `${stem}iríais`
             },
             { 
-              Person: "third person plural",
-              Pronouns: [ "ellos", "ellas", "ustedes" ],
+              Person: persons.ThirdPlural,
               Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonPlural ?? `${stem}irían`
             }
           ]
@@ -660,28 +601,23 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
           Name: "affirmative",
           Conjugations: [
             { 
-              Person: "informal second person singular",
-              Pronouns: [ "tú" ],
+              Person: persons.SecondSingularInformal,
               Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingular ?? `${stem}e`
             },
             { 
-              Person: "formal second person singular",
-              Pronouns: [ "usted" ],
+              Person: persons.SecondSingularFormal,
               Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingularFormal ?? `${stem}a`
             },
             { 
-              Person: "first person plural",
-              Pronouns: [ "nosotros", "nosotras" ],
+              Person: persons.FirstPlural,
               Value: irregularConjugations?.Imperative?.Affirmative?.FirstPersonPlural ?? `${stem}amos`
             },
             { 
-              Person: "informal second person plural",
-              Pronouns: [ "vosotros", "vosotras" ],
+              Person: persons.SecondPluralInformal,
               Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPlural ?? `${stem}id`
             },
             { 
-              Person: "formal second person plural",
-              Pronouns: [ "ustedes" ],
+              Person: persons.SecondPluralFormal,
               Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPluralFormal ?? `${stem}an`
             }
           ]
