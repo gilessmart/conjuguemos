@@ -36,13 +36,13 @@ export default function VerbDetail() {
       </header>
       <main>
         <h2>Conjugations</h2>
-        {conjugations.map(renderMood)}
+        {conjugations.map(m => <MoodSection key={m.Name} mood={m} />)}
       </main>
     </div>
   );
 };
 
-function renderMood(mood: Mood) {
+function MoodSection({ mood }: { mood: Mood }) {
   const uniquePersons = mood.Tenses
     .flatMap(t => t.Conjugations)
     .map(c => c.Person)
