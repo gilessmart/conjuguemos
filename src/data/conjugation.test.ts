@@ -1,11 +1,11 @@
-import { describe, expect, test } from "vitest";
+import { assert, describe, expect, test } from "vitest";
 import { buildConjugations, persons, type Mood } from "./conjugation";
 import { getVerbDefinition } from "./verbDefinitions";
 
 describe("buildConjugations()", () => {
   test("conjugates a regular AR verb", () => {
-    const definition = getVerbDefinition("hablar");
-    const actual = buildConjugations(definition!);
+    const definition = getVerbDefinition("hablar") ?? assert.fail("verb definition not found");
+    const actual = buildConjugations(definition);
     const expected: Mood[] = [
       {
         Name: "indicative",
@@ -192,8 +192,8 @@ describe("buildConjugations()", () => {
   });
   
   test("conjugates a regular ER verb", () => {
-    const definition = getVerbDefinition("comer");
-    const actual = buildConjugations(definition!);
+    const definition = getVerbDefinition("comer") ?? assert.fail("verb definition not found");
+    const actual = buildConjugations(definition);
     const expected: Mood[] = [
       {
         Name: "indicative",
@@ -380,8 +380,8 @@ describe("buildConjugations()", () => {
   });
 
   test("conjugates a regular IR verb", () => {
-    const definition = getVerbDefinition("vivir");
-    const actual = buildConjugations(definition!);
+    const definition = getVerbDefinition("vivir") ?? assert.fail("verb definition not found");
+    const actual = buildConjugations(definition);
     const expected: Mood[] = [
       {
         Name: "indicative",
@@ -568,8 +568,8 @@ describe("buildConjugations()", () => {
   });
 
   test("conjugates an irregular verb", () => {
-    const definition = getVerbDefinition("haber");
-    const actual = buildConjugations(definition!);
+    const definition = getVerbDefinition("haber") ?? assert.fail("verb definition not found");
+    const actual = buildConjugations(definition);
     const expected: Mood[] = [
       {
         Name: "indicative",
