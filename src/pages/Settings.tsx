@@ -50,8 +50,9 @@ export default function SettingsComponent() {
         <h1>{title}</h1>
       </header>
       <main>
-          <h2>Tenses</h2>
           <p>Select the verb forms to include in the game.</p>
+
+          <h2>Tenses</h2>
 
           {settings.moodInclusion.map(moodSetting => 
             <MoodSettingsSection key={moodSetting.moodName}
@@ -65,7 +66,7 @@ export default function SettingsComponent() {
               <input type="checkbox" id="vosotros"
                      checked={settings.includeVosotros}
                      onChange={ e => { updateSettings({ includeVosotros: e.target.checked }); } } />
-              <label htmlFor="vosotros">Include second person plural (vosotros / vosotras)</label>
+              <label htmlFor="vosotros">Second person plural (vosotros / vosotras)</label>
             </li>
           </ul>
       </main>
@@ -82,24 +83,22 @@ interface MoodSettingSectionParams {
 function MoodSettingsSection({ moodSetting: setting, updateMoodInclusion, updateTenseInclusion }: MoodSettingSectionParams) {
   const inputId = useId();
   return <section>
-    <h3>{setting.moodName}</h3>
-
     <ul className={styles.settingsList}>
       <li className={styles.settingsListItem}>
         <input type="checkbox" id={inputId}
                checked={setting.included}
                onChange={ e => { updateMoodInclusion(setting.moodName, e.target.checked); } } />
-        <label htmlFor={inputId}>Include {setting.moodName} mood</label>
+        <label htmlFor={inputId} className="capitalize">{setting.moodName}</label>
       </li>
-    </ul>
-    
-    <h4>Tenses</h4>
-    <ul className={styles.settingsList}>
-      {setting.tenseInclusion.map(tenseSetting => 
-        <TenseSettingListItem key={tenseSetting.tenseName}
-                              moodSetting={setting}
-                              tenseSetting={tenseSetting}
-                              updateTenseInclusion={updateTenseInclusion} />)}
+      <li>
+        <ul className={styles.settingsList}>
+          {setting.tenseInclusion.map(tenseSetting => 
+            <TenseSettingListItem key={tenseSetting.tenseName}
+                                  moodSetting={setting}
+                                  tenseSetting={tenseSetting}
+                                  updateTenseInclusion={updateTenseInclusion} />)}
+        </ul>
+      </li>
     </ul>
   </section>
 }
@@ -117,6 +116,6 @@ function TenseSettingListItem({ moodSetting, tenseSetting, updateTenseInclusion}
            checked={tenseSetting.included}
            disabled={!moodSetting.included}
            onChange={ e => { updateTenseInclusion(moodSetting.moodName, tenseSetting.tenseName, e.target.checked); } } />
-    <label htmlFor={inputId}>{tenseSetting.tenseName}</label>
+    <label htmlFor={inputId} className="capitalize">{tenseSetting.tenseName}</label>
   </li> 
 }
