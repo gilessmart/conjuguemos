@@ -32,7 +32,7 @@ export default function VerbDetail() {
     <div>
       <header>
         <Menu />
-        <h1>{title}</h1>
+        <h1 className="capitalize">{title}</h1>
       </header>
       <main>
         <h2>Conjugations</h2>
@@ -49,13 +49,13 @@ function renderMood(mood: Mood) {
     .reduce((acc: Person[], cur) => acc.includes(cur) ? acc : [...acc, cur], []);
   
   return <section key={mood.Name}>
-    <h3>{mood.Name}</h3>
+    <h3 className="capitalize">{mood.Name}</h3>
 
     <table className={styles.verbTable}>
       <thead>
         <tr>
           <th>Pronoun</th>
-          {mood.Tenses.map(tense => <th key={tense.Name}>{tense.Name}</th>)}
+          {mood.Tenses.map(tense => <th key={tense.Name} className="capitalize">{tense.Name}</th>)}
         </tr>
       </thead>
       <tbody>

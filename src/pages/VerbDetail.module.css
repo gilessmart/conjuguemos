@@ -1,10 +1,5 @@
-h1, h2, h3 {
-  text-transform: capitalize;
-}
-
 table.verbTable thead {
   background-color: #f0f0f0;
   border-bottom: solid 1px #d0d0d0;
   border-top: solid 1px #d0d0d0;
-  text-transform: capitalize;
 }

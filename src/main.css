@@ -68,3 +68,7 @@ button, input[type=button] {
   background-color: #f0f0f0;
   padding: 0.25em 1em;
 }
+
+.capitalize {
+  text-transform: capitalize;
+}
