@@ -3,7 +3,7 @@ import { getVerbDetails } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
 import Menu from "../components/Menu";
 import styles from "./VerbDetail.module.css";
-import type { Conjugation, Mood, Person } from "../data/conjugation";
+import type { Mood, Person } from "../data/conjugation";
 
 export default function VerbDetail() {
   const params = useParams<{ verb: string }>();
@@ -64,15 +64,11 @@ function MoodSection({ mood }: { mood: Mood }) {
           return <tr key={label}>
             <td>{label}</td>
             {mood.Tenses.map(tense => <td key={tense.Name}>
-              {getConjugationByPerson(tense.Conjugations, person)}
+              {tense.Conjugations.find(c => c.Person === person)?.Value}
             </td>)}
           </tr>}
         )}
       </tbody>
     </table>
   </section>
-}
-
-function getConjugationByPerson(conjugations: Conjugation[], person: Person) {
-  return conjugations.find(c => c.Person === person)?.Value;
 }
