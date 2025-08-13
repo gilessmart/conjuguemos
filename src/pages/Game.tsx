@@ -4,8 +4,7 @@ import { getRandomVerb } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
 import { chooseRandomElement } from "../utils/chooseRandom";
 import styles from "./Game.module.css";
-import { getSettings, type Settings } from "../data/settings";
-import { persons, type Conjugation, type Mood, type Tense } from "../data/conjugation";
+import { getSettings } from "../data/settings";
 
 export default function Game() {
   usePageTitle("");
@@ -79,59 +78,14 @@ export default function Game() {
 function generateTarget() {
   const verb = getRandomVerb();
   const settings = getSettings();
+  const choices = verb.getActiveConjugations(settings);
+  const { mood, tense, conjugation } = chooseRandomElement(choices)
   
-  const moods = getActiveMoods(verb.Conjugations);
-  const [ moodLabel, mood ] = chooseRandomElement(moods);
-  
-  const tenses = getActiveTenses(mood, settings);
-  const [ tenseLabel, tense ] = chooseRandomElement(tenses);
-
-  const conjugations = getActiveConjugations(tense, settings);
-  const conjugation = chooseRandomElement(conjugations)
-  
-  const target = {
+  return {
     infinitive: verb.Infinitive,
-    mood: moodLabel,
-    tense: tenseLabel,
+    mood: mood.Name,
+    tense: tense.Name,
     pronoun: conjugation.Person.Pronouns.join(" / "),
     conjugation: conjugation.Value
   };
-  
-  return target;
-}
-
-function getActiveMoods(moods: Mood[]) : [string, Mood][] {
-  return moods.map(m => [ m.Name, m ]);
-}
-
-function getActiveTenses(mood: Mood, settings: Settings) : [string, Tense][] {
-  const tenses: [string, Tense][] = [];
-  
-  if (mood.Name === "indicative")
-  {
-    const presentTense = mood.Tenses.find(t => t.Name === "present");
-    if (presentTense && settings.indicativePresent) tenses.push(["present", presentTense]);
-
-    const preteriteTense = mood.Tenses.find(t => t.Name === "preterite");
-    if (preteriteTense && settings.indicativePreterite) tenses.push(["preterite", preteriteTense]);
-    
-    const imperfectTense = mood.Tenses.find(t => t.Name === "imperfect");
-    if (imperfectTense && settings.indicativeImperfect) tenses.push(["imperfect", imperfectTense]);
-
-    const futureTense = mood.Tenses.find(t => t.Name === "future");
-    if (futureTense && settings.indicativeFuture) tenses.push(["future", futureTense]);
-
-    const conditionalTense = mood.Tenses.find(t => t.Name === "conditional");
-    if (conditionalTense && settings.indicativeConditional) tenses.push(["conditional", conditionalTense]);
-  }
-  else {
-    const otherTenses = mood.Tenses.map(t => [t.Name, t] as [string, Tense]);
-    tenses.push(...otherTenses);
-  }
-
-  return tenses;
-}
-
-function getActiveConjugations(tense: Tense, settings: Settings) : Conjugation[] {
-  return tense.Conjugations.filter(c => settings.includeVosotros || c.Person !== persons.SecondPluralInformal);
 }
