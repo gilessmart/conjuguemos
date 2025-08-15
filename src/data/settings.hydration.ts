@@ -1,14 +1,12 @@
 import type { Settings } from "./settings";
 
-export function parseSettings(json: string, defaultSettings: Settings): Settings {
-  const result = structuredClone(defaultSettings);
-  
+export function hydrateSettings(settings: Settings, json: string): void {
   let storedSettingsObj: unknown;
   try { storedSettingsObj = JSON.parse(json); }
-  catch { return result; }
+  catch { return; }
 
   if (typeof storedSettingsObj !== "object" || storedSettingsObj === null || Array.isArray(storedSettingsObj))
-    return result;
+    return;
   
   const storedMoodInclusionsArr = "moodInclusion" in storedSettingsObj && typeof storedSettingsObj.moodInclusion === "object" && Array.isArray(storedSettingsObj.moodInclusion) 
     ? storedSettingsObj.moodInclusion as unknown[]
@@ -23,7 +21,7 @@ export function parseSettings(json: string, defaultSettings: Settings): Settings
       if (!("moodName" in storedMoodInclusionsItemObj && typeof storedMoodInclusionsItemObj.moodName === "string"))
         continue;
       
-      const resultMoodInclusionItem = result.moodInclusion.find(x => x.moodName === storedMoodInclusionsItemObj.moodName);
+      const resultMoodInclusionItem = settings.moodInclusion.find(x => x.moodName === storedMoodInclusionsItemObj.moodName);
       if (resultMoodInclusionItem === undefined)
         continue;
 
@@ -60,7 +58,7 @@ export function parseSettings(json: string, defaultSettings: Settings): Settings
   }
 
   if ("includeVosotros" in storedSettingsObj && typeof storedSettingsObj.includeVosotros === "boolean")
-    result.includeVosotros = storedSettingsObj.includeVosotros;
+    settings.includeVosotros = storedSettingsObj.includeVosotros;
 
-  return result;
+  return;
 }

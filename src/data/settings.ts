@@ -1,4 +1,4 @@
-import { parseSettings } from "./settingsParser";
+import { hydrateSettings } from "./settings.hydration";
 
 export interface Settings {
   moodInclusion: MoodInclusionSetting[];
@@ -17,13 +17,15 @@ export interface TenseInclusionSetting {
 }
 
 export function getSettings(): Settings {
-  const defaultSettings = getDefaultSettings();
+  const settings = getDefaultSettings();
 
   const storedJson = localStorage.getItem("settings");
   if (!storedJson)
-    return defaultSettings;
+    return settings;
   
-  return parseSettings(storedJson, defaultSettings);
+  hydrateSettings(settings, storedJson);
+
+  return settings;
 }
 
 function getDefaultSettings(): Settings {
