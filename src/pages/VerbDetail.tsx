@@ -3,7 +3,7 @@ import { getVerbDetails } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
 import Menu from "../components/Menu";
 import styles from "./VerbDetail.module.css";
-import type { Mood, Person } from "../data/conjugation";
+import type { ConjugationMood, Person } from "../data/conjugation";
 
 export default function VerbDetail() {
   const params = useParams<{ verb: string }>();
@@ -42,7 +42,7 @@ export default function VerbDetail() {
   );
 };
 
-function MoodSection({ mood }: { mood: Mood }) {
+function MoodSection({ mood }: { mood: ConjugationMood }) {
   const uniquePersons = mood.Tenses
     .flatMap(t => t.Conjugations)
     .map(c => c.Person)

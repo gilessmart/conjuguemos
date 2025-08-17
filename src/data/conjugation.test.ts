@@ -1,12 +1,12 @@
 import { assert, describe, expect, test } from "vitest";
-import { buildConjugations, persons, type Mood } from "./conjugation";
+import { buildConjugations, persons, type ConjugationMood } from "./conjugation";
 import { getVerbDefinition } from "./verbDefinitions";
 
 describe("buildConjugations()", () => {
   test("conjugates a regular AR verb", () => {
     const definition = getVerbDefinition("hablar") ?? assert.fail("verb definition not found");
     const actual = buildConjugations(definition);
-    const expected: Mood[] = [
+    const expected: ConjugationMood[] = [
       {
         Name: "indicative",
         Tenses: [

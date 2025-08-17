@@ -47,17 +47,17 @@ export interface Conjugation {
   Value: string;
 };
 
-export interface Tense {
+export interface ConjugationTense {
   Name: string;
   Conjugations: Conjugation[];
 };
 
-export interface Mood {
+export interface ConjugationMood {
   Name: string;
-  Tenses: Tense[];
+  Tenses: ConjugationTense[];
 };
 
-export function buildConjugations(definition: VerbDefinition): Mood[] {
+export function buildConjugations(definition: VerbDefinition): ConjugationMood[] {
   const ending = definition.Infinitive.slice(-2);
   const stem = definition.Infinitive.slice(0, -2);
   switch (ending) {
@@ -72,7 +72,7 @@ export function buildConjugations(definition: VerbDefinition): Mood[] {
   }
 };
 
-function buildArConjugations(stem: string, irregularConjugations?: IrregularConjugations) : Mood[] {
+function buildArConjugations(stem: string, irregularConjugations?: IrregularConjugations) : ConjugationMood[] {
   return [
     { 
       Name: "indicative", 
@@ -257,7 +257,7 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
   ];
 }
 
-function buildErConjugations(stem: string, irregularConjugations?: IrregularConjugations) : Mood[] {
+function buildErConjugations(stem: string, irregularConjugations?: IrregularConjugations) : ConjugationMood[] {
   return [
     { 
       Name: "indicative", 
@@ -442,7 +442,7 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
   ];
 }
 
-function buildIrConjugations(stem: string, irregularConjugations?: IrregularConjugations) : Mood[] {
+function buildIrConjugations(stem: string, irregularConjugations?: IrregularConjugations) : ConjugationMood[] {
   return [
     { 
       Name: "indicative", 

@@ -1,5 +1,4 @@
-import { buildConjugations, persons, type Mood } from "./conjugation";
-import type { Settings } from "./settings";
+import { buildConjugations, persons, type ConjugationMood } from "./conjugation";
 import { getVerbDefinition, getRandomVerbDefinition, type VerbDefinition } from "./verbDefinitions";
 
 export function getVerbDetails(infinitive: string): VerbDetails | undefined {
@@ -14,7 +13,7 @@ export function getRandomVerb(): VerbDetails {
 
 class VerbDetails {
   readonly Infinitive: string;
-  readonly Conjugations: Mood[];
+  readonly Conjugations: ConjugationMood[];
 
   constructor(definition: VerbDefinition) {
     this.Infinitive = definition.Infinitive;
