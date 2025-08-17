@@ -8,11 +8,11 @@ interface Persons {
   FirstSingular: Person;
   SecondSingularInformal: Person;
   SecondSingularFormal: Person;
-  ThirdSingular: Person;
+  ThirdSingularAndSecondSingularFormal: Person;
   FirstPlural: Person;
   SecondPluralInformal: Person;
   SecondPluralFormal: Person;
-  ThirdPlural: Person;
+  ThirdPluralAndSecondPluralFormal: Person;
 }
 
 export const persons: Persons = {
@@ -25,7 +25,7 @@ export const persons: Persons = {
   SecondSingularFormal: {
     Pronouns: [ "usted" ]
   },
-  ThirdSingular: {
+  ThirdSingularAndSecondSingularFormal: {
     Pronouns: [ "él", "ella", "usted" ]
   },
   FirstPlural: {
@@ -37,7 +37,7 @@ export const persons: Persons = {
   SecondPluralFormal: {
     Pronouns: [ "ustedes" ]
   },
-  ThirdPlural: {
+  ThirdPluralAndSecondPluralFormal: {
     Pronouns: [ "éllos", "ellas", "ustedes" ]
   }
 };
@@ -89,7 +89,7 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Present?.SecondPersonSingular ?? `${stem}as`
             },
             { 
-              Person: persons.ThirdSingular,
+              Person: persons.ThirdSingularAndSecondSingularFormal,
               Value: irregularConjugations?.Indicative?.Present?.ThirdPersonSingular ?? `${stem}a`
             },
             { 
@@ -101,7 +101,7 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Present?.SecondPersonPlural ?? `${stem}áis`
             },
             { 
-              Person: persons.ThirdPlural,
+              Person: persons.ThirdPluralAndSecondPluralFormal,
               Value: irregularConjugations?.Indicative?.Present?.ThirdPersonPlural ?? `${stem}an`
             }
           ]
@@ -118,7 +118,7 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonSingular ?? `${stem}aste`
             },
             { 
-              Person: persons.ThirdSingular,
+              Person: persons.ThirdSingularAndSecondSingularFormal,
               Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonSingular ?? `${stem}ó`
             },
             { 
@@ -130,7 +130,7 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonPlural ?? `${stem}asteis`
             },
             { 
-              Person: persons.ThirdPlural,
+              Person: persons.ThirdPluralAndSecondPluralFormal,
               Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonPlural ?? `${stem}aron`
             }
           ]
@@ -147,7 +147,7 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonSingular ?? `${stem}abas`
             },
             { 
-              Person: persons.ThirdSingular,
+              Person: persons.ThirdSingularAndSecondSingularFormal,
               Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonSingular ?? `${stem}aba`
             },
             { 
@@ -159,7 +159,7 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonPlural ?? `${stem}abais`
             },
             { 
-              Person: persons.ThirdPlural,
+              Person: persons.ThirdPluralAndSecondPluralFormal,
               Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonPlural ?? `${stem}aban`
             }
           ]
@@ -176,7 +176,7 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Future?.SecondPersonSingular ?? `${stem}arás`
             },
             { 
-              Person: persons.ThirdSingular,
+              Person: persons.ThirdSingularAndSecondSingularFormal,
               Value: irregularConjugations?.Indicative?.Future?.ThirdPersonSingular ?? `${stem}ará`
             },
             { 
@@ -188,7 +188,7 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Future?.SecondPersonPlural ?? `${stem}aréis`
             },
             { 
-              Person: persons.ThirdPlural,
+              Person: persons.ThirdPluralAndSecondPluralFormal,
               Value: irregularConjugations?.Indicative?.Future?.ThirdPersonPlural ?? `${stem}arán`
             }
           ]
@@ -205,7 +205,7 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonSingular ?? `${stem}arías`
             },
             { 
-              Person: persons.ThirdSingular,
+              Person: persons.ThirdSingularAndSecondSingularFormal,
               Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonSingular ?? `${stem}aría`
             },
             { 
@@ -217,7 +217,7 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonPlural ?? `${stem}aríais`
             },
             { 
-              Person: persons.ThirdPlural,
+              Person: persons.ThirdPluralAndSecondPluralFormal,
               Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonPlural ?? `${stem}arían`
             }
           ]
@@ -274,7 +274,7 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Present?.SecondPersonSingular ?? `${stem}es`
             },
             { 
-              Person: persons.ThirdSingular,
+              Person: persons.ThirdSingularAndSecondSingularFormal,
               Value: irregularConjugations?.Indicative?.Present?.ThirdPersonSingular ?? `${stem}e`
             },
             { 
@@ -286,7 +286,7 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Present?.SecondPersonPlural ?? `${stem}éis`
             },
             { 
-              Person: persons.ThirdPlural,
+              Person: persons.ThirdPluralAndSecondPluralFormal,
               Value: irregularConjugations?.Indicative?.Present?.ThirdPersonPlural ?? `${stem}en`
             }
           ]
@@ -303,7 +303,7 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonSingular ?? `${stem}iste`
             },
             { 
-              Person: persons.ThirdSingular,
+              Person: persons.ThirdSingularAndSecondSingularFormal,
               Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonSingular ?? `${stem}ió`
             },
             { 
@@ -315,7 +315,7 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonPlural ?? `${stem}isteis`
             },
             { 
-              Person: persons.ThirdPlural,
+              Person: persons.ThirdPluralAndSecondPluralFormal,
               Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonPlural ?? `${stem}ieron`
             }
           ]
@@ -332,7 +332,7 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonSingular ?? `${stem}ías`
             },
             { 
-              Person: persons.ThirdSingular,
+              Person: persons.ThirdSingularAndSecondSingularFormal,
               Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonSingular ?? `${stem}ía`
             },
             { 
@@ -344,7 +344,7 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonPlural ?? `${stem}íais`
             },
             { 
-              Person: persons.ThirdPlural,
+              Person: persons.ThirdPluralAndSecondPluralFormal,
               Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonPlural ?? `${stem}ían`
             }
           ]
@@ -361,7 +361,7 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Future?.SecondPersonSingular ?? `${stem}erás`
             },
             { 
-              Person: persons.ThirdSingular,
+              Person: persons.ThirdSingularAndSecondSingularFormal,
               Value: irregularConjugations?.Indicative?.Future?.ThirdPersonSingular ?? `${stem}erá`
             },
             { 
@@ -373,7 +373,7 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Future?.SecondPersonPlural ?? `${stem}eréis`
             },
             { 
-              Person: persons.ThirdPlural,
+              Person: persons.ThirdPluralAndSecondPluralFormal,
               Value: irregularConjugations?.Indicative?.Future?.ThirdPersonPlural ?? `${stem}erán`
             }
           ]
@@ -390,7 +390,7 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonSingular ?? `${stem}erías`
             },
             { 
-              Person: persons.ThirdSingular,
+              Person: persons.ThirdSingularAndSecondSingularFormal,
               Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonSingular ?? `${stem}ería`
             },
             { 
@@ -402,7 +402,7 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonPlural ?? `${stem}eríais`
             },
             { 
-              Person: persons.ThirdPlural,
+              Person: persons.ThirdPluralAndSecondPluralFormal,
               Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonPlural ?? `${stem}erían`
             }
           ]
@@ -459,7 +459,7 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Present?.SecondPersonSingular ?? `${stem}es`
             },
             { 
-              Person: persons.ThirdSingular,
+              Person: persons.ThirdSingularAndSecondSingularFormal,
               Value: irregularConjugations?.Indicative?.Present?.ThirdPersonSingular ?? `${stem}e`
             },
             { 
@@ -471,7 +471,7 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Present?.SecondPersonPlural ?? `${stem}ís`
             },
             { 
-              Person: persons.ThirdPlural,
+              Person: persons.ThirdPluralAndSecondPluralFormal,
               Value: irregularConjugations?.Indicative?.Present?.ThirdPersonPlural ?? `${stem}en`
             }
           ]
@@ -488,7 +488,7 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonSingular ?? `${stem}iste`
             },
             { 
-              Person: persons.ThirdSingular,
+              Person: persons.ThirdSingularAndSecondSingularFormal,
               Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonSingular ?? `${stem}ió`
             },
             { 
@@ -500,7 +500,7 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonPlural ?? `${stem}isteis`
             },
             { 
-              Person: persons.ThirdPlural,
+              Person: persons.ThirdPluralAndSecondPluralFormal,
               Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonPlural ?? `${stem}ieron`
             }
           ]
@@ -517,7 +517,7 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonSingular ?? `${stem}ías`
             },
             { 
-              Person: persons.ThirdSingular,
+              Person: persons.ThirdSingularAndSecondSingularFormal,
               Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonSingular ?? `${stem}ía`
             },
             { 
@@ -529,7 +529,7 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonPlural ?? `${stem}íais`
             },
             { 
-              Person: persons.ThirdPlural,
+              Person: persons.ThirdPluralAndSecondPluralFormal,
               Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonPlural ?? `${stem}ían`
             }
           ]
@@ -546,7 +546,7 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Future?.SecondPersonSingular ?? `${stem}irás`
             },
             { 
-              Person: persons.ThirdSingular,
+              Person: persons.ThirdSingularAndSecondSingularFormal,
               Value: irregularConjugations?.Indicative?.Future?.ThirdPersonSingular ?? `${stem}irá`
             },
             { 
@@ -558,7 +558,7 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Future?.SecondPersonPlural ?? `${stem}iréis`
             },
             { 
-              Person: persons.ThirdPlural,
+              Person: persons.ThirdPluralAndSecondPluralFormal,
               Value: irregularConjugations?.Indicative?.Future?.ThirdPersonPlural ?? `${stem}irán`
             }
           ]
@@ -575,7 +575,7 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonSingular ?? `${stem}irías`
             },
             { 
-              Person: persons.ThirdSingular,
+              Person: persons.ThirdSingularAndSecondSingularFormal,
               Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonSingular ?? `${stem}iría`
             },
             { 
@@ -587,7 +587,7 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
               Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonPlural ?? `${stem}iríais`
             },
             { 
-              Person: persons.ThirdPlural,
+              Person: persons.ThirdPluralAndSecondPluralFormal,
               Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonPlural ?? `${stem}irían`
             }
           ]

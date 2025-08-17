@@ -22,7 +22,7 @@ describe("buildConjugations()", () => {
                 Value: "hablas"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "habla"
               },
               { 
@@ -34,7 +34,7 @@ describe("buildConjugations()", () => {
                 Value: "habláis"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "hablan"
               }
             ]
@@ -51,7 +51,7 @@ describe("buildConjugations()", () => {
                 Value: "hablaste"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "habló"
               },
               { 
@@ -63,7 +63,7 @@ describe("buildConjugations()", () => {
                 Value: "hablasteis"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "hablaron"
               }
             ]
@@ -80,7 +80,7 @@ describe("buildConjugations()", () => {
                 Value: "hablabas"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "hablaba"
               },
               { 
@@ -92,7 +92,7 @@ describe("buildConjugations()", () => {
                 Value: "hablabais"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "hablaban"
               }
             ]
@@ -109,7 +109,7 @@ describe("buildConjugations()", () => {
                 Value: "hablarás"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "hablará"
               },
               { 
@@ -121,7 +121,7 @@ describe("buildConjugations()", () => {
                 Value: "hablaréis"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "hablarán"
               }
             ]
@@ -138,7 +138,7 @@ describe("buildConjugations()", () => {
                 Value: "hablarías"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "hablaría"
               },
               { 
@@ -150,7 +150,7 @@ describe("buildConjugations()", () => {
                 Value: "hablaríais"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "hablarían"
               }
             ]
@@ -194,7 +194,7 @@ describe("buildConjugations()", () => {
   test("conjugates a regular ER verb", () => {
     const definition = getVerbDefinition("comer") ?? assert.fail("verb definition not found");
     const actual = buildConjugations(definition);
-    const expected: Mood[] = [
+    const expected: ConjugationMood[] = [
       {
         Name: "indicative",
         Tenses: [
@@ -210,7 +210,7 @@ describe("buildConjugations()", () => {
                 Value: "comes"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "come"
               },
               { 
@@ -222,7 +222,7 @@ describe("buildConjugations()", () => {
                 Value: "coméis"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "comen"
               }
             ]
@@ -239,7 +239,7 @@ describe("buildConjugations()", () => {
                 Value: "comiste"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "comió"
               },
               { 
@@ -251,7 +251,7 @@ describe("buildConjugations()", () => {
                 Value: "comisteis"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "comieron"
               }
             ]
@@ -268,7 +268,7 @@ describe("buildConjugations()", () => {
                 Value: "comías"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "comía"
               },
               { 
@@ -280,7 +280,7 @@ describe("buildConjugations()", () => {
                 Value: "comíais"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "comían"
               }
             ]
@@ -297,7 +297,7 @@ describe("buildConjugations()", () => {
                 Value: "comerás"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "comerá"
               },
               { 
@@ -309,7 +309,7 @@ describe("buildConjugations()", () => {
                 Value: "comeréis"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "comerán"
               }
             ]
@@ -326,7 +326,7 @@ describe("buildConjugations()", () => {
                 Value: "comerías"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "comería"
               },
               { 
@@ -338,7 +338,7 @@ describe("buildConjugations()", () => {
                 Value: "comeríais"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "comerían"
               }
             ]
@@ -382,7 +382,7 @@ describe("buildConjugations()", () => {
   test("conjugates a regular IR verb", () => {
     const definition = getVerbDefinition("vivir") ?? assert.fail("verb definition not found");
     const actual = buildConjugations(definition);
-    const expected: Mood[] = [
+    const expected: ConjugationMood[] = [
       {
         Name: "indicative",
         Tenses: [
@@ -398,7 +398,7 @@ describe("buildConjugations()", () => {
                 Value: "vives"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "vive"
               },
               { 
@@ -410,7 +410,7 @@ describe("buildConjugations()", () => {
                 Value: "vivís"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "viven"
               }
             ]
@@ -427,7 +427,7 @@ describe("buildConjugations()", () => {
                 Value: "viviste"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "vivió"
               },
               { 
@@ -439,7 +439,7 @@ describe("buildConjugations()", () => {
                 Value: "vivisteis"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "vivieron"
               }
             ]
@@ -456,7 +456,7 @@ describe("buildConjugations()", () => {
                 Value: "vivías"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "vivía"
               },
               { 
@@ -468,7 +468,7 @@ describe("buildConjugations()", () => {
                 Value: "vivíais"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "vivían"
               }
             ]
@@ -485,7 +485,7 @@ describe("buildConjugations()", () => {
                 Value: "vivirás"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "vivirá"
               },
               { 
@@ -497,7 +497,7 @@ describe("buildConjugations()", () => {
                 Value: "viviréis"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "vivirán"
               }
             ]
@@ -514,7 +514,7 @@ describe("buildConjugations()", () => {
                 Value: "vivirías"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "viviría"
               },
               { 
@@ -526,7 +526,7 @@ describe("buildConjugations()", () => {
                 Value: "viviríais"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "vivirían"
               }
             ]
@@ -570,7 +570,7 @@ describe("buildConjugations()", () => {
   test("conjugates an irregular verb", () => {
     const definition = getVerbDefinition("haber") ?? assert.fail("verb definition not found");
     const actual = buildConjugations(definition);
-    const expected: Mood[] = [
+    const expected: ConjugationMood[] = [
       {
         Name: "indicative",
         Tenses: [
@@ -586,7 +586,7 @@ describe("buildConjugations()", () => {
                 Value: "has"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "ha"
               },
               { 
@@ -598,7 +598,7 @@ describe("buildConjugations()", () => {
                 Value: "habéis"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "han"
               }
             ]
@@ -615,7 +615,7 @@ describe("buildConjugations()", () => {
                 Value: "hubiste"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "hubo"
               },
               { 
@@ -627,7 +627,7 @@ describe("buildConjugations()", () => {
                 Value: "hubisteis"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "hubieron"
               }
             ]
@@ -644,7 +644,7 @@ describe("buildConjugations()", () => {
                 Value: "habías"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "había"
               },
               { 
@@ -656,7 +656,7 @@ describe("buildConjugations()", () => {
                 Value: "habíais"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "habían"
               }
             ]
@@ -673,7 +673,7 @@ describe("buildConjugations()", () => {
                 Value: "habrás"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "habrá"
               },
               { 
@@ -685,7 +685,7 @@ describe("buildConjugations()", () => {
                 Value: "habréis"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "habrán"
               }
             ]
@@ -702,7 +702,7 @@ describe("buildConjugations()", () => {
                 Value: "habrías"
               },
               { 
-                Person: persons.ThirdSingular,
+                Person: persons.ThirdSingularAndSecondSingularFormal,
                 Value: "habría"
               },
               { 
@@ -714,7 +714,7 @@ describe("buildConjugations()", () => {
                 Value: "habríais"
               },
               { 
-                Person: persons.ThirdPlural,
+                Person: persons.ThirdPluralAndSecondPluralFormal,
                 Value: "habrían"
               }
             ]
