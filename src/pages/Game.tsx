@@ -4,7 +4,7 @@ import { getRandomVerb } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
 import { chooseRandomElement } from "../utils/chooseRandom";
 import styles from "./Game.module.css";
-import { getSettings } from "../data/settings";
+import { getSettings, isConjugationEnabled } from "../data/settings";
 
 export default function Game() {
   usePageTitle("");
@@ -78,13 +78,14 @@ export default function Game() {
 function generateTarget() {
   const verb = getRandomVerb();
   const settings = getSettings();
-  const choices = verb.getActiveConjugations(settings);
-  const { mood, tense, conjugation } = chooseRandomElement(choices)
+  const choices = verb.flattenedConjugations
+    .filter(({ mood, tense, conjugation }) => isConjugationEnabled(settings, mood, tense, conjugation));
+  const { mood, tense, conjugation } = chooseRandomElement(choices);
   
   return {
     infinitive: verb.Infinitive,
-    mood: mood.Name,
-    tense: tense.Name,
+    mood: mood,
+    tense: tense,
     pronoun: conjugation.Person.Pronouns.join(" / "),
     conjugation: conjugation.Value
   };

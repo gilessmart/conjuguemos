@@ -1,4 +1,4 @@
-import { buildConjugations, persons, type ConjugationMood } from "./conjugation";
+import { buildConjugations, type Conjugation, type ConjugationMood } from "./conjugation";
 import { getVerbDefinition, getRandomVerbDefinition, type VerbDefinition } from "./verbDefinitions";
 
 export function getVerbDetails(infinitive: string): VerbDetails | undefined {
@@ -20,25 +20,13 @@ class VerbDetails {
     this.Conjugations = buildConjugations(definition)
   }
 
-  getActiveConjugations(settings: Settings) {
+  get flattenedConjugations(): { mood: string, tense: string, conjugation: Conjugation }[] {
     const result = [];
 
-    for (const mood of this.Conjugations) {
-      const moodSetting = settings.moodInclusion.find(s => s.moodName === mood.Name);
-      if (!moodSetting?.included)
-        continue;
-        
-      for (const tense of mood.Tenses) {
-        const tenseSetting = moodSetting.tenseInclusion.find(s => s.tenseName === tense.Name);
-        if (!tenseSetting?.included)
-          continue;
-
-        const candidates = tense.Conjugations
-          .filter(c => settings.includeVosotros || c.Person !== persons.SecondPluralInformal)
-          .map(conjugation => ({ mood, tense, conjugation }))
-        result.push(...candidates);
-      }  
-    }
+    for (const mood of this.Conjugations)
+      for (const tense of mood.Tenses)
+        for (const conjugation of tense.Conjugations)
+          result.push({ mood: mood.Name, tense: tense.Name, conjugation });
 
     return result;
   }

@@ -2,7 +2,7 @@ import { useId, useState } from "react";
 import Menu from "../components/Menu";
 import { usePageTitle } from "../hooks/usePageTitle";
 import styles from "./Settings.module.css";
-import { getSettings, saveSettings, type MoodInclusionSetting, type Settings, type TenseInclusionSetting } from "../data/settings";
+import { getSettings, saveSettings, type Settings } from "../data/settings";
 
 export default function SettingsComponent() {
   const title = "Settings";
@@ -10,38 +10,12 @@ export default function SettingsComponent() {
   
   const [settings, setSettings] = useState(getSettings());
 
-  const updateSettings = (setting: Partial<Settings>) => {
-    const newSettings = { ...settings, ...setting };
+  function updateSettings(mutateSettings: (s: Settings) => void) {
+    const newSettings = structuredClone(settings);
+    mutateSettings(newSettings);
     setSettings(newSettings);
     saveSettings(newSettings);
   };
-
-  const updateMoodInclusion = (moodName: string, included: boolean) => {
-    const newMoodInclusionSettings = settings.moodInclusion.map(x => 
-      x.moodName === moodName
-        ? { ...x, included } 
-        : x);
-    const newSettings = { ...settings, moodInclusion: newMoodInclusionSettings };
-    setSettings(newSettings);
-    saveSettings(newSettings);
-  };
-
-  function updateTenseInclusion(moodName: string, tenseName: string, included: boolean) {
-    const newMoodInclusionSettings = settings.moodInclusion.map(m => 
-      m.moodName === moodName
-        ? { 
-            ...m,
-            tenseInclusion: m.tenseInclusion.map(t =>
-              t.tenseName === tenseName
-                ? { ...t, included }
-                : t
-            )
-          } 
-        : m);
-    const newSettings = { ...settings, moodInclusion: newMoodInclusionSettings };
-    setSettings(newSettings);
-    saveSettings(newSettings);
-  }
 
   return (
     <div>
@@ -54,19 +28,49 @@ export default function SettingsComponent() {
 
           <h2>Tenses</h2>
 
-          {settings.moodInclusion.map(moodSetting => 
-            <MoodSettingsSection key={moodSetting.moodName}
-                                 moodSetting={moodSetting}
-                                 updateMoodInclusion={updateMoodInclusion}
-                                 updateTenseInclusion={updateTenseInclusion} />)}
+          <ul className={styles.settingsList}>
+            <li>
+              <CheckBoxOption label="Indicative present"
+                              value={settings.tenses.indicative.present}
+                              onChange={ v => { updateSettings(s => { s.tenses.indicative.present = v; }); } } />
+            </li>
+            <li>
+              <CheckBoxOption label="Indicative preterite"
+                              value={settings.tenses.indicative.preterite}
+                              onChange={ v => { updateSettings(s => { s.tenses.indicative.preterite = v; }); } } />
+            </li>
+            <li>
+              <CheckBoxOption label="Indicative imperfect"
+                              value={settings.tenses.indicative.imperfect}
+                              onChange={ v => { updateSettings(s => { s.tenses.indicative.imperfect = v; }); } } />
+            </li>
+            <li>
+              <CheckBoxOption label="Indicative future"
+                              value={settings.tenses.indicative.future}
+                              onChange={ v => { updateSettings(s => { s.tenses.indicative.future = v; }); } } />
+            </li>
+            <li>
+              <CheckBoxOption label="Indicative conditional"
+                              value={settings.tenses.indicative.conditional}
+                              onChange={ v => { updateSettings(s => { s.tenses.indicative.conditional = v; }); } } />
+            </li>
+          </ul>
+
+          <ul className={styles.settingsList}>
+            <li>
+              <CheckBoxOption label="Imperative affirmative"
+                              value={settings.tenses.imperative.affirmative}
+                              onChange={ v => { updateSettings(s => { s.tenses.imperative.affirmative = v; }); } } />
+            </li>
+          </ul>
 
           <h2>Other</h2>
+
           <ul className={styles.settingsList}>
-            <li className={styles.settingsListItem}>
-              <input type="checkbox" id="vosotros"
-                     checked={settings.includeVosotros}
-                     onChange={ e => { updateSettings({ includeVosotros: e.target.checked }); } } />
-              <label htmlFor="vosotros">Second person plural (vosotros / vosotras)</label>
+            <li>
+              <CheckBoxOption label="Second person plural (vosotros / vosotras)"
+                              value={settings.secondPluralInformal}
+                              onChange={ v => { updateSettings(s => { s.secondPluralInformal = v; }); } } />
             </li>
           </ul>
       </main>
@@ -74,48 +78,18 @@ export default function SettingsComponent() {
   );
 };
 
-interface MoodSettingSectionParams {
-  moodSetting: MoodInclusionSetting;
-  updateMoodInclusion: (moodName: string, checked: boolean) => void;
-  updateTenseInclusion: (tenseName: string, moodName: string, checked: boolean) => void;
+interface CheckBoxOptionParams {
+  label: string;
+  value: boolean
+  onChange: (value: boolean) => void
 }
 
-function MoodSettingsSection({ moodSetting: setting, updateMoodInclusion, updateTenseInclusion }: MoodSettingSectionParams) {
+function CheckBoxOption({ label, value, onChange }: CheckBoxOptionParams) {
   const inputId = useId();
-  return <section>
-    <ul className={styles.settingsList}>
-      <li className={styles.settingsListItem}>
-        <input type="checkbox" id={inputId}
-               checked={setting.included}
-               onChange={ e => { updateMoodInclusion(setting.moodName, e.target.checked); } } />
-        <label htmlFor={inputId} className="capitalize">{setting.moodName}</label>
-      </li>
-      <li>
-        <ul className={styles.settingsList}>
-          {setting.tenseInclusion.map(tenseSetting => 
-            <TenseSettingListItem key={tenseSetting.tenseName}
-                                  moodSetting={setting}
-                                  tenseSetting={tenseSetting}
-                                  updateTenseInclusion={updateTenseInclusion} />)}
-        </ul>
-      </li>
-    </ul>
-  </section>
-}
-
-interface TenseSettingListItemParams {
-  moodSetting: MoodInclusionSetting;
-  tenseSetting: TenseInclusionSetting;
-  updateTenseInclusion: (tenseName: string, moodName: string, checked: boolean) => void;
-}
-
-function TenseSettingListItem({ moodSetting, tenseSetting, updateTenseInclusion} : TenseSettingListItemParams) {
-  const inputId = useId();
-  return <li className={styles.settingsListItem}>
+  return <>
     <input type="checkbox" id={inputId}
-           checked={tenseSetting.included}
-           disabled={!moodSetting.included}
-           onChange={ e => { updateTenseInclusion(moodSetting.moodName, tenseSetting.tenseName, e.target.checked); } } />
-    <label htmlFor={inputId} className="capitalize">{tenseSetting.tenseName}</label>
-  </li> 
+           checked={value}
+           onChange={ e => { onChange(e.target.checked); } } />
+    <label htmlFor={inputId}>{label}</label>
+  </>
 }
