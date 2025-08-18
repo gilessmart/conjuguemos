@@ -21,7 +21,7 @@ export default function VerbList() {
             <li key={infinitive}>
               <Link to={`/verbs/${infinitive}`}>{infinitive}</Link>
             </li>
-          ))}          
+          ))}
         </ul>
       </main>
     </div>
