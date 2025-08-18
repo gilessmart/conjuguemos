@@ -1,6 +1,6 @@
-import { describe, expect, test } from "vitest";
+import { assert, describe, expect, test } from "vitest";
 import { defaultSettings, isConjugationEnabled, parseSettings, type Settings } from "./settings";
-import { persons } from "./conjugation";
+import { getVerbDetails } from "./verbs";
 
 describe("parseSettings()", () => {
   test.for(["", "abc"])("given invalid JSON (%s), returns default settings", json => {
@@ -87,7 +87,13 @@ describe("parseSettings()", () => {
 });
 
 describe("isConjugationEnabled()", () => {
-  test("with all settings enabled, returns true for all tenses", () => {
+  const verb = getVerbDetails("hablar") ?? assert.fail("verb not found");
+  const allConjugatios = verb.flattenedConjugations.map(({mood, tense, conjugation}) => ({ 
+    mood, tense, conjugation,
+    description: `${mood} ${tense} - ${conjugation.Person.Pronouns.join(" / ")}`
+  }));
+
+  test.for(allConjugatios)("with all settings enabled, returns true for conjugation $description", ({ mood, tense, conjugation }) => {
     const settings: Settings = {
       tenses: {
         indicative: {
@@ -104,15 +110,10 @@ describe("isConjugationEnabled()", () => {
       secondPluralInformal: true
     };
     
-    expect(isConjugationEnabled(settings, "indicative", "present", { Person: persons.FirstSingular, Value: "hablo" })).toBe(true);
-    expect(isConjugationEnabled(settings, "indicative", "preterite", { Person: persons.FirstSingular, Value: "hablé" })).toBe(true);
-    expect(isConjugationEnabled(settings, "indicative", "imperfect", { Person: persons.FirstSingular, Value: "hablaba" })).toBe(true);
-    expect(isConjugationEnabled(settings, "indicative", "future", { Person: persons.FirstSingular, Value: "hablaré" })).toBe(true);
-    expect(isConjugationEnabled(settings, "indicative", "conditional", { Person: persons.FirstSingular, Value: "hablaría" })).toBe(true);
-    expect(isConjugationEnabled(settings, "imperative", "affirmative", { Person: persons.SecondSingularInformal, Value: "hable" })).toBe(true);
+    expect(isConjugationEnabled(settings, mood, tense, conjugation)).toBe(true);
   });
 
-  test("with all tense settings disabled, returns false for all tenses", () => {
+  test.for(allConjugatios)("with all tense settings disabled, returns false for conjugation $description", ({ mood, tense, conjugation }) => {
     const settings: Settings = {
       tenses: {
         indicative: {
@@ -128,12 +129,7 @@ describe("isConjugationEnabled()", () => {
       },
       secondPluralInformal: true
     };
-    
-    expect(isConjugationEnabled(settings, "indicative", "present", { Person: persons.FirstSingular, Value: "hablo" })).toBe(false);
-    expect(isConjugationEnabled(settings, "indicative", "preterite", { Person: persons.FirstSingular, Value: "hablé" })).toBe(false);
-    expect(isConjugationEnabled(settings, "indicative", "imperfect", { Person: persons.FirstSingular, Value: "hablaba" })).toBe(false);
-    expect(isConjugationEnabled(settings, "indicative", "future", { Person: persons.FirstSingular, Value: "hablaré" })).toBe(false);
-    expect(isConjugationEnabled(settings, "indicative", "conditional", { Person: persons.FirstSingular, Value: "hablaría" })).toBe(false);
-    expect(isConjugationEnabled(settings, "imperative", "affirmative", { Person: persons.SecondSingularInformal, Value: "hable" })).toBe(false);
+
+    expect(isConjugationEnabled(settings, mood, tense, conjugation)).toBe(false);
   });
 });
