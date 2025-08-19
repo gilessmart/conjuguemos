@@ -1,6 +1,6 @@
 import { assert, describe, expect, test } from "vitest";
 import { getVerbDetails } from "./verbs";
-import { persons } from "./conjugation";
+import { persons } from "./persons";
 
 describe("flattenedConjugations", () => {
   test("flattens the conjugations to a list", () => {

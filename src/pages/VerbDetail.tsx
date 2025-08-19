@@ -3,7 +3,8 @@ import { getVerbDetails } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
 import Menu from "../components/Menu";
 import styles from "./VerbDetail.module.css";
-import type { ConjugationMood, Person } from "../data/conjugation";
+import type { ConjugationMood } from "../data/conjugation";
+import type { Person } from "../data/persons";
 
 export default function VerbDetail() {
   const params = useParams<{ verb: string }>();

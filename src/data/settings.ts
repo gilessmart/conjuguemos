@@ -1,5 +1,6 @@
 import zod from "zod";
-import { persons, type Conjugation } from "./conjugation";
+import { type Conjugation } from "./conjugation";
+import { persons } from "./persons";
 
 export const defaultSettings = {
   tenses: {

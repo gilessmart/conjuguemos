@@ -1,5 +1,6 @@
 import { assert, describe, expect, test } from "vitest";
-import { buildConjugations, persons, type ConjugationMood } from "./conjugation";
+import { buildConjugations, type ConjugationMood } from "./conjugation";
+import { persons } from "./persons";
 import { getVerbDefinition } from "./verbDefinitions";
 
 describe("buildConjugations()", () => {
