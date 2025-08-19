@@ -90,7 +90,7 @@ describe("isConjugationEnabled()", () => {
   const verb = getVerbDetails("hablar") ?? assert.fail("verb not found");
   const allConjugatios = verb.flattenedConjugations.map(({mood, tense, conjugation}) => ({ 
     mood, tense, conjugation,
-    description: `${mood} ${tense} - ${conjugation.Person.Pronouns.join(" / ")}`
+    description: `${mood} ${tense} - ${conjugation.Person.Description}`
   }));
 
   test.for(allConjugatios)("with all settings enabled, returns true for conjugation $description", ({ mood, tense, conjugation }) => {

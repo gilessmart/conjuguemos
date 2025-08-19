@@ -63,7 +63,7 @@ export default function Game() {
       <main>
         <p>Conjugate <strong>{target.infinitive}</strong> in the <strong>{target.mood} {target.tense}</strong> tense:</p>
         <div className={styles.verbInputRow}>
-          <label htmlFor={inputId}>{target.pronoun}</label>
+          <label htmlFor={inputId}>{target.pronouns}</label>
           <input type="text" id={inputId} value={answer}
                  onChange={e => { onChangeAnswer(e.target.value); }} />
           { !showAnswer && <button className={styles.showAnswerButton} type="button" 
@@ -86,7 +86,7 @@ function generateTarget() {
     infinitive: verb.Infinitive,
     mood: mood,
     tense: tense,
-    pronoun: conjugation.Person.Pronouns.join(" / "),
+    pronouns: conjugation.Person.Pronouns,
     conjugation: conjugation.Value
   };
 }

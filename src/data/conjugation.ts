@@ -1,7 +1,8 @@
 import type { VerbDefinition, IrregularConjugations } from "./verbDefinitions";
 
 export interface Person {
-  Pronouns: string[];
+  Description: string;
+  Pronouns: string;
 };
 
 interface Persons {
@@ -17,28 +18,36 @@ interface Persons {
 
 export const persons: Persons = {
   FirstSingular: {
-    Pronouns: [ "yo" ]
+    Description: "first person singular",
+    Pronouns: "yo"
   },
   SecondSingularInformal: {
-    Pronouns: [ "tú" ]
+    Description: "informal second person singular",
+    Pronouns: "tú"
   },
   SecondSingularFormal: {
-    Pronouns: [ "usted" ]
+    Description: "formal second person singular",
+    Pronouns: "usted"
   },
   ThirdSingularAndSecondSingularFormal: {
-    Pronouns: [ "él", "ella", "usted" ]
+    Description: "third person singular / formal second person singular",
+    Pronouns: "él / ella / usted"
   },
   FirstPlural: {
-    Pronouns: [ "nosotros", "nosotras" ]
+    Description: "first person plural",
+    Pronouns: "nosotros / nosotras"
   },
   SecondPluralInformal: {
-    Pronouns: [ "vosotros", "vosotras" ]
+    Description: "informal second person plural",
+    Pronouns: "vosotros / vosotras"
   },
   SecondPluralFormal: {
-    Pronouns: [ "ustedes" ]
+    Description: "formal second person plural",
+    Pronouns: "ustedes"
   },
   ThirdPluralAndSecondPluralFormal: {
-    Pronouns: [ "éllos", "ellas", "ustedes" ]
+    Description: "third person plural / formal second person plural",
+    Pronouns: "éllos / ellas / ustedes"
   }
 };
 

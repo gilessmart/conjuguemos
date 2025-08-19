@@ -60,9 +60,8 @@ function MoodSection({ mood }: { mood: ConjugationMood }) {
       </thead>
       <tbody>
         {uniquePersons.map(person => {
-          const label = person.Pronouns.join(" / ");
-          return <tr key={label}>
-            <td>{label}</td>
+          return <tr key={person.Description}>
+            <td>{person.Pronouns}</td>
             {mood.Tenses.map(tense => <td key={tense.Name}>
               {tense.Conjugations.find(c => c.Person === person)?.Value}
             </td>)}
