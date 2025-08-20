@@ -1,17 +1,17 @@
 import { buildConjugations, type Conjugation, type ConjugationMood } from "./conjugation";
 import { getVerbDefinition, getRandomVerbDefinition, type VerbDefinition } from "./verbDefinitions";
 
-export function getVerbDetails(infinitive: string): VerbDetails | undefined {
+export function getVerbDetails(infinitive: string): Verb | undefined {
   const definition = getVerbDefinition(infinitive);
-  return definition ? new VerbDetails(definition) : undefined;
+  return definition ? new Verb(definition) : undefined;
 };
 
-export function getRandomVerb(): VerbDetails {
+export function getRandomVerb(): Verb {
   const definition = getRandomVerbDefinition();
-  return new VerbDetails(definition);
+  return new Verb(definition);
 };
 
-class VerbDetails {
+class Verb {
   readonly Infinitive: string;
   readonly Conjugations: ConjugationMood[];
 
