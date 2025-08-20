@@ -3,8 +3,6 @@ import { getVerbDetails } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
 import Menu from "../components/Menu";
 import styles from "./VerbDetail.module.css";
-import type { ConjugationMood } from "../data/conjugation";
-import type { Person } from "../data/persons";
 
 export default function VerbDetail() {
   const params = useParams<{ verb: string }>();
@@ -37,38 +35,105 @@ export default function VerbDetail() {
       </header>
       <main>
         <h2>Conjugations</h2>
-        {conjugations.map(m => <MoodSection key={m.Name} mood={m} />)}
+
+        <h3>Indicative</h3>
+
+        <table className={styles.verbTable}>
+          <thead>
+            <tr>
+              <th>Pronoun</th>
+              <th>Present</th>
+              <th>Preterite</th>
+              <th>Imperfect</th>
+              <th>Future</th>
+              <th>Conditional</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>yo</td>
+              <td>{conjugations.Indicative.Present.FirstSingular.Value}</td>
+              <td>{conjugations.Indicative.Preterite.FirstSingular.Value}</td>
+              <td>{conjugations.Indicative.Imperfect.FirstSingular.Value}</td>
+              <td>{conjugations.Indicative.Future.FirstSingular.Value}</td>
+              <td>{conjugations.Indicative.Conditional.FirstSingular.Value}</td>
+            </tr>
+            <tr>
+              <td>tú</td>
+              <td>{conjugations.Indicative.Present.SecondSingularInformal.Value}</td>
+              <td>{conjugations.Indicative.Preterite.SecondSingularInformal.Value}</td>
+              <td>{conjugations.Indicative.Imperfect.SecondSingularInformal.Value}</td>
+              <td>{conjugations.Indicative.Future.SecondSingularInformal.Value}</td>
+              <td>{conjugations.Indicative.Conditional.SecondSingularInformal.Value}</td>
+            </tr>
+            <tr>
+              <td>él / ella / usted</td>
+              <td>{conjugations.Indicative.Present.ThirdSingularAndSecondSingularFormal.Value}</td>
+              <td>{conjugations.Indicative.Preterite.ThirdSingularAndSecondSingularFormal.Value}</td>
+              <td>{conjugations.Indicative.Imperfect.ThirdSingularAndSecondSingularFormal.Value}</td>
+              <td>{conjugations.Indicative.Future.ThirdSingularAndSecondSingularFormal.Value}</td>
+              <td>{conjugations.Indicative.Conditional.ThirdSingularAndSecondSingularFormal.Value}</td>
+            </tr>
+            <tr>
+              <td>nosotros / nosotras</td>
+              <td>{conjugations.Indicative.Present.FirstPlural.Value}</td>
+              <td>{conjugations.Indicative.Preterite.FirstPlural.Value}</td>
+              <td>{conjugations.Indicative.Imperfect.FirstPlural.Value}</td>
+              <td>{conjugations.Indicative.Future.FirstPlural.Value}</td>
+              <td>{conjugations.Indicative.Conditional.FirstPlural.Value}</td>
+            </tr>
+            <tr>
+              <td>vosotros / vosotras</td>
+              <td>{conjugations.Indicative.Present.SecondPluralInformal.Value}</td>
+              <td>{conjugations.Indicative.Preterite.SecondPluralInformal.Value}</td>
+              <td>{conjugations.Indicative.Imperfect.SecondPluralInformal.Value}</td>
+              <td>{conjugations.Indicative.Future.SecondPluralInformal.Value}</td>
+              <td>{conjugations.Indicative.Conditional.SecondPluralInformal.Value}</td>
+            </tr>
+            <tr>
+              <td>ellos / ellas / ustedes</td>
+              <td>{conjugations.Indicative.Present.ThirdPluralAndSecondPluralFormal.Value}</td>
+              <td>{conjugations.Indicative.Preterite.ThirdPluralAndSecondPluralFormal.Value}</td>
+              <td>{conjugations.Indicative.Imperfect.ThirdPluralAndSecondPluralFormal.Value}</td>
+              <td>{conjugations.Indicative.Future.ThirdPluralAndSecondPluralFormal.Value}</td>
+              <td>{conjugations.Indicative.Conditional.ThirdPluralAndSecondPluralFormal.Value}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Imperative</h3>
+
+        <table className={styles.verbTable}>
+          <thead>
+            <tr>
+              <th>Pronoun</th>
+              <th>Affirmative</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>tú</td>
+              <td>{conjugations.Imperative.Affirmative.SecondSingularInformal.Value}</td>
+            </tr>
+            <tr>
+              <td>usted</td>
+              <td>{conjugations.Imperative.Affirmative.SecondSingularFormal.Value}</td>
+            </tr>
+            <tr>
+              <td>nosotros / nosotras</td>
+              <td>{conjugations.Imperative.Affirmative.FirstPlural.Value}</td>
+            </tr>
+            <tr>
+              <td>vosotros / vosotras</td>
+              <td>{conjugations.Imperative.Affirmative.SecondPluralInformal.Value}</td>
+            </tr>
+            <tr>
+              <td>ustedes</td>
+              <td>{conjugations.Imperative.Affirmative.SecondPluralFormal.Value}</td>
+            </tr>
+          </tbody>
+        </table>
       </main>
     </div>
   );
 };
-
-function MoodSection({ mood }: { mood: ConjugationMood }) {
-  const uniquePersons = mood.Tenses
-    .flatMap(t => t.Conjugations)
-    .map(c => c.Person)
-    .reduce((acc: Person[], cur) => acc.includes(cur) ? acc : [...acc, cur], []);
-  
-  return <section key={mood.Name}>
-    <h3 className="capitalize">{mood.Name}</h3>
-
-    <table className={styles.verbTable}>
-      <thead>
-        <tr>
-          <th>Pronoun</th>
-          {mood.Tenses.map(tense => <th key={tense.Name} className="capitalize">{tense.Name}</th>)}
-        </tr>
-      </thead>
-      <tbody>
-        {uniquePersons.map(person => {
-          return <tr key={person.Description}>
-            <td>{person.Pronouns}</td>
-            {mood.Tenses.map(tense => <td key={tense.Name}>
-              {tense.Conjugations.find(c => c.Person === person)?.Value}
-            </td>)}
-          </tr>}
-        )}
-      </tbody>
-    </table>
-  </section>
-}
