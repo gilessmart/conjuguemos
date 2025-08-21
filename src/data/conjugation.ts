@@ -8,57 +8,33 @@ export interface Conjugation {
   Value: string;
 };
 
+interface DefaultTenseConjugations {
+  FirstSingular: Conjugation;
+  SecondSingularInformal: Conjugation;
+  ThirdSingularAndSecondSingularFormal: Conjugation;
+  FirstPlural: Conjugation;
+  SecondPluralInformal: Conjugation;
+  ThirdPluralAndSecondPluralFormal: Conjugation;
+}
+
+interface ImperativeTenseConjugations {
+  SecondSingularInformal: Conjugation;
+  SecondSingularFormal: Conjugation;
+  FirstPlural: Conjugation;
+  SecondPluralInformal: Conjugation;
+  SecondPluralFormal: Conjugation;
+}
+
 export interface VerbConjugations {
   Indicative: {
-    Present: {
-      FirstSingular: Conjugation;
-      SecondSingularInformal: Conjugation;
-      ThirdSingularAndSecondSingularFormal: Conjugation;
-      FirstPlural: Conjugation;
-      SecondPluralInformal: Conjugation;
-      ThirdPluralAndSecondPluralFormal: Conjugation;
-    };
-    Preterite: {
-      FirstSingular: Conjugation;
-      SecondSingularInformal: Conjugation;
-      ThirdSingularAndSecondSingularFormal: Conjugation;
-      FirstPlural: Conjugation;
-      SecondPluralInformal: Conjugation;
-      ThirdPluralAndSecondPluralFormal: Conjugation;
-    };
-    Imperfect: {
-      FirstSingular: Conjugation;
-      SecondSingularInformal: Conjugation;
-      ThirdSingularAndSecondSingularFormal: Conjugation;
-      FirstPlural: Conjugation;
-      SecondPluralInformal: Conjugation;
-      ThirdPluralAndSecondPluralFormal: Conjugation;
-    };
-    Future: {
-      FirstSingular: Conjugation;
-      SecondSingularInformal: Conjugation;
-      ThirdSingularAndSecondSingularFormal: Conjugation;
-      FirstPlural: Conjugation;
-      SecondPluralInformal: Conjugation;
-      ThirdPluralAndSecondPluralFormal: Conjugation;
-    };
-    Conditional: {
-      FirstSingular: Conjugation;
-      SecondSingularInformal: Conjugation;
-      ThirdSingularAndSecondSingularFormal: Conjugation;
-      FirstPlural: Conjugation;
-      SecondPluralInformal: Conjugation;
-      ThirdPluralAndSecondPluralFormal: Conjugation;
-    };
+    Present: DefaultTenseConjugations;
+    Preterite: DefaultTenseConjugations;
+    Imperfect: DefaultTenseConjugations;
+    Future: DefaultTenseConjugations;
+    Conditional: DefaultTenseConjugations;
   },
   Imperative: {
-    Affirmative: {
-      SecondSingularInformal: Conjugation;
-      SecondSingularFormal: Conjugation;
-      FirstPlural: Conjugation;
-      SecondPluralInformal: Conjugation;
-      SecondPluralFormal: Conjugation;
-    };
+    Affirmative: ImperativeTenseConjugations;
   }
 };
 
