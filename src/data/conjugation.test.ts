@@ -11,130 +11,190 @@ describe("buildConjugations()", () => {
       Indicative: {
         Present: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.FirstSingular,
             Value: "hablo"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.SecondSingularInformal,
             Value: "hablas"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "habla"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.FirstPlural,
             Value: "hablamos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.SecondPluralInformal,
             Value: "habláis"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "hablan"
           }
         },
         Preterite: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.FirstSingular,
             Value: "hablé"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.SecondSingularInformal,
             Value: "hablaste"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "habló"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.FirstPlural,
             Value: "hablamos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.SecondPluralInformal,
             Value: "hablasteis"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "hablaron"
           }
         },
         Imperfect: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.FirstSingular,
             Value: "hablaba"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.SecondSingularInformal,
             Value: "hablabas"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "hablaba"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.FirstPlural,
             Value: "hablábamos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.SecondPluralInformal,
             Value: "hablabais"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "hablaban"
           }
         },
         Future: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.FirstSingular,
             Value: "hablaré"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.SecondSingularInformal,
             Value: "hablarás"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "hablará"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.FirstPlural,
             Value: "hablaremos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.SecondPluralInformal,
             Value: "hablaréis"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "hablarán"
           }
         },
         Conditional: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.FirstSingular,
             Value: "hablaría"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.SecondSingularInformal,
             Value: "hablarías"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "hablaría"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.FirstPlural,
             Value: "hablaríamos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.SecondPluralInformal,
             Value: "hablaríais"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "hablarían"
           }
@@ -142,23 +202,33 @@ describe("buildConjugations()", () => {
       },
       Imperative: {
         Affirmative: {
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.SecondSingularInformal,
             Value: "habla"
           },
-          SecondSingularFormal: { 
+          SecondSingularFormal: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.SecondSingularFormal,
             Value: "hable"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.FirstPlural,
             Value: "hablemos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.SecondPluralInformal,
             Value: "hablad"
           },
-          SecondPluralFormal: { 
+          SecondPluralFormal: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.SecondPluralFormal,
             Value: "hablen"
           }
@@ -175,130 +245,190 @@ describe("buildConjugations()", () => {
       Indicative: {
         Present: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.FirstSingular,
             Value: "como"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.SecondSingularInformal,
             Value: "comes"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "come"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.FirstPlural,
             Value: "comemos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.SecondPluralInformal,
             Value: "coméis"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "comen"
           }
         },
         Preterite: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.FirstSingular,
             Value: "comí"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.SecondSingularInformal,
             Value: "comiste"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "comió"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.FirstPlural,
             Value: "comimos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.SecondPluralInformal,
             Value: "comisteis"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "comieron"
           }
         },
         Imperfect: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.FirstSingular,
             Value: "comía"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.SecondSingularInformal,
             Value: "comías"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "comía"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.FirstPlural,
             Value: "comíamos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.SecondPluralInformal,
             Value: "comíais"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "comían"
           }
         },
         Future: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.FirstSingular,
             Value: "comeré"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.SecondSingularInformal,
             Value: "comerás"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "comerá"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.FirstPlural,
             Value: "comeremos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.SecondPluralInformal,
             Value: "comeréis"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "comerán"
           }
         },
         Conditional: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.FirstSingular,
             Value: "comería"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.SecondSingularInformal,
             Value: "comerías"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "comería"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.FirstPlural,
             Value: "comeríamos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.SecondPluralInformal,
             Value: "comeríais"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "comerían"
           }
@@ -306,23 +436,33 @@ describe("buildConjugations()", () => {
       },
       Imperative: {
         Affirmative: {
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.SecondSingularInformal,
             Value: "come"
           },
-          SecondSingularFormal: { 
+          SecondSingularFormal: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.SecondSingularFormal,
             Value: "coma"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.FirstPlural,
             Value: "comamos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.SecondPluralInformal,
             Value: "comed"
           },
-          SecondPluralFormal: { 
+          SecondPluralFormal: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.SecondPluralFormal,
             Value: "coman"
           }
@@ -339,130 +479,190 @@ describe("buildConjugations()", () => {
       Indicative: {
         Present: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.FirstSingular,
             Value: "vivo"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.SecondSingularInformal,
             Value: "vives"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "vive"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.FirstPlural,
             Value: "vivimos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.SecondPluralInformal,
             Value: "vivís"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "viven"
           }
         },
         Preterite: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.FirstSingular,
             Value: "viví"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.SecondSingularInformal,
             Value: "viviste"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "vivió"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.FirstPlural,
             Value: "vivimos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.SecondPluralInformal,
             Value: "vivisteis"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "vivieron"
           }
         },
         Imperfect: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.FirstSingular,
             Value: "vivía"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.SecondSingularInformal,
             Value: "vivías"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "vivía"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.FirstPlural,
             Value: "vivíamos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.SecondPluralInformal,
             Value: "vivíais"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "vivían"
           }
         },
         Future: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.FirstSingular,
             Value: "viviré"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.SecondSingularInformal,
             Value: "vivirás"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "vivirá"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.FirstPlural,
             Value: "viviremos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.SecondPluralInformal,
             Value: "viviréis"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "vivirán"
           }
         },
         Conditional: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.FirstSingular,
             Value: "viviría"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.SecondSingularInformal,
             Value: "vivirías"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "viviría"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.FirstPlural,
             Value: "viviríamos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.SecondPluralInformal,
             Value: "viviríais"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "vivirían"
           }
@@ -470,23 +670,33 @@ describe("buildConjugations()", () => {
       },
       Imperative: {
         Affirmative: {
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.SecondSingularInformal,
             Value: "vive"
           },
-          SecondSingularFormal: { 
+          SecondSingularFormal: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.SecondSingularFormal,
             Value: "viva"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.FirstPlural,
             Value: "vivamos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.SecondPluralInformal,
             Value: "vivid"
           },
-          SecondPluralFormal: { 
+          SecondPluralFormal: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.SecondPluralFormal,
             Value: "vivan"
           }
@@ -503,130 +713,190 @@ describe("buildConjugations()", () => {
       Indicative: {
         Present: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.FirstSingular,
             Value: "he"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.SecondSingularInformal,
             Value: "has"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "ha"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.FirstPlural,
             Value: "hemos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.SecondPluralInformal,
             Value: "habéis"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "present",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "han"
           }
         },
         Preterite: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.FirstSingular,
             Value: "hube"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.SecondSingularInformal,
             Value: "hubiste"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "hubo"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.FirstPlural,
             Value: "hubimos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.SecondPluralInformal,
             Value: "hubisteis"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "preterite",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "hubieron"
           }
         },
         Imperfect: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.FirstSingular,
             Value: "había"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.SecondSingularInformal,
             Value: "habías"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "había"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.FirstPlural,
             Value: "habíamos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.SecondPluralInformal,
             Value: "habíais"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "imperfect",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "habían"
           }
         },
         Future: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.FirstSingular,
             Value: "habré"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.SecondSingularInformal,
             Value: "habrás"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "habrá"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.FirstPlural,
             Value: "habremos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.SecondPluralInformal,
             Value: "habréis"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "future",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "habrán"
           }
         },
         Conditional: {
           FirstSingular: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.FirstSingular,
             Value: "habría"
           },
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.SecondSingularInformal,
             Value: "habrías"
           },
-          ThirdSingularAndSecondSingularFormal: { 
+          ThirdSingularAndSecondSingularFormal: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.ThirdSingularAndSecondSingularFormal,
             Value: "habría"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.FirstPlural,
             Value: "habríamos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.SecondPluralInformal,
             Value: "habríais"
           },
-          ThirdPluralAndSecondPluralFormal: { 
+          ThirdPluralAndSecondPluralFormal: {
+            Mood: "indicative",
+            Tense: "conditional",
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "habrían"
           }
@@ -634,23 +904,33 @@ describe("buildConjugations()", () => {
       },
       Imperative: {
         Affirmative: {
-          SecondSingularInformal: { 
+          SecondSingularInformal: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.SecondSingularInformal,
             Value: "he"
           },
-          SecondSingularFormal: { 
+          SecondSingularFormal: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.SecondSingularFormal,
             Value: "haya"
           },
-          FirstPlural: { 
+          FirstPlural: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.FirstPlural,
             Value: "hayamos"
           },
-          SecondPluralInformal: { 
+          SecondPluralInformal: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.SecondPluralInformal,
             Value: "habed"
           },
-          SecondPluralFormal: { 
+          SecondPluralFormal: {
+            Mood: "imperative",
+            Tense: "affirmative",
             Person: persons.SecondPluralFormal,
             Value: "hayan"
           }

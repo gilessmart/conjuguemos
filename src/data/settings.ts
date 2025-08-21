@@ -60,13 +60,13 @@ export function parseSettings(json: string): Settings {
   return result.data;
 };
 
-export function isConjugationEnabled(settings: Settings, mood: string, tense: string, conjugation: Conjugation): boolean {
+export function isConjugationEnabled(settings: Settings, conjugation: Conjugation): boolean {
   if (conjugation.Person === persons.SecondPluralInformal && !settings.secondPluralInformal)
     return false;
 
-  switch (mood) {
+  switch (conjugation.Mood) {
     case "indicative":
-      switch (tense) {
+      switch (conjugation.Tense) {
         case "present":
           return settings.tenses.indicative.present;
         case "preterite":
@@ -80,7 +80,7 @@ export function isConjugationEnabled(settings: Settings, mood: string, tense: st
       }
       break;
     case "imperative":
-      switch (tense) {
+      switch (conjugation.Tense) {
         case "affirmative":
           return settings.tenses.imperative.affirmative;
       }

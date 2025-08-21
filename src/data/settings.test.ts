@@ -88,12 +88,12 @@ describe("parseSettings()", () => {
 
 describe("isConjugationEnabled()", () => {
   const verb = getVerbDetails("hablar") ?? assert.fail("verb not found");
-  const allConjugatios = verb.flattenedConjugations.map(({mood, tense, conjugation}) => ({ 
-    mood, tense, conjugation,
-    description: `${mood} ${tense} - ${conjugation.Person.Description}`
+  const allConjugatios = verb.flattenedConjugations.map(conjugation => ({
+    conjugation,
+    description: `${conjugation.Mood} ${conjugation.Tense} - ${conjugation.Person.Description}`
   }));
 
-  test.for(allConjugatios)("with all settings enabled, returns true for conjugation $description", ({ mood, tense, conjugation }) => {
+  test.for(allConjugatios)("with all settings enabled, returns true for conjugation $description", ({ conjugation }) => {
     const settings: Settings = {
       tenses: {
         indicative: {
@@ -110,10 +110,10 @@ describe("isConjugationEnabled()", () => {
       secondPluralInformal: true
     };
     
-    expect(isConjugationEnabled(settings, mood, tense, conjugation)).toBe(true);
+    expect(isConjugationEnabled(settings, conjugation)).toBe(true);
   });
 
-  test.for(allConjugatios)("with all tense settings disabled, returns false for conjugation $description", ({ mood, tense, conjugation }) => {
+  test.for(allConjugatios)("with all tense settings disabled, returns false for conjugation $description", ({ conjugation }) => {
     const settings: Settings = {
       tenses: {
         indicative: {
@@ -130,6 +130,6 @@ describe("isConjugationEnabled()", () => {
       secondPluralInformal: true
     };
 
-    expect(isConjugationEnabled(settings, mood, tense, conjugation)).toBe(false);
+    expect(isConjugationEnabled(settings, conjugation)).toBe(false);
   });
 });

@@ -79,13 +79,13 @@ function generateTarget() {
   const verb = getRandomVerb();
   const settings = getSettings();
   const choices = verb.flattenedConjugations
-    .filter(({ mood, tense, conjugation }) => isConjugationEnabled(settings, mood, tense, conjugation));
-  const { mood, tense, conjugation } = chooseRandomElement(choices);
+    .filter(conjugation => isConjugationEnabled(settings, conjugation));
+  const conjugation = chooseRandomElement(choices);
   
   return {
     infinitive: verb.Infinitive,
-    mood: mood,
-    tense: tense,
+    mood: conjugation.Mood,
+    tense: conjugation.Tense,
     pronouns: conjugation.Person.Pronouns,
     conjugation: conjugation.Value
   };
