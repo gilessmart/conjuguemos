@@ -8,21 +8,72 @@ export interface Conjugation {
   Value: string;
 };
 
-interface DefaultTenseConjugations {
+export class DefaultTenseConjugations {
   FirstSingular: Conjugation;
   SecondSingularInformal: Conjugation;
   ThirdSingularAndSecondSingularFormal: Conjugation;
   FirstPlural: Conjugation;
   SecondPluralInformal: Conjugation;
   ThirdPluralAndSecondPluralFormal: Conjugation;
+
+  constructor(params: {
+    FirstSingular: Conjugation,
+    SecondSingularInformal: Conjugation,
+    ThirdSingularAndSecondSingularFormal: Conjugation,
+    FirstPlural: Conjugation,
+    SecondPluralInformal: Conjugation,
+    ThirdPluralAndSecondPluralFormal: Conjugation
+  }) {
+    this.FirstSingular = params.FirstSingular;
+    this.SecondSingularInformal = params.SecondSingularInformal;
+    this.ThirdSingularAndSecondSingularFormal = params.ThirdSingularAndSecondSingularFormal;
+    this.FirstPlural = params.FirstPlural;
+    this.SecondPluralInformal = params.SecondPluralInformal;
+    this.ThirdPluralAndSecondPluralFormal = params.ThirdPluralAndSecondPluralFormal;
+  }
+
+  allConjugations() {
+    return [
+      this.FirstSingular,
+      this.SecondSingularInformal,
+      this.ThirdSingularAndSecondSingularFormal,
+      this.FirstPlural,
+      this.SecondPluralInformal,
+      this.ThirdPluralAndSecondPluralFormal
+    ];
+  }
 }
 
-interface ImperativeTenseConjugations {
+export class ImperativeTenseConjugations {
   SecondSingularInformal: Conjugation;
   SecondSingularFormal: Conjugation;
   FirstPlural: Conjugation;
   SecondPluralInformal: Conjugation;
   SecondPluralFormal: Conjugation;
+
+  constructor(params: {
+    SecondSingularInformal: Conjugation;
+    SecondSingularFormal: Conjugation;
+    FirstPlural: Conjugation; 
+    SecondPluralInformal: Conjugation;
+    SecondPluralFormal: Conjugation
+  }) {
+    this.SecondSingularInformal = params.SecondSingularInformal;
+    this.SecondSingularFormal = params.SecondSingularFormal;
+    this.FirstPlural = params.FirstPlural;
+    this.SecondPluralInformal = params.SecondPluralInformal;
+    this.SecondPluralFormal = params.SecondPluralFormal;
+  }
+  
+  allConjugations() {
+    return [
+      this.SecondSingularInformal,
+      this.SecondSingularFormal,
+      this.FirstPlural,
+      this.SecondPluralInformal,
+      this.SecondPluralFormal
+    ];
+  }
 }
 
 export interface VerbConjugations {
@@ -56,7 +107,7 @@ export function buildConjugations(definition: VerbDefinition): VerbConjugations 
 function buildArConjugations(stem: string, irregularConjugations?: IrregularConjugations): VerbConjugations {
   return {
     Indicative: {
-      Present: {
+      Present: new DefaultTenseConjugations({
         FirstSingular: {
           Mood: "indicative",
           Tense: "present",
@@ -93,8 +144,8 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.ThirdPluralAndSecondPluralFormal,
           Value: irregularConjugations?.Indicative?.Present?.ThirdPersonPlural ?? `${stem}an`
         }
-      },
-      Preterite: {
+      }),
+      Preterite: new DefaultTenseConjugations({
         FirstSingular: {
           Mood: "indicative",
           Tense: "preterite",
@@ -131,8 +182,8 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.ThirdPluralAndSecondPluralFormal,
           Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonPlural ?? `${stem}aron`
         }
-      },
-      Imperfect: {
+      }),
+      Imperfect: new DefaultTenseConjugations({
         FirstSingular: {
           Mood: "indicative",
           Tense: "imperfect",
@@ -169,8 +220,8 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.ThirdPluralAndSecondPluralFormal,
           Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonPlural ?? `${stem}aban`
         }
-      },
-      Future: {
+      }),
+      Future: new DefaultTenseConjugations({
         FirstSingular: {
           Mood: "indicative",
           Tense: "future",
@@ -207,8 +258,8 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.ThirdPluralAndSecondPluralFormal,
           Value: irregularConjugations?.Indicative?.Future?.ThirdPersonPlural ?? `${stem}arán`
         }
-      },
-      Conditional: {
+      }),
+      Conditional: new DefaultTenseConjugations({
         FirstSingular: {
           Mood: "indicative",
           Tense: "conditional",
@@ -245,10 +296,10 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.ThirdPluralAndSecondPluralFormal,
           Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonPlural ?? `${stem}arían`
         }
-      }
+      })
     },
     Imperative: {
-      Affirmative: {
+      Affirmative: new ImperativeTenseConjugations({
         SecondSingularInformal: {
           Mood: "imperative",
           Tense: "affirmative",
@@ -279,7 +330,7 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.SecondPluralFormal,
           Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPluralFormal ?? `${stem}en`
         }
-      }
+      })
     }
   };
 }
@@ -287,7 +338,7 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
 function buildErConjugations(stem: string, irregularConjugations?: IrregularConjugations): VerbConjugations {
   return {
     Indicative: {
-      Present: {
+      Present: new DefaultTenseConjugations({
         FirstSingular: {
           Mood: "indicative",
           Tense: "present",
@@ -324,8 +375,8 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.ThirdPluralAndSecondPluralFormal,
           Value: irregularConjugations?.Indicative?.Present?.ThirdPersonPlural ?? `${stem}en`
         }
-      },
-      Preterite: {
+      }),
+      Preterite: new DefaultTenseConjugations({
         FirstSingular: {
           Mood: "indicative",
           Tense: "preterite",
@@ -362,8 +413,8 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.ThirdPluralAndSecondPluralFormal,
           Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonPlural ?? `${stem}ieron`
         }
-      },
-      Imperfect: {
+      }),
+      Imperfect: new DefaultTenseConjugations({
         FirstSingular: {
           Mood: "indicative",
           Tense: "imperfect",
@@ -400,8 +451,8 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.ThirdPluralAndSecondPluralFormal,
           Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonPlural ?? `${stem}ían`
         }
-      },
-      Future: {
+      }),
+      Future: new DefaultTenseConjugations({
         FirstSingular: {
           Mood: "indicative",
           Tense: "future",
@@ -438,8 +489,8 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.ThirdPluralAndSecondPluralFormal,
           Value: irregularConjugations?.Indicative?.Future?.ThirdPersonPlural ?? `${stem}erán`
         }
-      },
-      Conditional: {
+      }),
+      Conditional: new DefaultTenseConjugations({
         FirstSingular: {
           Mood: "indicative",
           Tense: "conditional",
@@ -476,10 +527,10 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.ThirdPluralAndSecondPluralFormal,
           Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonPlural ?? `${stem}erían`
         }
-      }
+      })
     },
     Imperative: {
-      Affirmative: {
+      Affirmative: new ImperativeTenseConjugations({
         SecondSingularInformal: {
           Mood: "imperative",
           Tense: "affirmative",
@@ -510,7 +561,7 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.SecondPluralFormal,
           Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPluralFormal ?? `${stem}an`
         }
-      }
+      })
     }
   };
 }
@@ -518,7 +569,7 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
 function buildIrConjugations(stem: string, irregularConjugations?: IrregularConjugations): VerbConjugations {
   return {
     Indicative: {
-      Present: {
+      Present: new DefaultTenseConjugations({
         FirstSingular: {
           Mood: "indicative",
           Tense: "present",
@@ -555,8 +606,8 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.ThirdPluralAndSecondPluralFormal,
           Value: irregularConjugations?.Indicative?.Present?.ThirdPersonPlural ?? `${stem}en`
         }
-      },
-      Preterite: {
+      }),
+      Preterite: new DefaultTenseConjugations({
         FirstSingular: {
           Mood: "indicative",
           Tense: "preterite",
@@ -593,8 +644,8 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.ThirdPluralAndSecondPluralFormal,
           Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonPlural ?? `${stem}ieron`
         }
-      },
-      Imperfect: {
+      }),
+      Imperfect: new DefaultTenseConjugations({
         FirstSingular: {
           Mood: "indicative",
           Tense: "imperfect",
@@ -631,8 +682,8 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.ThirdPluralAndSecondPluralFormal,
           Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonPlural ?? `${stem}ían`
         }
-      },
-      Future: {
+      }),
+      Future: new DefaultTenseConjugations({
         FirstSingular: {
           Mood: "indicative",
           Tense: "future",
@@ -669,8 +720,8 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.ThirdPluralAndSecondPluralFormal,
           Value: irregularConjugations?.Indicative?.Future?.ThirdPersonPlural ?? `${stem}irán`
         }
-      },
-      Conditional: {
+      }),
+      Conditional: new DefaultTenseConjugations({
         FirstSingular: {
           Mood: "indicative",
           Tense: "conditional",
@@ -707,10 +758,10 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.ThirdPluralAndSecondPluralFormal,
           Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonPlural ?? `${stem}irían`
         }
-      }
+      })
     },
     Imperative: {
-      Affirmative: {
+      Affirmative: new ImperativeTenseConjugations({
         SecondSingularInformal: {
           Mood: "imperative",
           Tense: "affirmative",
@@ -741,7 +792,7 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
           Person: persons.SecondPluralFormal,
           Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPluralFormal ?? `${stem}an`
         }
-      }
+      })
     }
   };
 }

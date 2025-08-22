@@ -1,5 +1,5 @@
 import { assert, describe, expect, test } from "vitest";
-import { buildConjugations, type VerbConjugations } from "./conjugation";
+import { buildConjugations, DefaultTenseConjugations, ImperativeTenseConjugations, type VerbConjugations } from "./conjugation";
 import { persons } from "./persons";
 import { getVerbDefinition } from "./verbDefinitions";
 
@@ -9,7 +9,7 @@ describe("buildConjugations()", () => {
     const actual = buildConjugations(definition);
     const expected: VerbConjugations = {
       Indicative: {
-        Present: {
+        Present: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "present",
@@ -46,8 +46,8 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "hablan"
           }
-        },
-        Preterite: {
+        }),
+        Preterite: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "preterite",
@@ -84,8 +84,8 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "hablaron"
           }
-        },
-        Imperfect: {
+        }),
+        Imperfect: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "imperfect",
@@ -122,8 +122,8 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "hablaban"
           }
-        },
-        Future: {
+        }),
+        Future: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "future",
@@ -160,8 +160,8 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "hablarán"
           }
-        },
-        Conditional: {
+        }),
+        Conditional: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "conditional",
@@ -198,10 +198,10 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "hablarían"
           }
-        }
+        })
       },
       Imperative: {
-        Affirmative: {
+        Affirmative: new ImperativeTenseConjugations({
           SecondSingularInformal: {
             Mood: "imperative",
             Tense: "affirmative",
@@ -232,7 +232,7 @@ describe("buildConjugations()", () => {
             Person: persons.SecondPluralFormal,
             Value: "hablen"
           }
-        }
+        })
       }
     };
     expect(actual).toEqual(expected);
@@ -243,7 +243,7 @@ describe("buildConjugations()", () => {
     const actual = buildConjugations(definition);
     const expected: VerbConjugations = {
       Indicative: {
-        Present: {
+        Present: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "present",
@@ -280,8 +280,8 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "comen"
           }
-        },
-        Preterite: {
+        }),
+        Preterite: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "preterite",
@@ -318,8 +318,8 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "comieron"
           }
-        },
-        Imperfect: {
+        }),
+        Imperfect: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "imperfect",
@@ -356,8 +356,8 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "comían"
           }
-        },
-        Future: {
+        }),
+        Future: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "future",
@@ -394,8 +394,8 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "comerán"
           }
-        },
-        Conditional: {
+        }),
+        Conditional: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "conditional",
@@ -432,10 +432,10 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "comerían"
           }
-        }
+        })
       },
       Imperative: {
-        Affirmative: {
+        Affirmative: new ImperativeTenseConjugations({
           SecondSingularInformal: {
             Mood: "imperative",
             Tense: "affirmative",
@@ -466,7 +466,7 @@ describe("buildConjugations()", () => {
             Person: persons.SecondPluralFormal,
             Value: "coman"
           }
-        }
+        })
       }
     };
     expect(actual).toEqual(expected);
@@ -477,7 +477,7 @@ describe("buildConjugations()", () => {
     const actual = buildConjugations(definition);
     const expected: VerbConjugations = {
       Indicative: {
-        Present: {
+        Present: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "present",
@@ -514,8 +514,8 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "viven"
           }
-        },
-        Preterite: {
+        }),
+        Preterite: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "preterite",
@@ -552,8 +552,8 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "vivieron"
           }
-        },
-        Imperfect: {
+        }),
+        Imperfect: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "imperfect",
@@ -590,8 +590,8 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "vivían"
           }
-        },
-        Future: {
+        }),
+        Future: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "future",
@@ -628,8 +628,8 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "vivirán"
           }
-        },
-        Conditional: {
+        }),
+        Conditional: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "conditional",
@@ -666,10 +666,10 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "vivirían"
           }
-        }
+        })
       },
       Imperative: {
-        Affirmative: {
+        Affirmative: new ImperativeTenseConjugations({
           SecondSingularInformal: {
             Mood: "imperative",
             Tense: "affirmative",
@@ -700,7 +700,7 @@ describe("buildConjugations()", () => {
             Person: persons.SecondPluralFormal,
             Value: "vivan"
           }
-        }
+        })
       }
     };
     expect(actual).toEqual(expected);
@@ -711,7 +711,7 @@ describe("buildConjugations()", () => {
     const actual = buildConjugations(definition);
     const expected: VerbConjugations = {
       Indicative: {
-        Present: {
+        Present: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "present",
@@ -748,8 +748,8 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "han"
           }
-        },
-        Preterite: {
+        }),
+        Preterite: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "preterite",
@@ -786,8 +786,8 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "hubieron"
           }
-        },
-        Imperfect: {
+        }),
+        Imperfect: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "imperfect",
@@ -824,8 +824,8 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "habían"
           }
-        },
-        Future: {
+        }),
+        Future: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "future",
@@ -862,8 +862,8 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "habrán"
           }
-        },
-        Conditional: {
+        }),
+        Conditional: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
             Tense: "conditional",
@@ -900,10 +900,10 @@ describe("buildConjugations()", () => {
             Person: persons.ThirdPluralAndSecondPluralFormal,
             Value: "habrían"
           }
-        }
+        })
       },
       Imperative: {
-        Affirmative: {
+        Affirmative: new ImperativeTenseConjugations({
           SecondSingularInformal: {
             Mood: "imperative",
             Tense: "affirmative",
@@ -934,7 +934,7 @@ describe("buildConjugations()", () => {
             Person: persons.SecondPluralFormal,
             Value: "hayan"
           }
-        }
+        })
       }
     };
     expect(actual).toEqual(expected);

@@ -22,46 +22,12 @@ class Verb {
 
   get flattenedConjugations(): Conjugation[] {
     return [
-      this.Conjugations.Indicative.Present.FirstSingular,
-      this.Conjugations.Indicative.Present.SecondSingularInformal,
-      this.Conjugations.Indicative.Present.ThirdSingularAndSecondSingularFormal,
-      this.Conjugations.Indicative.Present.FirstPlural,
-      this.Conjugations.Indicative.Present.SecondPluralInformal,
-      this.Conjugations.Indicative.Present.ThirdPluralAndSecondPluralFormal,
-
-      this.Conjugations.Indicative.Preterite.FirstSingular,
-      this.Conjugations.Indicative.Preterite.SecondSingularInformal,
-      this.Conjugations.Indicative.Preterite.ThirdSingularAndSecondSingularFormal,
-      this.Conjugations.Indicative.Preterite.FirstPlural,
-      this.Conjugations.Indicative.Preterite.SecondPluralInformal,
-      this.Conjugations.Indicative.Preterite.ThirdPluralAndSecondPluralFormal,
-
-      this.Conjugations.Indicative.Imperfect.FirstSingular,
-      this.Conjugations.Indicative.Imperfect.SecondSingularInformal,
-      this.Conjugations.Indicative.Imperfect.ThirdSingularAndSecondSingularFormal,
-      this.Conjugations.Indicative.Imperfect.FirstPlural,
-      this.Conjugations.Indicative.Imperfect.SecondPluralInformal,
-      this.Conjugations.Indicative.Imperfect.ThirdPluralAndSecondPluralFormal,
-
-      this.Conjugations.Indicative.Future.FirstSingular,
-      this.Conjugations.Indicative.Future.SecondSingularInformal,
-      this.Conjugations.Indicative.Future.ThirdSingularAndSecondSingularFormal,
-      this.Conjugations.Indicative.Future.FirstPlural,
-      this.Conjugations.Indicative.Future.SecondPluralInformal,
-      this.Conjugations.Indicative.Future.ThirdPluralAndSecondPluralFormal,
-
-      this.Conjugations.Indicative.Conditional.FirstSingular,
-      this.Conjugations.Indicative.Conditional.SecondSingularInformal,
-      this.Conjugations.Indicative.Conditional.ThirdSingularAndSecondSingularFormal,
-      this.Conjugations.Indicative.Conditional.FirstPlural,
-      this.Conjugations.Indicative.Conditional.SecondPluralInformal,
-      this.Conjugations.Indicative.Conditional.ThirdPluralAndSecondPluralFormal,
-
-      this.Conjugations.Imperative.Affirmative.SecondSingularInformal,
-      this.Conjugations.Imperative.Affirmative.SecondSingularFormal,
-      this.Conjugations.Imperative.Affirmative.FirstPlural,
-      this.Conjugations.Imperative.Affirmative.SecondPluralInformal,
-      this.Conjugations.Imperative.Affirmative.SecondPluralFormal
+      ...this.Conjugations.Indicative.Present.allConjugations(),
+      ...this.Conjugations.Indicative.Preterite.allConjugations(),
+      ...this.Conjugations.Indicative.Imperfect.allConjugations(),
+      ...this.Conjugations.Indicative.Future.allConjugations(),
+      ...this.Conjugations.Indicative.Conditional.allConjugations(),
+      ...this.Conjugations.Imperative.Affirmative.allConjugations(),
     ];
   }
 }
