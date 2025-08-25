@@ -60,32 +60,25 @@ export function parseSettings(json: string): Settings {
   return result.data;
 };
 
+const tenseSettingsMap = new Map<string, Map<string, (s: Settings) => boolean>>();
+tenseSettingsMap.set("indicative", new Map([ 
+  ["present", s => s.tenses.indicative.present],
+  ["preterite", s => s.tenses.indicative.preterite],
+  ["imperfect", s => s.tenses.indicative.imperfect],
+  ["future", s => s.tenses.indicative.future],
+  ["conditional", s => s.tenses.indicative.conditional]  
+]));
+tenseSettingsMap.set("imperative", new Map([ 
+  ["affirmative", s => s.tenses.imperative.affirmative],
+]));
+
 export function isConjugationEnabled(settings: Settings, conjugation: Conjugation): boolean {
   if (conjugation.Person === persons.SecondPluralInformal && !settings.secondPluralInformal)
     return false;
 
-  switch (conjugation.Mood) {
-    case "indicative":
-      switch (conjugation.Tense) {
-        case "present":
-          return settings.tenses.indicative.present;
-        case "preterite":
-          return settings.tenses.indicative.preterite;
-        case "imperfect":
-          return settings.tenses.indicative.imperfect;
-        case "future":
-          return settings.tenses.indicative.future;
-        case "conditional":
-          return settings.tenses.indicative.conditional;
-      }
-      break;
-    case "imperative":
-      switch (conjugation.Tense) {
-        case "affirmative":
-          return settings.tenses.imperative.affirmative;
-      }
-      break;
-  }
+  const tenseSettingFn = tenseSettingsMap.get(conjugation.Mood)?.get(conjugation.Tense);
+  if (tenseSettingFn)
+    return tenseSettingFn(settings);
 
   return true;
 };
