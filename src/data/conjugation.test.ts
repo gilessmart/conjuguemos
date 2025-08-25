@@ -1,5 +1,5 @@
 import { assert, describe, expect, test } from "vitest";
-import { buildConjugations, DefaultTenseConjugations, ImperativeTenseConjugations, type VerbConjugations } from "./conjugation";
+import { buildConjugations, DefaultTenseConjugations, ImperativeMoodConjugations, ImperativeTenseConjugations, IndicativeMoodConjugations, type VerbConjugations } from "./conjugation";
 import { persons } from "./persons";
 import { getVerbDefinition } from "./verbDefinitions";
 
@@ -8,7 +8,7 @@ describe("buildConjugations()", () => {
     const definition = getVerbDefinition("hablar") ?? assert.fail("verb definition not found");
     const actual = buildConjugations(definition);
     const expected: VerbConjugations = {
-      Indicative: {
+      Indicative: new IndicativeMoodConjugations({
         Present: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
@@ -199,8 +199,8 @@ describe("buildConjugations()", () => {
             Value: "hablarían"
           }
         })
-      },
-      Imperative: {
+      }),
+      Imperative: new ImperativeMoodConjugations({
         Affirmative: new ImperativeTenseConjugations({
           SecondSingularInformal: {
             Mood: "imperative",
@@ -233,7 +233,7 @@ describe("buildConjugations()", () => {
             Value: "hablen"
           }
         })
-      }
+      })
     };
     expect(actual).toEqual(expected);
   });
@@ -242,7 +242,7 @@ describe("buildConjugations()", () => {
     const definition = getVerbDefinition("comer") ?? assert.fail("verb definition not found");
     const actual = buildConjugations(definition);
     const expected: VerbConjugations = {
-      Indicative: {
+      Indicative: new IndicativeMoodConjugations({
         Present: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
@@ -433,8 +433,8 @@ describe("buildConjugations()", () => {
             Value: "comerían"
           }
         })
-      },
-      Imperative: {
+      }),
+      Imperative: new ImperativeMoodConjugations({
         Affirmative: new ImperativeTenseConjugations({
           SecondSingularInformal: {
             Mood: "imperative",
@@ -467,7 +467,7 @@ describe("buildConjugations()", () => {
             Value: "coman"
           }
         })
-      }
+      })
     };
     expect(actual).toEqual(expected);
   });
@@ -476,7 +476,7 @@ describe("buildConjugations()", () => {
     const definition = getVerbDefinition("vivir") ?? assert.fail("verb definition not found");
     const actual = buildConjugations(definition);
     const expected: VerbConjugations = {
-      Indicative: {
+      Indicative: new IndicativeMoodConjugations({
         Present: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
@@ -667,8 +667,8 @@ describe("buildConjugations()", () => {
             Value: "vivirían"
           }
         })
-      },
-      Imperative: {
+      }),
+      Imperative: new ImperativeMoodConjugations({
         Affirmative: new ImperativeTenseConjugations({
           SecondSingularInformal: {
             Mood: "imperative",
@@ -701,7 +701,7 @@ describe("buildConjugations()", () => {
             Value: "vivan"
           }
         })
-      }
+      })
     };
     expect(actual).toEqual(expected);
   });
@@ -710,7 +710,7 @@ describe("buildConjugations()", () => {
     const definition = getVerbDefinition("haber") ?? assert.fail("verb definition not found");
     const actual = buildConjugations(definition);
     const expected: VerbConjugations = {
-      Indicative: {
+      Indicative: new IndicativeMoodConjugations({
         Present: new DefaultTenseConjugations({
           FirstSingular: {
             Mood: "indicative",
@@ -901,8 +901,8 @@ describe("buildConjugations()", () => {
             Value: "habrían"
           }
         })
-      },
-      Imperative: {
+      }),
+      Imperative: new ImperativeMoodConjugations({
         Affirmative: new ImperativeTenseConjugations({
           SecondSingularInformal: {
             Mood: "imperative",
@@ -935,7 +935,7 @@ describe("buildConjugations()", () => {
             Value: "hayan"
           }
         })
-      }
+      })
     };
     expect(actual).toEqual(expected);
   });
