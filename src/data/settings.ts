@@ -80,5 +80,5 @@ export function isConjugationEnabled(settings: Settings, conjugation: Conjugatio
   if (tenseSettingFn)
     return tenseSettingFn(settings);
 
-  return true;
+  return false;
 };
