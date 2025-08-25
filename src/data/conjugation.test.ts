@@ -1,5 +1,5 @@
 import { assert, describe, expect, test } from "vitest";
-import { buildConjugations, DefaultTenseConjugations, ImperativeMoodConjugations, ImperativeTenseConjugations, IndicativeMoodConjugations, type VerbConjugations } from "./conjugation";
+import { buildConjugations, DefaultTenseConjugations, ImperativeMoodConjugations, ImperativeTenseConjugations, IndicativeMoodConjugations, VerbConjugations } from "./conjugation";
 import { persons } from "./persons";
 import { getVerbDefinition } from "./verbDefinitions";
 
@@ -7,7 +7,7 @@ describe("buildConjugations()", () => {
   test("conjugates a regular AR verb", () => {
     const definition = getVerbDefinition("hablar") ?? assert.fail("verb definition not found");
     const actual = buildConjugations(definition);
-    const expected: VerbConjugations = {
+    const expected = new VerbConjugations({
       Indicative: new IndicativeMoodConjugations({
         Present: new DefaultTenseConjugations({
           FirstSingular: {
@@ -234,14 +234,14 @@ describe("buildConjugations()", () => {
           }
         })
       })
-    };
+    });
     expect(actual).toEqual(expected);
   });
   
   test("conjugates a regular ER verb", () => {
     const definition = getVerbDefinition("comer") ?? assert.fail("verb definition not found");
     const actual = buildConjugations(definition);
-    const expected: VerbConjugations = {
+    const expected = new VerbConjugations({
       Indicative: new IndicativeMoodConjugations({
         Present: new DefaultTenseConjugations({
           FirstSingular: {
@@ -468,14 +468,14 @@ describe("buildConjugations()", () => {
           }
         })
       })
-    };
+    });
     expect(actual).toEqual(expected);
   });
 
   test("conjugates a regular IR verb", () => {
     const definition = getVerbDefinition("vivir") ?? assert.fail("verb definition not found");
     const actual = buildConjugations(definition);
-    const expected: VerbConjugations = {
+    const expected = new VerbConjugations({
       Indicative: new IndicativeMoodConjugations({
         Present: new DefaultTenseConjugations({
           FirstSingular: {
@@ -702,14 +702,14 @@ describe("buildConjugations()", () => {
           }
         })
       })
-    };
+    });
     expect(actual).toEqual(expected);
   });
 
   test("conjugates an irregular verb", () => {
     const definition = getVerbDefinition("haber") ?? assert.fail("verb definition not found");
     const actual = buildConjugations(definition);
-    const expected: VerbConjugations = {
+    const expected = new VerbConjugations({
       Indicative: new IndicativeMoodConjugations({
         Present: new DefaultTenseConjugations({
           FirstSingular: {
@@ -936,7 +936,7 @@ describe("buildConjugations()", () => {
           }
         })
       })
-    };
+    });
     expect(actual).toEqual(expected);
   });
 });

@@ -88,7 +88,7 @@ describe("parseSettings()", () => {
 
 describe("isConjugationEnabled()", () => {
   const verb = getVerbDetails("hablar") ?? assert.fail("verb not found");
-  const allConjugatios = verb.flattenedConjugations.map(conjugation => ({
+  const allConjugatios = verb.allConjugations().map(conjugation => ({
     conjugation,
     description: `${conjugation.Mood} ${conjugation.Tense} - ${conjugation.Person.Description}`
   }));

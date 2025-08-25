@@ -2,7 +2,7 @@ import { assert, describe, expect, test } from "vitest";
 import { getVerbDetails } from "./verbs";
 import { persons } from "./persons";
 
-describe("flattenedConjugations", () => {
+describe("allConjugations()", () => {
   test("flattens the conjugations to a list", () => {
     const verb = getVerbDetails("hablar") ?? assert.fail("verb not found");
     const expected = [
@@ -42,6 +42,6 @@ describe("flattenedConjugations", () => {
       { Mood: "imperative", Tense: "affirmative", Person: persons.SecondPluralInformal, Value: "hablad" },
       { Mood: "imperative", Tense: "affirmative", Person: persons.SecondPluralFormal, Value: "hablen" }
     ];
-    expect(verb.flattenedConjugations).toEqual(expected);
+    expect(verb.allConjugations()).toEqual(expected);
   });
 });

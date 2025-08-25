@@ -122,9 +122,21 @@ export class ImperativeMoodConjugations {
   }
 }
 
-export interface VerbConjugations {
-  Indicative: IndicativeMoodConjugations,
-  Imperative: ImperativeMoodConjugations
+export class VerbConjugations {
+  Indicative: IndicativeMoodConjugations;
+  Imperative: ImperativeMoodConjugations;
+
+  constructor(params: {
+    Indicative: IndicativeMoodConjugations;
+    Imperative: ImperativeMoodConjugations;
+  }) {
+    this.Indicative = params.Indicative;
+    this.Imperative = params.Imperative;
+  }
+
+  allMoods() {
+    return [ this.Indicative, this.Imperative ];
+  }
 };
 
 export function buildConjugations(definition: VerbDefinition): VerbConjugations {
@@ -143,7 +155,7 @@ export function buildConjugations(definition: VerbDefinition): VerbConjugations 
 };
 
 function buildArConjugations(stem: string, irregularConjugations?: IrregularConjugations): VerbConjugations {
-  return {
+  return new VerbConjugations({
     Indicative: new IndicativeMoodConjugations({
       Present: new DefaultTenseConjugations({
         FirstSingular: {
@@ -370,11 +382,11 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
         }
       })
     })
-  };
+  });
 }
 
 function buildErConjugations(stem: string, irregularConjugations?: IrregularConjugations): VerbConjugations {
-  return {
+  return new VerbConjugations({
     Indicative: new IndicativeMoodConjugations({
       Present: new DefaultTenseConjugations({
         FirstSingular: {
@@ -601,11 +613,11 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
         }
       })
     })
-  };
+  });
 }
 
 function buildIrConjugations(stem: string, irregularConjugations?: IrregularConjugations): VerbConjugations {
-  return {
+  return new VerbConjugations({
     Indicative: new IndicativeMoodConjugations({
       Present: new DefaultTenseConjugations({
         FirstSingular: {
@@ -832,5 +844,5 @@ function buildIrConjugations(stem: string, irregularConjugations?: IrregularConj
         }
       })
     })
-  };
+  });
 }

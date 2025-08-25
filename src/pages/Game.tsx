@@ -78,7 +78,7 @@ export default function Game() {
 function generateTarget() {
   const verb = getRandomVerb();
   const settings = getSettings();
-  const choices = verb.flattenedConjugations
+  const choices = verb.allConjugations()
     .filter(conjugation => isConjugationEnabled(settings, conjugation));
   const conjugation = chooseRandomElement(choices);
   

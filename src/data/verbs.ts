@@ -20,10 +20,12 @@ class Verb {
     this.Conjugations = buildConjugations(definition)
   }
 
-  get flattenedConjugations(): Conjugation[] {
-    return [
-      ...this.Conjugations.Indicative.allTenses().flatMap(t => t.allConjugations()),
-      ...this.Conjugations.Imperative.allTenses().flatMap(t => t.allConjugations())
-    ];
+  allConjugations(): Conjugation[] {
+    const conjugations = [];
+    for (const mood of this.Conjugations.allMoods())
+      for (const tense of mood.allTenses())
+        for (const conjugation of tense.allConjugations())
+          conjugations.push(conjugation);
+    return conjugations;
   }
 }
