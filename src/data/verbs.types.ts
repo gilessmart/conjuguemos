@@ -2,17 +2,17 @@ import { buildConjugations } from "./conjugationBuilder";
 import type { VerbDefinition } from "./verbDefinitions.types";
 
 export class Verb {
-  readonly Infinitive: string;
-  readonly Conjugations: VerbConjugations;
+  readonly infinitive: string;
+  readonly conjugations: VerbConjugations;
 
   constructor(definition: VerbDefinition) {
-    this.Infinitive = definition.Infinitive;
-    this.Conjugations = buildConjugations(definition);
+    this.infinitive = definition.infinitive;
+    this.conjugations = buildConjugations(definition);
   }
 
   allConjugations(): Conjugation[] {
     const conjugations = [];
-    for (const mood of this.Conjugations.allMoods())
+    for (const mood of this.conjugations.allMoods())
       for (const tense of mood.allTenses())
         for (const conjugation of tense.allConjugations())
           conjugations.push(conjugation);
@@ -21,144 +21,144 @@ export class Verb {
 };
 
 export class VerbConjugations {
-  Indicative: IndicativeMoodConjugations;
-  Imperative: ImperativeMoodConjugations;
+  indicative: IndicativeMoodConjugations;
+  imperative: ImperativeMoodConjugations;
 
   constructor(params: {
-    Indicative: IndicativeMoodConjugations;
-    Imperative: ImperativeMoodConjugations;
+    indicative: IndicativeMoodConjugations;
+    imperative: ImperativeMoodConjugations;
   }) {
-    this.Indicative = params.Indicative;
-    this.Imperative = params.Imperative;
+    this.indicative = params.indicative;
+    this.imperative = params.imperative;
   }
 
   allMoods() {
-    return [this.Indicative, this.Imperative];
+    return [this.indicative, this.imperative];
   }
 };
 
 export class IndicativeMoodConjugations {
-  Present: DefaultTenseConjugations;
-  Preterite: DefaultTenseConjugations;
-  Imperfect: DefaultTenseConjugations;
-  Future: DefaultTenseConjugations;
-  Conditional: DefaultTenseConjugations;
+  present: DefaultTenseConjugations;
+  preterite: DefaultTenseConjugations;
+  imperfect: DefaultTenseConjugations;
+  future: DefaultTenseConjugations;
+  conditional: DefaultTenseConjugations;
 
   constructor(params: {
-    Present: DefaultTenseConjugations;
-    Preterite: DefaultTenseConjugations;
-    Imperfect: DefaultTenseConjugations;
-    Future: DefaultTenseConjugations;
-    Conditional: DefaultTenseConjugations;
+    present: DefaultTenseConjugations;
+    preterite: DefaultTenseConjugations;
+    imperfect: DefaultTenseConjugations;
+    future: DefaultTenseConjugations;
+    conditional: DefaultTenseConjugations;
   }) {
-    this.Present = params.Present;
-    this.Preterite = params.Preterite;
-    this.Imperfect = params.Imperfect;
-    this.Future = params.Future;
-    this.Conditional = params.Conditional;
+    this.present = params.present;
+    this.preterite = params.preterite;
+    this.imperfect = params.imperfect;
+    this.future = params.future;
+    this.conditional = params.conditional;
   }
 
   allTenses() {
     return [
-      this.Present,
-      this.Preterite,
-      this.Imperfect,
-      this.Future,
-      this.Conditional
+      this.present,
+      this.preterite,
+      this.imperfect,
+      this.future,
+      this.conditional
     ];
   }
 };
 
 export class ImperativeMoodConjugations {
-  Affirmative: ImperativeTenseConjugations;
+  affirmative: ImperativeTenseConjugations;
 
   constructor(params: {
-    Affirmative: ImperativeTenseConjugations;
+    affirmative: ImperativeTenseConjugations;
   }) {
-    this.Affirmative = params.Affirmative;
+    this.affirmative = params.affirmative;
   }
 
   allTenses() {
-    return [this.Affirmative];
+    return [this.affirmative];
   }
 };
 
 export class DefaultTenseConjugations {
-  FirstSingular: Conjugation;
-  SecondSingularInformal: Conjugation;
-  ThirdSingularAndSecondSingularFormal: Conjugation;
-  FirstPlural: Conjugation;
-  SecondPluralInformal: Conjugation;
-  ThirdPluralAndSecondPluralFormal: Conjugation;
+  firstSingular: Conjugation;
+  secondSingularInformal: Conjugation;
+  thirdSingularAndSecondSingularFormal: Conjugation;
+  firstPlural: Conjugation;
+  secondPluralInformal: Conjugation;
+  thirdPluralAndSecondPluralFormal: Conjugation;
 
   constructor(params: {
-    FirstSingular: Conjugation;
-    SecondSingularInformal: Conjugation;
-    ThirdSingularAndSecondSingularFormal: Conjugation;
-    FirstPlural: Conjugation;
-    SecondPluralInformal: Conjugation;
-    ThirdPluralAndSecondPluralFormal: Conjugation;
+    firstSingular: Conjugation;
+    secondSingularInformal: Conjugation;
+    thirdSingularAndSecondSingularFormal: Conjugation;
+    firstPlural: Conjugation;
+    secondPluralInformal: Conjugation;
+    thirdPluralAndSecondPluralFormal: Conjugation;
   }) {
-    this.FirstSingular = params.FirstSingular;
-    this.SecondSingularInformal = params.SecondSingularInformal;
-    this.ThirdSingularAndSecondSingularFormal = params.ThirdSingularAndSecondSingularFormal;
-    this.FirstPlural = params.FirstPlural;
-    this.SecondPluralInformal = params.SecondPluralInformal;
-    this.ThirdPluralAndSecondPluralFormal = params.ThirdPluralAndSecondPluralFormal;
+    this.firstSingular = params.firstSingular;
+    this.secondSingularInformal = params.secondSingularInformal;
+    this.thirdSingularAndSecondSingularFormal = params.thirdSingularAndSecondSingularFormal;
+    this.firstPlural = params.firstPlural;
+    this.secondPluralInformal = params.secondPluralInformal;
+    this.thirdPluralAndSecondPluralFormal = params.thirdPluralAndSecondPluralFormal;
   }
 
   allConjugations() {
     return [
-      this.FirstSingular,
-      this.SecondSingularInformal,
-      this.ThirdSingularAndSecondSingularFormal,
-      this.FirstPlural,
-      this.SecondPluralInformal,
-      this.ThirdPluralAndSecondPluralFormal
+      this.firstSingular,
+      this.secondSingularInformal,
+      this.thirdSingularAndSecondSingularFormal,
+      this.firstPlural,
+      this.secondPluralInformal,
+      this.thirdPluralAndSecondPluralFormal
     ];
   }
 };
 
 export class ImperativeTenseConjugations {
-  SecondSingularInformal: Conjugation;
-  SecondSingularFormal: Conjugation;
-  FirstPlural: Conjugation;
-  SecondPluralInformal: Conjugation;
-  SecondPluralFormal: Conjugation;
+  secondSingularInformal: Conjugation;
+  secondSingularFormal: Conjugation;
+  firstPlural: Conjugation;
+  secondPluralInformal: Conjugation;
+  secondPluralFormal: Conjugation;
 
   constructor(params: {
-    SecondSingularInformal: Conjugation;
-    SecondSingularFormal: Conjugation;
-    FirstPlural: Conjugation;
-    SecondPluralInformal: Conjugation;
-    SecondPluralFormal: Conjugation;
+    secondSingularInformal: Conjugation;
+    secondSingularFormal: Conjugation;
+    firstPlural: Conjugation;
+    secondPluralInformal: Conjugation;
+    secondPluralFormal: Conjugation;
   }) {
-    this.SecondSingularInformal = params.SecondSingularInformal;
-    this.SecondSingularFormal = params.SecondSingularFormal;
-    this.FirstPlural = params.FirstPlural;
-    this.SecondPluralInformal = params.SecondPluralInformal;
-    this.SecondPluralFormal = params.SecondPluralFormal;
+    this.secondSingularInformal = params.secondSingularInformal;
+    this.secondSingularFormal = params.secondSingularFormal;
+    this.firstPlural = params.firstPlural;
+    this.secondPluralInformal = params.secondPluralInformal;
+    this.secondPluralFormal = params.secondPluralFormal;
   }
 
   allConjugations() {
     return [
-      this.SecondSingularInformal,
-      this.SecondSingularFormal,
-      this.FirstPlural,
-      this.SecondPluralInformal,
-      this.SecondPluralFormal
+      this.secondSingularInformal,
+      this.secondSingularFormal,
+      this.firstPlural,
+      this.secondPluralInformal,
+      this.secondPluralFormal
     ];
   }
 };
 
 export interface Conjugation {
-  Mood: string;
-  Tense: string;
-  Person: Person;
-  Value: string;
+  mood: string;
+  tense: string;
+  person: Person;
+  value: string;
 };
 
 export interface Person {
-  Description: string;
-  Pronouns: string;
+  description: string;
+  pronouns: string;
 };

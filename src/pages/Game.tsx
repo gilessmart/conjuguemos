@@ -83,10 +83,10 @@ function generateTarget() {
   const conjugation = chooseRandomElement(choices);
   
   return {
-    infinitive: verb.Infinitive,
-    mood: conjugation.Mood,
-    tense: conjugation.Tense,
-    pronouns: conjugation.Person.Pronouns,
-    conjugation: conjugation.Value
+    infinitive: verb.infinitive,
+    mood: conjugation.mood,
+    tense: conjugation.tense,
+    pronouns: conjugation.person.pronouns,
+    conjugation: conjugation.value
   };
 }

@@ -8,7 +8,7 @@ export default function VerbDetail() {
   const params = useParams<{ verb: string }>();
   const verbParam = params.verb!;
   const verbDetails = getVerbDetails(verbParam);
-  const title = verbDetails?.Infinitive ?? "Verb Not Found";
+  const title = verbDetails?.infinitive ?? "Verb Not Found";
   usePageTitle(title);
   
   if (!verbDetails) {    
@@ -25,7 +25,7 @@ export default function VerbDetail() {
     );
   }
   
-  const conjugations = verbDetails.Conjugations;
+  const conjugations = verbDetails.conjugations;
 
   return (
     <div>
@@ -52,51 +52,51 @@ export default function VerbDetail() {
           <tbody>
             <tr>
               <td>yo</td>
-              <td>{conjugations.Indicative.Present.FirstSingular.Value}</td>
-              <td>{conjugations.Indicative.Preterite.FirstSingular.Value}</td>
-              <td>{conjugations.Indicative.Imperfect.FirstSingular.Value}</td>
-              <td>{conjugations.Indicative.Future.FirstSingular.Value}</td>
-              <td>{conjugations.Indicative.Conditional.FirstSingular.Value}</td>
+              <td>{conjugations.indicative.present.firstSingular.value}</td>
+              <td>{conjugations.indicative.preterite.firstSingular.value}</td>
+              <td>{conjugations.indicative.imperfect.firstSingular.value}</td>
+              <td>{conjugations.indicative.future.firstSingular.value}</td>
+              <td>{conjugations.indicative.conditional.firstSingular.value}</td>
             </tr>
             <tr>
               <td>tú</td>
-              <td>{conjugations.Indicative.Present.SecondSingularInformal.Value}</td>
-              <td>{conjugations.Indicative.Preterite.SecondSingularInformal.Value}</td>
-              <td>{conjugations.Indicative.Imperfect.SecondSingularInformal.Value}</td>
-              <td>{conjugations.Indicative.Future.SecondSingularInformal.Value}</td>
-              <td>{conjugations.Indicative.Conditional.SecondSingularInformal.Value}</td>
+              <td>{conjugations.indicative.present.secondSingularInformal.value}</td>
+              <td>{conjugations.indicative.preterite.secondSingularInformal.value}</td>
+              <td>{conjugations.indicative.imperfect.secondSingularInformal.value}</td>
+              <td>{conjugations.indicative.future.secondSingularInformal.value}</td>
+              <td>{conjugations.indicative.conditional.secondSingularInformal.value}</td>
             </tr>
             <tr>
               <td>él / ella / usted</td>
-              <td>{conjugations.Indicative.Present.ThirdSingularAndSecondSingularFormal.Value}</td>
-              <td>{conjugations.Indicative.Preterite.ThirdSingularAndSecondSingularFormal.Value}</td>
-              <td>{conjugations.Indicative.Imperfect.ThirdSingularAndSecondSingularFormal.Value}</td>
-              <td>{conjugations.Indicative.Future.ThirdSingularAndSecondSingularFormal.Value}</td>
-              <td>{conjugations.Indicative.Conditional.ThirdSingularAndSecondSingularFormal.Value}</td>
+              <td>{conjugations.indicative.present.thirdSingularAndSecondSingularFormal.value}</td>
+              <td>{conjugations.indicative.preterite.thirdSingularAndSecondSingularFormal.value}</td>
+              <td>{conjugations.indicative.imperfect.thirdSingularAndSecondSingularFormal.value}</td>
+              <td>{conjugations.indicative.future.thirdSingularAndSecondSingularFormal.value}</td>
+              <td>{conjugations.indicative.conditional.thirdSingularAndSecondSingularFormal.value}</td>
             </tr>
             <tr>
               <td>nosotros / nosotras</td>
-              <td>{conjugations.Indicative.Present.FirstPlural.Value}</td>
-              <td>{conjugations.Indicative.Preterite.FirstPlural.Value}</td>
-              <td>{conjugations.Indicative.Imperfect.FirstPlural.Value}</td>
-              <td>{conjugations.Indicative.Future.FirstPlural.Value}</td>
-              <td>{conjugations.Indicative.Conditional.FirstPlural.Value}</td>
+              <td>{conjugations.indicative.present.firstPlural.value}</td>
+              <td>{conjugations.indicative.preterite.firstPlural.value}</td>
+              <td>{conjugations.indicative.imperfect.firstPlural.value}</td>
+              <td>{conjugations.indicative.future.firstPlural.value}</td>
+              <td>{conjugations.indicative.conditional.firstPlural.value}</td>
             </tr>
             <tr>
               <td>vosotros / vosotras</td>
-              <td>{conjugations.Indicative.Present.SecondPluralInformal.Value}</td>
-              <td>{conjugations.Indicative.Preterite.SecondPluralInformal.Value}</td>
-              <td>{conjugations.Indicative.Imperfect.SecondPluralInformal.Value}</td>
-              <td>{conjugations.Indicative.Future.SecondPluralInformal.Value}</td>
-              <td>{conjugations.Indicative.Conditional.SecondPluralInformal.Value}</td>
+              <td>{conjugations.indicative.present.secondPluralInformal.value}</td>
+              <td>{conjugations.indicative.preterite.secondPluralInformal.value}</td>
+              <td>{conjugations.indicative.imperfect.secondPluralInformal.value}</td>
+              <td>{conjugations.indicative.future.secondPluralInformal.value}</td>
+              <td>{conjugations.indicative.conditional.secondPluralInformal.value}</td>
             </tr>
             <tr>
               <td>ellos / ellas / ustedes</td>
-              <td>{conjugations.Indicative.Present.ThirdPluralAndSecondPluralFormal.Value}</td>
-              <td>{conjugations.Indicative.Preterite.ThirdPluralAndSecondPluralFormal.Value}</td>
-              <td>{conjugations.Indicative.Imperfect.ThirdPluralAndSecondPluralFormal.Value}</td>
-              <td>{conjugations.Indicative.Future.ThirdPluralAndSecondPluralFormal.Value}</td>
-              <td>{conjugations.Indicative.Conditional.ThirdPluralAndSecondPluralFormal.Value}</td>
+              <td>{conjugations.indicative.present.thirdPluralAndSecondPluralFormal.value}</td>
+              <td>{conjugations.indicative.preterite.thirdPluralAndSecondPluralFormal.value}</td>
+              <td>{conjugations.indicative.imperfect.thirdPluralAndSecondPluralFormal.value}</td>
+              <td>{conjugations.indicative.future.thirdPluralAndSecondPluralFormal.value}</td>
+              <td>{conjugations.indicative.conditional.thirdPluralAndSecondPluralFormal.value}</td>
             </tr>
           </tbody>
         </table>
@@ -113,23 +113,23 @@ export default function VerbDetail() {
           <tbody>
             <tr>
               <td>tú</td>
-              <td>{conjugations.Imperative.Affirmative.SecondSingularInformal.Value}</td>
+              <td>{conjugations.imperative.affirmative.secondSingularInformal.value}</td>
             </tr>
             <tr>
               <td>usted</td>
-              <td>{conjugations.Imperative.Affirmative.SecondSingularFormal.Value}</td>
+              <td>{conjugations.imperative.affirmative.secondSingularFormal.value}</td>
             </tr>
             <tr>
               <td>nosotros / nosotras</td>
-              <td>{conjugations.Imperative.Affirmative.FirstPlural.Value}</td>
+              <td>{conjugations.imperative.affirmative.firstPlural.value}</td>
             </tr>
             <tr>
               <td>vosotros / vosotras</td>
-              <td>{conjugations.Imperative.Affirmative.SecondPluralInformal.Value}</td>
+              <td>{conjugations.imperative.affirmative.secondPluralInformal.value}</td>
             </tr>
             <tr>
               <td>ustedes</td>
-              <td>{conjugations.Imperative.Affirmative.SecondPluralFormal.Value}</td>
+              <td>{conjugations.imperative.affirmative.secondPluralFormal.value}</td>
             </tr>
           </tbody>
         </table>

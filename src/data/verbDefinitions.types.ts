@@ -1,59 +1,59 @@
 
 export interface VerbDefinition {
-  Infinitive: string;
-  IrregularConjugations?: IrregularConjugations;
+  infinitive: string;
+  irregularConjugations?: IrregularConjugations;
 };
 
 export interface IrregularConjugations {
-  Indicative?: {
-    Present?: {
-      FirstPersonSingular?: string;
-      SecondPersonSingular?: string;
-      ThirdPersonSingular?: string;
-      FirstPersonPlural?: string;
-      SecondPersonPlural?: string;
-      ThirdPersonPlural?: string;
+  indicative?: {
+    present?: {
+      firstPersonSingular?: string;
+      secondPersonSingular?: string;
+      thirdPersonSingular?: string;
+      firstPersonPlural?: string;
+      secondPersonPlural?: string;
+      thirdPersonPlural?: string;
     };
-    Preterite?: {
-      FirstPersonSingular?: string;
-      SecondPersonSingular?: string;
-      ThirdPersonSingular?: string;
-      FirstPersonPlural?: string;
-      SecondPersonPlural?: string;
-      ThirdPersonPlural?: string;
+    preterite?: {
+      firstPersonSingular?: string;
+      secondPersonSingular?: string;
+      thirdPersonSingular?: string;
+      firstPersonPlural?: string;
+      secondPersonPlural?: string;
+      thirdPersonPlural?: string;
     };
-    Imperfect?: {
-      FirstPersonSingular?: string;
-      SecondPersonSingular?: string;
-      ThirdPersonSingular?: string;
-      FirstPersonPlural?: string;
-      SecondPersonPlural?: string;
-      ThirdPersonPlural?: string;
+    imperfect?: {
+      firstPersonSingular?: string;
+      secondPersonSingular?: string;
+      thirdPersonSingular?: string;
+      firstPersonPlural?: string;
+      secondPersonPlural?: string;
+      thirdPersonPlural?: string;
     };
-    Future?: {
-      FirstPersonSingular?: string;
-      SecondPersonSingular?: string;
-      ThirdPersonSingular?: string;
-      FirstPersonPlural?: string;
-      SecondPersonPlural?: string;
-      ThirdPersonPlural?: string;
+    future?: {
+      firstPersonSingular?: string;
+      secondPersonSingular?: string;
+      thirdPersonSingular?: string;
+      firstPersonPlural?: string;
+      secondPersonPlural?: string;
+      thirdPersonPlural?: string;
     };
-    Conditional?: {
-      FirstPersonSingular?: string;
-      SecondPersonSingular?: string;
-      ThirdPersonSingular?: string;
-      FirstPersonPlural?: string;
-      SecondPersonPlural?: string;
-      ThirdPersonPlural?: string;
+    conditional?: {
+      firstPersonSingular?: string;
+      secondPersonSingular?: string;
+      thirdPersonSingular?: string;
+      firstPersonPlural?: string;
+      secondPersonPlural?: string;
+      thirdPersonPlural?: string;
     };
   };
-  Imperative?: {
-    Affirmative?: {
-      SecondPersonSingular?: string;
-      SecondPersonSingularFormal?: string;
-      FirstPersonPlural?: string;
-      SecondPersonPlural?: string;
-      SecondPersonPluralFormal?: string;
+  imperative?: {
+    affirmative?: {
+      secondPersonSingular?: string;
+      secondPersonSingularFormal?: string;
+      firstPersonPlural?: string;
+      secondPersonPlural?: string;
+      secondPersonPluralFormal?: string;
     };
   };
 };

@@ -2,776 +2,776 @@ import type { VerbDefinition } from "./verbDefinitions.types";
 
 export const definitions: VerbDefinition[] = [
   // regular ar verbs
-  { Infinitive: "acabar" },
-  { Infinitive: "ayudar" },
-  { Infinitive: "bailar" },
-  { Infinitive: "cambiar" },
-  { Infinitive: "caminar" },
-  { Infinitive: "cantar" },
-  { Infinitive: "comprar" },
-  { Infinitive: "dibujar" },
-  { Infinitive: "disculpar" },
-  { Infinitive: "disfrutar" },
-  { Infinitive: "enseñar" },
-  { Infinitive: "escuchar" },
-  { Infinitive: "esperar" },
-  { Infinitive: "estudiar" },
-  { Infinitive: "gastar" },
-  { Infinitive: "hablar" },
-  { Infinitive: "intentar" },
-  { Infinitive: "lavar" },
-  { Infinitive: "llenar" },
-  { Infinitive: "limpiar" },
-  { Infinitive: "llamar" },
-  { Infinitive: "llevar" },
-  { Infinitive: "mandar" },
-  { Infinitive: "manejar" },
-  { Infinitive: "necesitar" },
-  { Infinitive: "mirar" },
-  { Infinitive: "odiar" },
-  { Infinitive: "olvidar" },
-  { Infinitive: "pasar" },
-  { Infinitive: "preguntar" },
-  { Infinitive: "preparar" },
-  { Infinitive: "tomar" },
-  { Infinitive: "trabajar" },
-  { Infinitive: "usar" },
+  { infinitive: "acabar" },
+  { infinitive: "ayudar" },
+  { infinitive: "bailar" },
+  { infinitive: "cambiar" },
+  { infinitive: "caminar" },
+  { infinitive: "cantar" },
+  { infinitive: "comprar" },
+  { infinitive: "dibujar" },
+  { infinitive: "disculpar" },
+  { infinitive: "disfrutar" },
+  { infinitive: "enseñar" },
+  { infinitive: "escuchar" },
+  { infinitive: "esperar" },
+  { infinitive: "estudiar" },
+  { infinitive: "gastar" },
+  { infinitive: "hablar" },
+  { infinitive: "intentar" },
+  { infinitive: "lavar" },
+  { infinitive: "llenar" },
+  { infinitive: "limpiar" },
+  { infinitive: "llamar" },
+  { infinitive: "llevar" },
+  { infinitive: "mandar" },
+  { infinitive: "manejar" },
+  { infinitive: "necesitar" },
+  { infinitive: "mirar" },
+  { infinitive: "odiar" },
+  { infinitive: "olvidar" },
+  { infinitive: "pasar" },
+  { infinitive: "preguntar" },
+  { infinitive: "preparar" },
+  { infinitive: "tomar" },
+  { infinitive: "trabajar" },
+  { infinitive: "usar" },
   // regular er verbs
-  { Infinitive: "aprender" },
-  { Infinitive: "beber" },
-  { Infinitive: "comer" },
-  { Infinitive: "comprender" },
-  { Infinitive: "correr" },
-  { Infinitive: "deber" },
-  { Infinitive: "leer" },
-  { Infinitive: "responder" },
-  { Infinitive: "vender" },
+  { infinitive: "aprender" },
+  { infinitive: "beber" },
+  { infinitive: "comer" },
+  { infinitive: "comprender" },
+  { infinitive: "correr" },
+  { infinitive: "deber" },
+  { infinitive: "leer" },
+  { infinitive: "responder" },
+  { infinitive: "vender" },
   // regular ir verbs
-  { Infinitive: "vivir" },
-  { Infinitive: "recibir" },
-  { Infinitive: "decidir" },
-  { Infinitive: "dividir" },
-  { Infinitive: "compartir" },
-  { Infinitive: "permitir" },
-  { Infinitive: "subir" },
+  { infinitive: "vivir" },
+  { infinitive: "recibir" },
+  { infinitive: "decidir" },
+  { infinitive: "dividir" },
+  { infinitive: "compartir" },
+  { infinitive: "permitir" },
+  { infinitive: "subir" },
   // common irregular verbs
   {
-    Infinitive: "conocer",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "conozco"
+    infinitive: "conocer",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "conozco"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingularFormal: "conozca",
-          FirstPersonPlural: "conozcamos",
-          SecondPersonPluralFormal: "conozcan"
+      imperative: {
+        affirmative: {
+          secondPersonSingularFormal: "conozca",
+          firstPersonPlural: "conozcamos",
+          secondPersonPluralFormal: "conozcan"
         }
       }
     }
   },
   {
-    Infinitive: "creer",
-    IrregularConjugations: {
-      Indicative: {
-        Preterite: {
-          SecondPersonSingular: "creíste",
-          ThirdPersonSingular: "creyó",
-          FirstPersonPlural: "creímos",
-          SecondPersonPlural: "creísteis",
-          ThirdPersonPlural: "creyeron"
+    infinitive: "creer",
+    irregularConjugations: {
+      indicative: {
+        preterite: {
+          secondPersonSingular: "creíste",
+          thirdPersonSingular: "creyó",
+          firstPersonPlural: "creímos",
+          secondPersonPlural: "creísteis",
+          thirdPersonPlural: "creyeron"
         }
       }
     }
   },
   {
-    Infinitive: "dar",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "doy",
-          SecondPersonPlural: "dais"
+    infinitive: "dar",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "doy",
+          secondPersonPlural: "dais"
         },
-        Preterite: {
-          FirstPersonSingular: "di",
-          SecondPersonSingular: "diste",
-          ThirdPersonSingular: "dio",
-          FirstPersonPlural: "dimos",
-          SecondPersonPlural: "disteis",
-          ThirdPersonPlural: "dieron"
+        preterite: {
+          firstPersonSingular: "di",
+          secondPersonSingular: "diste",
+          thirdPersonSingular: "dio",
+          firstPersonPlural: "dimos",
+          secondPersonPlural: "disteis",
+          thirdPersonPlural: "dieron"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingularFormal: "dé"
+      imperative: {
+        affirmative: {
+          secondPersonSingularFormal: "dé"
         }
       }
     }
   },
   {
-    Infinitive: "decir",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "digo",
-          SecondPersonSingular: "dices",
-          ThirdPersonSingular: "dice",
-          ThirdPersonPlural: "dicen"
+    infinitive: "decir",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "digo",
+          secondPersonSingular: "dices",
+          thirdPersonSingular: "dice",
+          thirdPersonPlural: "dicen"
         },
-        Preterite: {
-          FirstPersonSingular: "dije",
-          SecondPersonSingular: "dijiste",
-          ThirdPersonSingular: "dijo",
-          FirstPersonPlural: "dijimos",
-          SecondPersonPlural: "dijisteis",
-          ThirdPersonPlural: "dijeron"
+        preterite: {
+          firstPersonSingular: "dije",
+          secondPersonSingular: "dijiste",
+          thirdPersonSingular: "dijo",
+          firstPersonPlural: "dijimos",
+          secondPersonPlural: "dijisteis",
+          thirdPersonPlural: "dijeron"
         },
-        Future: {
-          FirstPersonSingular: "diré",
-          SecondPersonSingular: "dirás",
-          ThirdPersonSingular: "dirá",
-          FirstPersonPlural: "diremos",
-          SecondPersonPlural: "diréis",
-          ThirdPersonPlural: "dirán"
+        future: {
+          firstPersonSingular: "diré",
+          secondPersonSingular: "dirás",
+          thirdPersonSingular: "dirá",
+          firstPersonPlural: "diremos",
+          secondPersonPlural: "diréis",
+          thirdPersonPlural: "dirán"
         },
-        Conditional: {
-          FirstPersonSingular: "diría",
-          SecondPersonSingular: "dirías",
-          ThirdPersonSingular: "diría",
-          FirstPersonPlural: "diríamos",
-          SecondPersonPlural: "diríais",
-          ThirdPersonPlural: "dirían"
+        conditional: {
+          firstPersonSingular: "diría",
+          secondPersonSingular: "dirías",
+          thirdPersonSingular: "diría",
+          firstPersonPlural: "diríamos",
+          secondPersonPlural: "diríais",
+          thirdPersonPlural: "dirían"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "di",
-          SecondPersonSingularFormal: "diga",
-          FirstPersonPlural: "digamos",
-          SecondPersonPluralFormal: "digan"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "di",
+          secondPersonSingularFormal: "diga",
+          firstPersonPlural: "digamos",
+          secondPersonPluralFormal: "digan"
         }
       }
     }
   },
   {
-    Infinitive: "encender",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "enciendo",
-          SecondPersonSingular: "enciendes",
-          ThirdPersonSingular: "enciende",
-          ThirdPersonPlural: "encienden"
+    infinitive: "encender",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "enciendo",
+          secondPersonSingular: "enciendes",
+          thirdPersonSingular: "enciende",
+          thirdPersonPlural: "encienden"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "enciende",
-          SecondPersonSingularFormal: "encienda",
-          SecondPersonPluralFormal: "enciendan"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "enciende",
+          secondPersonSingularFormal: "encienda",
+          secondPersonPluralFormal: "enciendan"
         }
       }
     }
   },
   {
-    Infinitive: "encontrar",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "encuentro",
-          SecondPersonSingular: "encuentras",
-          ThirdPersonSingular: "encuentra",
-          ThirdPersonPlural: "encuentran"
+    infinitive: "encontrar",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "encuentro",
+          secondPersonSingular: "encuentras",
+          thirdPersonSingular: "encuentra",
+          thirdPersonPlural: "encuentran"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "encuentra",
-          SecondPersonSingularFormal: "encuentre",
-          SecondPersonPluralFormal: "encuentren"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "encuentra",
+          secondPersonSingularFormal: "encuentre",
+          secondPersonPluralFormal: "encuentren"
         }
       }
     }
   },
   {
-    Infinitive: "entender",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "entiendo",
-          SecondPersonSingular: "entiendes",
-          ThirdPersonSingular: "entiende",
-          ThirdPersonPlural: "entienden"
+    infinitive: "entender",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "entiendo",
+          secondPersonSingular: "entiendes",
+          thirdPersonSingular: "entiende",
+          thirdPersonPlural: "entienden"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "entiende",
-          SecondPersonSingularFormal: "entienda",
-          SecondPersonPluralFormal: "entiendan"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "entiende",
+          secondPersonSingularFormal: "entienda",
+          secondPersonPluralFormal: "entiendan"
         }
       }
     }
   },
   {
-    Infinitive: "estar",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "estoy",
-          SecondPersonSingular: "estás",
-          ThirdPersonSingular: "está",
-          FirstPersonPlural: "estamos",
-          SecondPersonPlural: "estáis",
-          ThirdPersonPlural: "están"
+    infinitive: "estar",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "estoy",
+          secondPersonSingular: "estás",
+          thirdPersonSingular: "está",
+          firstPersonPlural: "estamos",
+          secondPersonPlural: "estáis",
+          thirdPersonPlural: "están"
         },
-        Preterite: {
-          FirstPersonSingular: "estuve",
-          SecondPersonSingular: "estuviste",
-          ThirdPersonSingular: "estuvo",
-          FirstPersonPlural: "estuvimos",
-          SecondPersonPlural: "estuvisteis",
-          ThirdPersonPlural: "estuvieron"
+        preterite: {
+          firstPersonSingular: "estuve",
+          secondPersonSingular: "estuviste",
+          thirdPersonSingular: "estuvo",
+          firstPersonPlural: "estuvimos",
+          secondPersonPlural: "estuvisteis",
+          thirdPersonPlural: "estuvieron"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "está",
-          SecondPersonSingularFormal: "esté",
-          SecondPersonPluralFormal: "estén"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "está",
+          secondPersonSingularFormal: "esté",
+          secondPersonPluralFormal: "estén"
         }
       }
     }
   },
   {
-    Infinitive: "haber",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "he",
-          SecondPersonSingular: "has",
-          ThirdPersonSingular: "ha",
-          FirstPersonPlural: "hemos",
-          SecondPersonPlural: "habéis",
-          ThirdPersonPlural: "han"
+    infinitive: "haber",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "he",
+          secondPersonSingular: "has",
+          thirdPersonSingular: "ha",
+          firstPersonPlural: "hemos",
+          secondPersonPlural: "habéis",
+          thirdPersonPlural: "han"
         },
-        Preterite: {
-          FirstPersonSingular: "hube",
-          SecondPersonSingular: "hubiste",
-          ThirdPersonSingular: "hubo",
-          FirstPersonPlural: "hubimos",
-          SecondPersonPlural: "hubisteis",
-          ThirdPersonPlural: "hubieron"
+        preterite: {
+          firstPersonSingular: "hube",
+          secondPersonSingular: "hubiste",
+          thirdPersonSingular: "hubo",
+          firstPersonPlural: "hubimos",
+          secondPersonPlural: "hubisteis",
+          thirdPersonPlural: "hubieron"
         },
-        Future: {
-          FirstPersonSingular: "habré",
-          SecondPersonSingular: "habrás",
-          ThirdPersonSingular: "habrá",
-          FirstPersonPlural: "habremos",
-          SecondPersonPlural: "habréis",
-          ThirdPersonPlural: "habrán"
+        future: {
+          firstPersonSingular: "habré",
+          secondPersonSingular: "habrás",
+          thirdPersonSingular: "habrá",
+          firstPersonPlural: "habremos",
+          secondPersonPlural: "habréis",
+          thirdPersonPlural: "habrán"
         },
-        Conditional: {
-          FirstPersonSingular: "habría",
-          SecondPersonSingular: "habrías",
-          ThirdPersonSingular: "habría",
-          FirstPersonPlural: "habríamos",
-          SecondPersonPlural: "habríais",
-          ThirdPersonPlural: "habrían"
+        conditional: {
+          firstPersonSingular: "habría",
+          secondPersonSingular: "habrías",
+          thirdPersonSingular: "habría",
+          firstPersonPlural: "habríamos",
+          secondPersonPlural: "habríais",
+          thirdPersonPlural: "habrían"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "he",
-          SecondPersonSingularFormal: "haya",
-          FirstPersonPlural: "hayamos",
-          SecondPersonPluralFormal: "hayan"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "he",
+          secondPersonSingularFormal: "haya",
+          firstPersonPlural: "hayamos",
+          secondPersonPluralFormal: "hayan"
         }
       }
     }
   },
   {
-    Infinitive: "hacer",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "hago"
+    infinitive: "hacer",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "hago"
         },
-        Preterite: {
-          FirstPersonSingular: "hice",
-          SecondPersonSingular: "hiciste",
-          ThirdPersonSingular: "hizo",
-          FirstPersonPlural: "hicimos",
-          SecondPersonPlural: "hicisteis",
-          ThirdPersonPlural: "hicieron"
+        preterite: {
+          firstPersonSingular: "hice",
+          secondPersonSingular: "hiciste",
+          thirdPersonSingular: "hizo",
+          firstPersonPlural: "hicimos",
+          secondPersonPlural: "hicisteis",
+          thirdPersonPlural: "hicieron"
         },
-        Future: {
-          FirstPersonSingular: "haré",
-          SecondPersonSingular: "harás",
-          ThirdPersonSingular: "hará",
-          FirstPersonPlural: "haremos",
-          SecondPersonPlural: "haréis",
-          ThirdPersonPlural: "harán"
+        future: {
+          firstPersonSingular: "haré",
+          secondPersonSingular: "harás",
+          thirdPersonSingular: "hará",
+          firstPersonPlural: "haremos",
+          secondPersonPlural: "haréis",
+          thirdPersonPlural: "harán"
         },
-        Conditional: {
-          FirstPersonSingular: "haría",
-          SecondPersonSingular: "harías",
-          ThirdPersonSingular: "haría",
-          FirstPersonPlural: "haríamos",
-          SecondPersonPlural: "haríais",
-          ThirdPersonPlural: "harían"
+        conditional: {
+          firstPersonSingular: "haría",
+          secondPersonSingular: "harías",
+          thirdPersonSingular: "haría",
+          firstPersonPlural: "haríamos",
+          secondPersonPlural: "haríais",
+          thirdPersonPlural: "harían"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "haz",
-          SecondPersonSingularFormal: "haga",
-          FirstPersonPlural: "hagamos",
-          SecondPersonPluralFormal: "hagan"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "haz",
+          secondPersonSingularFormal: "haga",
+          firstPersonPlural: "hagamos",
+          secondPersonPluralFormal: "hagan"
         }
       }
     }
   },
   {
-    Infinitive: "ir",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "voy",
-          SecondPersonSingular: "vas",
-          ThirdPersonSingular: "va",
-          FirstPersonPlural: "vamos",
-          SecondPersonPlural: "vais",
-          ThirdPersonPlural: "van"
+    infinitive: "ir",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "voy",
+          secondPersonSingular: "vas",
+          thirdPersonSingular: "va",
+          firstPersonPlural: "vamos",
+          secondPersonPlural: "vais",
+          thirdPersonPlural: "van"
         },
-        Preterite: {
-          FirstPersonSingular: "fui",
-          SecondPersonSingular: "fuiste",
-          ThirdPersonSingular: "fue",
-          FirstPersonPlural: "fuimos",
-          SecondPersonPlural: "fuisteis",
-          ThirdPersonPlural: "fueron"
+        preterite: {
+          firstPersonSingular: "fui",
+          secondPersonSingular: "fuiste",
+          thirdPersonSingular: "fue",
+          firstPersonPlural: "fuimos",
+          secondPersonPlural: "fuisteis",
+          thirdPersonPlural: "fueron"
         },
-        Imperfect: {
-          FirstPersonSingular: "iba",
-          SecondPersonSingular: "ibas",
-          ThirdPersonSingular: "iba",
-          FirstPersonPlural: "íbamos",
-          SecondPersonPlural: "ibais",
-          ThirdPersonPlural: "iban"
+        imperfect: {
+          firstPersonSingular: "iba",
+          secondPersonSingular: "ibas",
+          thirdPersonSingular: "iba",
+          firstPersonPlural: "íbamos",
+          secondPersonPlural: "ibais",
+          thirdPersonPlural: "iban"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "ve",
-          SecondPersonSingularFormal: "vaya",
-          FirstPersonPlural: "vamos",
-          SecondPersonPluralFormal: "vayan"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "ve",
+          secondPersonSingularFormal: "vaya",
+          firstPersonPlural: "vamos",
+          secondPersonPluralFormal: "vayan"
         }
       }
     }
   },
   {
-    Infinitive: "llegar",
-    IrregularConjugations: {
-      Indicative: {
-        Preterite: {
-          FirstPersonSingular: "llegué"
+    infinitive: "llegar",
+    irregularConjugations: {
+      indicative: {
+        preterite: {
+          firstPersonSingular: "llegué"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "llega",
-          SecondPersonSingularFormal: "llegue",
-          FirstPersonPlural: "lleguemos",
-          SecondPersonPluralFormal: "lleguen"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "llega",
+          secondPersonSingularFormal: "llegue",
+          firstPersonPlural: "lleguemos",
+          secondPersonPluralFormal: "lleguen"
         }
       }
     }
   },
   {
-    Infinitive: "pensar",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "pienso",
-          SecondPersonSingular: "piensas",
-          ThirdPersonSingular: "piensa",
-          ThirdPersonPlural: "piensan"
+    infinitive: "pensar",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "pienso",
+          secondPersonSingular: "piensas",
+          thirdPersonSingular: "piensa",
+          thirdPersonPlural: "piensan"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "piensa",
-          SecondPersonSingularFormal: "piense",
-          SecondPersonPluralFormal: "piensen"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "piensa",
+          secondPersonSingularFormal: "piense",
+          secondPersonPluralFormal: "piensen"
         }
       }
     }
   },
   {
-    Infinitive: "poder",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "puedo",
-          SecondPersonSingular: "puedes",
-          ThirdPersonSingular: "puede",
-          ThirdPersonPlural: "pueden"
+    infinitive: "poder",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "puedo",
+          secondPersonSingular: "puedes",
+          thirdPersonSingular: "puede",
+          thirdPersonPlural: "pueden"
         },
-        Preterite: {
-          FirstPersonSingular: "pude",
-          SecondPersonSingular: "pudiste",
-          ThirdPersonSingular: "pudo",
-          FirstPersonPlural: "pudimos",
-          SecondPersonPlural: "pudisteis",
-          ThirdPersonPlural: "pudieron"
+        preterite: {
+          firstPersonSingular: "pude",
+          secondPersonSingular: "pudiste",
+          thirdPersonSingular: "pudo",
+          firstPersonPlural: "pudimos",
+          secondPersonPlural: "pudisteis",
+          thirdPersonPlural: "pudieron"
         },
-        Future: {
-          FirstPersonSingular: "podré",
-          SecondPersonSingular: "podrás",
-          ThirdPersonSingular: "podrá",
-          FirstPersonPlural: "podremos",
-          SecondPersonPlural: "podréis",
-          ThirdPersonPlural: "podrán"
+        future: {
+          firstPersonSingular: "podré",
+          secondPersonSingular: "podrás",
+          thirdPersonSingular: "podrá",
+          firstPersonPlural: "podremos",
+          secondPersonPlural: "podréis",
+          thirdPersonPlural: "podrán"
         },
-        Conditional: {
-          FirstPersonSingular: "podría",
-          SecondPersonSingular: "podrías",
-          ThirdPersonSingular: "podría",
-          FirstPersonPlural: "podríamos",
-          SecondPersonPlural: "podríais",
-          ThirdPersonPlural: "podrían"
+        conditional: {
+          firstPersonSingular: "podría",
+          secondPersonSingular: "podrías",
+          thirdPersonSingular: "podría",
+          firstPersonPlural: "podríamos",
+          secondPersonPlural: "podríais",
+          thirdPersonPlural: "podrían"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "puede",
-          SecondPersonSingularFormal: "pueda",
-          SecondPersonPluralFormal: "puedan"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "puede",
+          secondPersonSingularFormal: "pueda",
+          secondPersonPluralFormal: "puedan"
         }
       }
     }
   },
   {
-    Infinitive: "poner",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "pongo"
+    infinitive: "poner",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "pongo"
         },
-        Preterite: {
-          FirstPersonSingular: "puse",
-          SecondPersonSingular: "pusiste",
-          ThirdPersonSingular: "puso",
-          FirstPersonPlural: "pusimos",
-          SecondPersonPlural: "pusisteis",
-          ThirdPersonPlural: "pusieron"
+        preterite: {
+          firstPersonSingular: "puse",
+          secondPersonSingular: "pusiste",
+          thirdPersonSingular: "puso",
+          firstPersonPlural: "pusimos",
+          secondPersonPlural: "pusisteis",
+          thirdPersonPlural: "pusieron"
         },
-        Future: {
-          FirstPersonSingular: "pondré",
-          SecondPersonSingular: "pondrás",
-          ThirdPersonSingular: "pondrá",
-          FirstPersonPlural: "pondremos",
-          SecondPersonPlural: "pondréis",
-          ThirdPersonPlural: "pondrán"
+        future: {
+          firstPersonSingular: "pondré",
+          secondPersonSingular: "pondrás",
+          thirdPersonSingular: "pondrá",
+          firstPersonPlural: "pondremos",
+          secondPersonPlural: "pondréis",
+          thirdPersonPlural: "pondrán"
         },
-        Conditional: {
-          FirstPersonSingular: "pondría",
-          SecondPersonSingular: "pondrías",
-          ThirdPersonSingular: "pondría",
-          FirstPersonPlural: "pondríamos",
-          SecondPersonPlural: "pondríais",
-          ThirdPersonPlural: "pondrían"
+        conditional: {
+          firstPersonSingular: "pondría",
+          secondPersonSingular: "pondrías",
+          thirdPersonSingular: "pondría",
+          firstPersonPlural: "pondríamos",
+          secondPersonPlural: "pondríais",
+          thirdPersonPlural: "pondrían"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "pon",
-          SecondPersonSingularFormal: "ponga",
-          FirstPersonPlural: "pongamos",
-          SecondPersonPluralFormal: "pongan"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "pon",
+          secondPersonSingularFormal: "ponga",
+          firstPersonPlural: "pongamos",
+          secondPersonPluralFormal: "pongan"
         }
       }
     }
   },
   {
-    Infinitive: "querer",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "quiero",
-          SecondPersonSingular: "quieres",
-          ThirdPersonSingular: "quiere",
-          ThirdPersonPlural: "quieren"
+    infinitive: "querer",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "quiero",
+          secondPersonSingular: "quieres",
+          thirdPersonSingular: "quiere",
+          thirdPersonPlural: "quieren"
         },
-        Preterite: {
-          FirstPersonSingular: "quise",
-          SecondPersonSingular: "quisiste",
-          ThirdPersonSingular: "quiso",
-          FirstPersonPlural: "quisimos",
-          SecondPersonPlural: "quisisteis",
-          ThirdPersonPlural: "quisieron"
+        preterite: {
+          firstPersonSingular: "quise",
+          secondPersonSingular: "quisiste",
+          thirdPersonSingular: "quiso",
+          firstPersonPlural: "quisimos",
+          secondPersonPlural: "quisisteis",
+          thirdPersonPlural: "quisieron"
         },
-        Future: {
-          FirstPersonSingular: "querré",
-          SecondPersonSingular: "querrás",
-          ThirdPersonSingular: "querrá",
-          FirstPersonPlural: "querremos",
-          SecondPersonPlural: "querréis",
-          ThirdPersonPlural: "querrán"
+        future: {
+          firstPersonSingular: "querré",
+          secondPersonSingular: "querrás",
+          thirdPersonSingular: "querrá",
+          firstPersonPlural: "querremos",
+          secondPersonPlural: "querréis",
+          thirdPersonPlural: "querrán"
         },
-        Conditional: {
-          FirstPersonSingular: "querría",
-          SecondPersonSingular: "querrías",
-          ThirdPersonSingular: "querría",
-          FirstPersonPlural: "querríamos",
-          SecondPersonPlural: "querríais",
-          ThirdPersonPlural: "querrían"
+        conditional: {
+          firstPersonSingular: "querría",
+          secondPersonSingular: "querrías",
+          thirdPersonSingular: "querría",
+          firstPersonPlural: "querríamos",
+          secondPersonPlural: "querríais",
+          thirdPersonPlural: "querrían"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "quiere",
-          SecondPersonSingularFormal: "quiera",
-          SecondPersonPluralFormal: "quieran"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "quiere",
+          secondPersonSingularFormal: "quiera",
+          secondPersonPluralFormal: "quieran"
         }
       }
     }
   },
   {
-    Infinitive: "saber",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "sé"
+    infinitive: "saber",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "sé"
         },
-        Preterite: {
-          FirstPersonSingular: "supe",
-          SecondPersonSingular: "supiste",
-          ThirdPersonSingular: "supo",
-          FirstPersonPlural: "supimos",
-          SecondPersonPlural: "supisteis",
-          ThirdPersonPlural: "supieron"
+        preterite: {
+          firstPersonSingular: "supe",
+          secondPersonSingular: "supiste",
+          thirdPersonSingular: "supo",
+          firstPersonPlural: "supimos",
+          secondPersonPlural: "supisteis",
+          thirdPersonPlural: "supieron"
         },
-        Future: {
-          FirstPersonSingular: "sabré",
-          SecondPersonSingular: "sabrás",
-          ThirdPersonSingular: "sabrá",
-          FirstPersonPlural: "sabremos",
-          SecondPersonPlural: "sabréis",
-          ThirdPersonPlural: "sabrán"
+        future: {
+          firstPersonSingular: "sabré",
+          secondPersonSingular: "sabrás",
+          thirdPersonSingular: "sabrá",
+          firstPersonPlural: "sabremos",
+          secondPersonPlural: "sabréis",
+          thirdPersonPlural: "sabrán"
         },
-        Conditional: {
-          FirstPersonSingular: "sabría",
-          SecondPersonSingular: "sabrías",
-          ThirdPersonSingular: "sabría",
-          FirstPersonPlural: "sabríamos",
-          SecondPersonPlural: "sabríais",
-          ThirdPersonPlural: "sabrían"
+        conditional: {
+          firstPersonSingular: "sabría",
+          secondPersonSingular: "sabrías",
+          thirdPersonSingular: "sabría",
+          firstPersonPlural: "sabríamos",
+          secondPersonPlural: "sabríais",
+          thirdPersonPlural: "sabrían"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingularFormal: "sepa",
-          FirstPersonPlural: "sepamos",
-          SecondPersonPluralFormal: "sepan"
+      imperative: {
+        affirmative: {
+          secondPersonSingularFormal: "sepa",
+          firstPersonPlural: "sepamos",
+          secondPersonPluralFormal: "sepan"
         }
       }
     }
   },
   {
-    Infinitive: "salir",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "salgo"
+    infinitive: "salir",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "salgo"
         },
-        Future: {
-          FirstPersonSingular: "saldré",
-          SecondPersonSingular: "saldrás",
-          ThirdPersonSingular: "saldrá",
-          FirstPersonPlural: "saldremos",
-          SecondPersonPlural: "saldréis",
-          ThirdPersonPlural: "saldrán"
+        future: {
+          firstPersonSingular: "saldré",
+          secondPersonSingular: "saldrás",
+          thirdPersonSingular: "saldrá",
+          firstPersonPlural: "saldremos",
+          secondPersonPlural: "saldréis",
+          thirdPersonPlural: "saldrán"
         },
-        Conditional: {
-          FirstPersonSingular: "saldría",
-          SecondPersonSingular: "saldrías",
-          ThirdPersonSingular: "saldría",
-          FirstPersonPlural: "saldríamos",
-          SecondPersonPlural: "saldríais",
-          ThirdPersonPlural: "saldrían"
+        conditional: {
+          firstPersonSingular: "saldría",
+          secondPersonSingular: "saldrías",
+          thirdPersonSingular: "saldría",
+          firstPersonPlural: "saldríamos",
+          secondPersonPlural: "saldríais",
+          thirdPersonPlural: "saldrían"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "sal",
-          SecondPersonSingularFormal: "salga",
-          FirstPersonPlural: "salgamos",
-          SecondPersonPluralFormal: "salgan"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "sal",
+          secondPersonSingularFormal: "salga",
+          firstPersonPlural: "salgamos",
+          secondPersonPluralFormal: "salgan"
         }
       }
     }
   },
   {
-    Infinitive: "ser",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "soy",
-          SecondPersonSingular: "eres",
-          ThirdPersonSingular: "es",
-          FirstPersonPlural: "somos",
-          SecondPersonPlural: "sois",
-          ThirdPersonPlural: "son"
+    infinitive: "ser",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "soy",
+          secondPersonSingular: "eres",
+          thirdPersonSingular: "es",
+          firstPersonPlural: "somos",
+          secondPersonPlural: "sois",
+          thirdPersonPlural: "son"
         },
-        Preterite: {
-          FirstPersonSingular: "fui",
-          SecondPersonSingular: "fuiste",
-          ThirdPersonSingular: "fue",
-          FirstPersonPlural: "fuimos",
-          SecondPersonPlural: "fuisteis",
-          ThirdPersonPlural: "fueron"
+        preterite: {
+          firstPersonSingular: "fui",
+          secondPersonSingular: "fuiste",
+          thirdPersonSingular: "fue",
+          firstPersonPlural: "fuimos",
+          secondPersonPlural: "fuisteis",
+          thirdPersonPlural: "fueron"
         },
-        Imperfect: {
-          FirstPersonSingular: "era",
-          SecondPersonSingular: "eras",
-          ThirdPersonSingular: "era",
-          FirstPersonPlural: "éramos",
-          SecondPersonPlural: "erais",
-          ThirdPersonPlural: "eran"
+        imperfect: {
+          firstPersonSingular: "era",
+          secondPersonSingular: "eras",
+          thirdPersonSingular: "era",
+          firstPersonPlural: "éramos",
+          secondPersonPlural: "erais",
+          thirdPersonPlural: "eran"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "sé",
-          SecondPersonSingularFormal: "sea",
-          FirstPersonPlural: "seamos",
-          SecondPersonPluralFormal: "sean"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "sé",
+          secondPersonSingularFormal: "sea",
+          firstPersonPlural: "seamos",
+          secondPersonPluralFormal: "sean"
         }
       }
     }
   },
   {
-    Infinitive: "tener",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "tengo",
-          SecondPersonSingular: "tienes",
-          ThirdPersonSingular: "tiene",
-          ThirdPersonPlural: "tienen"
+    infinitive: "tener",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "tengo",
+          secondPersonSingular: "tienes",
+          thirdPersonSingular: "tiene",
+          thirdPersonPlural: "tienen"
         },
-        Preterite: {
-          FirstPersonSingular: "tuve",
-          SecondPersonSingular: "tuviste",
-          ThirdPersonSingular: "tuvo",
-          FirstPersonPlural: "tuvimos",
-          SecondPersonPlural: "tuvisteis",
-          ThirdPersonPlural: "tuvieron"
+        preterite: {
+          firstPersonSingular: "tuve",
+          secondPersonSingular: "tuviste",
+          thirdPersonSingular: "tuvo",
+          firstPersonPlural: "tuvimos",
+          secondPersonPlural: "tuvisteis",
+          thirdPersonPlural: "tuvieron"
         },
-        Future: {
-          FirstPersonSingular: "tendré",
-          SecondPersonSingular: "tendrás",
-          ThirdPersonSingular: "tendrá",
-          FirstPersonPlural: "tendremos",
-          SecondPersonPlural: "tendréis",
-          ThirdPersonPlural: "tendrán"
+        future: {
+          firstPersonSingular: "tendré",
+          secondPersonSingular: "tendrás",
+          thirdPersonSingular: "tendrá",
+          firstPersonPlural: "tendremos",
+          secondPersonPlural: "tendréis",
+          thirdPersonPlural: "tendrán"
         },
-        Conditional: {
-          FirstPersonSingular: "tendría",
-          SecondPersonSingular: "tendrías",
-          ThirdPersonSingular: "tendría",
-          FirstPersonPlural: "tendríamos",
-          SecondPersonPlural: "tendríais",
-          ThirdPersonPlural: "tendrían"
+        conditional: {
+          firstPersonSingular: "tendría",
+          secondPersonSingular: "tendrías",
+          thirdPersonSingular: "tendría",
+          firstPersonPlural: "tendríamos",
+          secondPersonPlural: "tendríais",
+          thirdPersonPlural: "tendrían"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "ten",
-          SecondPersonSingularFormal: "tenga",
-          FirstPersonPlural: "tengamos",
-          SecondPersonPluralFormal: "tengan"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "ten",
+          secondPersonSingularFormal: "tenga",
+          firstPersonPlural: "tengamos",
+          secondPersonPluralFormal: "tengan"
         }
       }
     }
   },
   {
-    Infinitive: "venir",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "vengo",
-          SecondPersonSingular: "vienes",
-          ThirdPersonSingular: "viene",
-          ThirdPersonPlural: "vienen"
+    infinitive: "venir",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "vengo",
+          secondPersonSingular: "vienes",
+          thirdPersonSingular: "viene",
+          thirdPersonPlural: "vienen"
         },
-        Preterite: {
-          FirstPersonSingular: "vine",
-          SecondPersonSingular: "viniste",
-          ThirdPersonSingular: "vino",
-          FirstPersonPlural: "vinimos",
-          SecondPersonPlural: "vinisteis",
-          ThirdPersonPlural: "vinieron"
+        preterite: {
+          firstPersonSingular: "vine",
+          secondPersonSingular: "viniste",
+          thirdPersonSingular: "vino",
+          firstPersonPlural: "vinimos",
+          secondPersonPlural: "vinisteis",
+          thirdPersonPlural: "vinieron"
         },
-        Future: {
-          FirstPersonSingular: "vendré",
-          SecondPersonSingular: "vendrás",
-          ThirdPersonSingular: "vendrá",
-          FirstPersonPlural: "vendremos",
-          SecondPersonPlural: "vendréis",
-          ThirdPersonPlural: "vendrán"
+        future: {
+          firstPersonSingular: "vendré",
+          secondPersonSingular: "vendrás",
+          thirdPersonSingular: "vendrá",
+          firstPersonPlural: "vendremos",
+          secondPersonPlural: "vendréis",
+          thirdPersonPlural: "vendrán"
         },
-        Conditional: {
-          FirstPersonSingular: "vendría",
-          SecondPersonSingular: "vendrías",
-          ThirdPersonSingular: "vendría",
-          FirstPersonPlural: "vendríamos",
-          SecondPersonPlural: "vendríais",
-          ThirdPersonPlural: "vendrían"
+        conditional: {
+          firstPersonSingular: "vendría",
+          secondPersonSingular: "vendrías",
+          thirdPersonSingular: "vendría",
+          firstPersonPlural: "vendríamos",
+          secondPersonPlural: "vendríais",
+          thirdPersonPlural: "vendrían"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "ven",
-          SecondPersonSingularFormal: "venga",
-          FirstPersonPlural: "vengamos",
-          SecondPersonPluralFormal: "vengan"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "ven",
+          secondPersonSingularFormal: "venga",
+          firstPersonPlural: "vengamos",
+          secondPersonPluralFormal: "vengan"
         }
       }
     }
   },
   {
-    Infinitive: "ver",
-    IrregularConjugations: {
-      Indicative: {
-        Present: {
-          FirstPersonSingular: "veo",
-          SecondPersonPlural: "veis"
+    infinitive: "ver",
+    irregularConjugations: {
+      indicative: {
+        present: {
+          firstPersonSingular: "veo",
+          secondPersonPlural: "veis"
         },
-        Preterite: {
-          FirstPersonSingular: "vi",
-          ThirdPersonSingular: "vio"
+        preterite: {
+          firstPersonSingular: "vi",
+          thirdPersonSingular: "vio"
         },
-        Imperfect: {
-          FirstPersonSingular: "veía",
-          SecondPersonSingular: "veías",
-          ThirdPersonSingular: "veía",
-          FirstPersonPlural: "veíamos",
-          SecondPersonPlural: "veíais",
-          ThirdPersonPlural: "veían"
+        imperfect: {
+          firstPersonSingular: "veía",
+          secondPersonSingular: "veías",
+          thirdPersonSingular: "veía",
+          firstPersonPlural: "veíamos",
+          secondPersonPlural: "veíais",
+          thirdPersonPlural: "veían"
         }
       },
-      Imperative: {
-        Affirmative: {
-          SecondPersonSingular: "ve",
-          SecondPersonSingularFormal: "vea",
-          FirstPersonPlural: "veamos",
-          SecondPersonPluralFormal: "vean"
+      imperative: {
+        affirmative: {
+          secondPersonSingular: "ve",
+          secondPersonSingularFormal: "vea",
+          firstPersonPlural: "veamos",
+          secondPersonPluralFormal: "vean"
         }
       }
     }

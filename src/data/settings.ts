@@ -73,10 +73,10 @@ tenseSettingsMap.set("imperative", new Map([
 ]));
 
 export function isConjugationEnabled(settings: Settings, conjugation: Conjugation): boolean {
-  if (conjugation.Person === persons.SecondPluralInformal && !settings.secondPluralInformal)
+  if (conjugation.person === persons.secondPluralInformal && !settings.secondPluralInformal)
     return false;
 
-  const tenseSettingFn = tenseSettingsMap.get(conjugation.Mood)?.get(conjugation.Tense);
+  const tenseSettingFn = tenseSettingsMap.get(conjugation.mood)?.get(conjugation.tense);
   if (tenseSettingFn)
     return tenseSettingFn(settings);
 

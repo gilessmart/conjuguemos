@@ -3,15 +3,15 @@ import type { VerbDefinition, IrregularConjugations } from "./verbDefinitions.ty
 import { VerbConjugations, IndicativeMoodConjugations, DefaultTenseConjugations, ImperativeMoodConjugations, ImperativeTenseConjugations } from "./verbs.types";
 
 export function buildConjugations(definition: VerbDefinition): VerbConjugations {
-  const ending = definition.Infinitive.slice(-2);
-  const stem = definition.Infinitive.slice(0, -2);
+  const ending = definition.infinitive.slice(-2);
+  const stem = definition.infinitive.slice(0, -2);
   switch (ending) {
     case "ar":
-      return buildArConjugations(stem, definition.IrregularConjugations);
+      return buildArConjugations(stem, definition.irregularConjugations);
     case "er":
-      return buildErConjugations(stem, definition.IrregularConjugations);
+      return buildErConjugations(stem, definition.irregularConjugations);
     case "ir":
-      return buildIrConjugations(stem, definition.IrregularConjugations);
+      return buildIrConjugations(stem, definition.irregularConjugations);
     default:
       throw new Error(`Unsupported verb ending: ${ending}`);
   }
@@ -19,229 +19,229 @@ export function buildConjugations(definition: VerbDefinition): VerbConjugations 
 
 function buildArConjugations(stem: string, irregularConjugations?: IrregularConjugations): VerbConjugations {
   return new VerbConjugations({
-    Indicative: new IndicativeMoodConjugations({
-      Present: new DefaultTenseConjugations({
-        FirstSingular: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.FirstSingular,
-          Value: irregularConjugations?.Indicative?.Present?.FirstPersonSingular ?? `${stem}o`
+    indicative: new IndicativeMoodConjugations({
+      present: new DefaultTenseConjugations({
+        firstSingular: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.firstSingular,
+          value: irregularConjugations?.indicative?.present?.firstPersonSingular ?? `${stem}o`
         },
-        SecondSingularInformal: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Indicative?.Present?.SecondPersonSingular ?? `${stem}as`
+        secondSingularInformal: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.indicative?.present?.secondPersonSingular ?? `${stem}as`
         },
-        ThirdSingularAndSecondSingularFormal: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.ThirdSingularAndSecondSingularFormal,
-          Value: irregularConjugations?.Indicative?.Present?.ThirdPersonSingular ?? `${stem}a`
+        thirdSingularAndSecondSingularFormal: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.thirdSingularAndSecondSingularFormal,
+          value: irregularConjugations?.indicative?.present?.thirdPersonSingular ?? `${stem}a`
         },
-        FirstPlural: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Indicative?.Present?.FirstPersonPlural ?? `${stem}amos`
+        firstPlural: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.firstPlural,
+          value: irregularConjugations?.indicative?.present?.firstPersonPlural ?? `${stem}amos`
         },
-        SecondPluralInformal: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Indicative?.Present?.SecondPersonPlural ?? `${stem}áis`
+        secondPluralInformal: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.indicative?.present?.secondPersonPlural ?? `${stem}áis`
         },
-        ThirdPluralAndSecondPluralFormal: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.ThirdPluralAndSecondPluralFormal,
-          Value: irregularConjugations?.Indicative?.Present?.ThirdPersonPlural ?? `${stem}an`
+        thirdPluralAndSecondPluralFormal: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.thirdPluralAndSecondPluralFormal,
+          value: irregularConjugations?.indicative?.present?.thirdPersonPlural ?? `${stem}an`
         }
       }),
-      Preterite: new DefaultTenseConjugations({
-        FirstSingular: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.FirstSingular,
-          Value: irregularConjugations?.Indicative?.Preterite?.FirstPersonSingular ?? `${stem}é`
+      preterite: new DefaultTenseConjugations({
+        firstSingular: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.firstSingular,
+          value: irregularConjugations?.indicative?.preterite?.firstPersonSingular ?? `${stem}é`
         },
-        SecondSingularInformal: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonSingular ?? `${stem}aste`
+        secondSingularInformal: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.indicative?.preterite?.secondPersonSingular ?? `${stem}aste`
         },
-        ThirdSingularAndSecondSingularFormal: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.ThirdSingularAndSecondSingularFormal,
-          Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonSingular ?? `${stem}ó`
+        thirdSingularAndSecondSingularFormal: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.thirdSingularAndSecondSingularFormal,
+          value: irregularConjugations?.indicative?.preterite?.thirdPersonSingular ?? `${stem}ó`
         },
-        FirstPlural: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Indicative?.Preterite?.FirstPersonPlural ?? `${stem}amos`
+        firstPlural: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.firstPlural,
+          value: irregularConjugations?.indicative?.preterite?.firstPersonPlural ?? `${stem}amos`
         },
-        SecondPluralInformal: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonPlural ?? `${stem}asteis`
+        secondPluralInformal: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.indicative?.preterite?.secondPersonPlural ?? `${stem}asteis`
         },
-        ThirdPluralAndSecondPluralFormal: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.ThirdPluralAndSecondPluralFormal,
-          Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonPlural ?? `${stem}aron`
+        thirdPluralAndSecondPluralFormal: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.thirdPluralAndSecondPluralFormal,
+          value: irregularConjugations?.indicative?.preterite?.thirdPersonPlural ?? `${stem}aron`
         }
       }),
-      Imperfect: new DefaultTenseConjugations({
-        FirstSingular: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.FirstSingular,
-          Value: irregularConjugations?.Indicative?.Imperfect?.FirstPersonSingular ?? `${stem}aba`
+      imperfect: new DefaultTenseConjugations({
+        firstSingular: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.firstSingular,
+          value: irregularConjugations?.indicative?.imperfect?.firstPersonSingular ?? `${stem}aba`
         },
-        SecondSingularInformal: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonSingular ?? `${stem}abas`
+        secondSingularInformal: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.indicative?.imperfect?.secondPersonSingular ?? `${stem}abas`
         },
-        ThirdSingularAndSecondSingularFormal: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.ThirdSingularAndSecondSingularFormal,
-          Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonSingular ?? `${stem}aba`
+        thirdSingularAndSecondSingularFormal: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.thirdSingularAndSecondSingularFormal,
+          value: irregularConjugations?.indicative?.imperfect?.thirdPersonSingular ?? `${stem}aba`
         },
-        FirstPlural: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Indicative?.Imperfect?.FirstPersonPlural ?? `${stem}ábamos`
+        firstPlural: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.firstPlural,
+          value: irregularConjugations?.indicative?.imperfect?.firstPersonPlural ?? `${stem}ábamos`
         },
-        SecondPluralInformal: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonPlural ?? `${stem}abais`
+        secondPluralInformal: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.indicative?.imperfect?.secondPersonPlural ?? `${stem}abais`
         },
-        ThirdPluralAndSecondPluralFormal: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.ThirdPluralAndSecondPluralFormal,
-          Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonPlural ?? `${stem}aban`
+        thirdPluralAndSecondPluralFormal: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.thirdPluralAndSecondPluralFormal,
+          value: irregularConjugations?.indicative?.imperfect?.thirdPersonPlural ?? `${stem}aban`
         }
       }),
-      Future: new DefaultTenseConjugations({
-        FirstSingular: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.FirstSingular,
-          Value: irregularConjugations?.Indicative?.Future?.FirstPersonSingular ?? `${stem}aré`
+      future: new DefaultTenseConjugations({
+        firstSingular: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.firstSingular,
+          value: irregularConjugations?.indicative?.future?.firstPersonSingular ?? `${stem}aré`
         },
-        SecondSingularInformal: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Indicative?.Future?.SecondPersonSingular ?? `${stem}arás`
+        secondSingularInformal: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.indicative?.future?.secondPersonSingular ?? `${stem}arás`
         },
-        ThirdSingularAndSecondSingularFormal: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.ThirdSingularAndSecondSingularFormal,
-          Value: irregularConjugations?.Indicative?.Future?.ThirdPersonSingular ?? `${stem}ará`
+        thirdSingularAndSecondSingularFormal: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.thirdSingularAndSecondSingularFormal,
+          value: irregularConjugations?.indicative?.future?.thirdPersonSingular ?? `${stem}ará`
         },
-        FirstPlural: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Indicative?.Future?.FirstPersonPlural ?? `${stem}aremos`
+        firstPlural: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.firstPlural,
+          value: irregularConjugations?.indicative?.future?.firstPersonPlural ?? `${stem}aremos`
         },
-        SecondPluralInformal: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Indicative?.Future?.SecondPersonPlural ?? `${stem}aréis`
+        secondPluralInformal: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.indicative?.future?.secondPersonPlural ?? `${stem}aréis`
         },
-        ThirdPluralAndSecondPluralFormal: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.ThirdPluralAndSecondPluralFormal,
-          Value: irregularConjugations?.Indicative?.Future?.ThirdPersonPlural ?? `${stem}arán`
+        thirdPluralAndSecondPluralFormal: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.thirdPluralAndSecondPluralFormal,
+          value: irregularConjugations?.indicative?.future?.thirdPersonPlural ?? `${stem}arán`
         }
       }),
-      Conditional: new DefaultTenseConjugations({
-        FirstSingular: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.FirstSingular,
-          Value: irregularConjugations?.Indicative?.Conditional?.FirstPersonSingular ?? `${stem}aría`
+      conditional: new DefaultTenseConjugations({
+        firstSingular: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.firstSingular,
+          value: irregularConjugations?.indicative?.conditional?.firstPersonSingular ?? `${stem}aría`
         },
-        SecondSingularInformal: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonSingular ?? `${stem}arías`
+        secondSingularInformal: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.indicative?.conditional?.secondPersonSingular ?? `${stem}arías`
         },
-        ThirdSingularAndSecondSingularFormal: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.ThirdSingularAndSecondSingularFormal,
-          Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonSingular ?? `${stem}aría`
+        thirdSingularAndSecondSingularFormal: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.thirdSingularAndSecondSingularFormal,
+          value: irregularConjugations?.indicative?.conditional?.thirdPersonSingular ?? `${stem}aría`
         },
-        FirstPlural: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Indicative?.Conditional?.FirstPersonPlural ?? `${stem}aríamos`
+        firstPlural: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.firstPlural,
+          value: irregularConjugations?.indicative?.conditional?.firstPersonPlural ?? `${stem}aríamos`
         },
-        SecondPluralInformal: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonPlural ?? `${stem}aríais`
+        secondPluralInformal: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.indicative?.conditional?.secondPersonPlural ?? `${stem}aríais`
         },
-        ThirdPluralAndSecondPluralFormal: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.ThirdPluralAndSecondPluralFormal,
-          Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonPlural ?? `${stem}arían`
+        thirdPluralAndSecondPluralFormal: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.thirdPluralAndSecondPluralFormal,
+          value: irregularConjugations?.indicative?.conditional?.thirdPersonPlural ?? `${stem}arían`
         }
       })
     }),
-    Imperative: new ImperativeMoodConjugations({
-      Affirmative: new ImperativeTenseConjugations({
-        SecondSingularInformal: {
-          Mood: "imperative",
-          Tense: "affirmative",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingular ?? `${stem}a`
+    imperative: new ImperativeMoodConjugations({
+      affirmative: new ImperativeTenseConjugations({
+        secondSingularInformal: {
+          mood: "imperative",
+          tense: "affirmative",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.imperative?.affirmative?.secondPersonSingular ?? `${stem}a`
         },
-        SecondSingularFormal: {
-          Mood: "imperative",
-          Tense: "affirmative",
-          Person: persons.SecondSingularFormal,
-          Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingularFormal ?? `${stem}e`
+        secondSingularFormal: {
+          mood: "imperative",
+          tense: "affirmative",
+          person: persons.secondSingularFormal,
+          value: irregularConjugations?.imperative?.affirmative?.secondPersonSingularFormal ?? `${stem}e`
         },
-        FirstPlural: {
-          Mood: "imperative",
-          Tense: "affirmative",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Imperative?.Affirmative?.FirstPersonPlural ?? `${stem}emos`
+        firstPlural: {
+          mood: "imperative",
+          tense: "affirmative",
+          person: persons.firstPlural,
+          value: irregularConjugations?.imperative?.affirmative?.firstPersonPlural ?? `${stem}emos`
         },
-        SecondPluralInformal: {
-          Mood: "imperative",
-          Tense: "affirmative",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPlural ?? `${stem}ad`
+        secondPluralInformal: {
+          mood: "imperative",
+          tense: "affirmative",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.imperative?.affirmative?.secondPersonPlural ?? `${stem}ad`
         },
-        SecondPluralFormal: {
-          Mood: "imperative",
-          Tense: "affirmative",
-          Person: persons.SecondPluralFormal,
-          Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPluralFormal ?? `${stem}en`
+        secondPluralFormal: {
+          mood: "imperative",
+          tense: "affirmative",
+          person: persons.secondPluralFormal,
+          value: irregularConjugations?.imperative?.affirmative?.secondPersonPluralFormal ?? `${stem}en`
         }
       })
     })
@@ -250,229 +250,229 @@ function buildArConjugations(stem: string, irregularConjugations?: IrregularConj
 
 function buildErConjugations(stem: string, irregularConjugations?: IrregularConjugations): VerbConjugations {
   return new VerbConjugations({
-    Indicative: new IndicativeMoodConjugations({
-      Present: new DefaultTenseConjugations({
-        FirstSingular: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.FirstSingular,
-          Value: irregularConjugations?.Indicative?.Present?.FirstPersonSingular ?? `${stem}o`
+    indicative: new IndicativeMoodConjugations({
+      present: new DefaultTenseConjugations({
+        firstSingular: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.firstSingular,
+          value: irregularConjugations?.indicative?.present?.firstPersonSingular ?? `${stem}o`
         },
-        SecondSingularInformal: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Indicative?.Present?.SecondPersonSingular ?? `${stem}es`
+        secondSingularInformal: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.indicative?.present?.secondPersonSingular ?? `${stem}es`
         },
-        ThirdSingularAndSecondSingularFormal: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.ThirdSingularAndSecondSingularFormal,
-          Value: irregularConjugations?.Indicative?.Present?.ThirdPersonSingular ?? `${stem}e`
+        thirdSingularAndSecondSingularFormal: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.thirdSingularAndSecondSingularFormal,
+          value: irregularConjugations?.indicative?.present?.thirdPersonSingular ?? `${stem}e`
         },
-        FirstPlural: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Indicative?.Present?.FirstPersonPlural ?? `${stem}emos`
+        firstPlural: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.firstPlural,
+          value: irregularConjugations?.indicative?.present?.firstPersonPlural ?? `${stem}emos`
         },
-        SecondPluralInformal: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Indicative?.Present?.SecondPersonPlural ?? `${stem}éis`
+        secondPluralInformal: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.indicative?.present?.secondPersonPlural ?? `${stem}éis`
         },
-        ThirdPluralAndSecondPluralFormal: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.ThirdPluralAndSecondPluralFormal,
-          Value: irregularConjugations?.Indicative?.Present?.ThirdPersonPlural ?? `${stem}en`
+        thirdPluralAndSecondPluralFormal: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.thirdPluralAndSecondPluralFormal,
+          value: irregularConjugations?.indicative?.present?.thirdPersonPlural ?? `${stem}en`
         }
       }),
-      Preterite: new DefaultTenseConjugations({
-        FirstSingular: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.FirstSingular,
-          Value: irregularConjugations?.Indicative?.Preterite?.FirstPersonSingular ?? `${stem}í`
+      preterite: new DefaultTenseConjugations({
+        firstSingular: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.firstSingular,
+          value: irregularConjugations?.indicative?.preterite?.firstPersonSingular ?? `${stem}í`
         },
-        SecondSingularInformal: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonSingular ?? `${stem}iste`
+        secondSingularInformal: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.indicative?.preterite?.secondPersonSingular ?? `${stem}iste`
         },
-        ThirdSingularAndSecondSingularFormal: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.ThirdSingularAndSecondSingularFormal,
-          Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonSingular ?? `${stem}ió`
+        thirdSingularAndSecondSingularFormal: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.thirdSingularAndSecondSingularFormal,
+          value: irregularConjugations?.indicative?.preterite?.thirdPersonSingular ?? `${stem}ió`
         },
-        FirstPlural: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Indicative?.Preterite?.FirstPersonPlural ?? `${stem}imos`
+        firstPlural: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.firstPlural,
+          value: irregularConjugations?.indicative?.preterite?.firstPersonPlural ?? `${stem}imos`
         },
-        SecondPluralInformal: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonPlural ?? `${stem}isteis`
+        secondPluralInformal: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.indicative?.preterite?.secondPersonPlural ?? `${stem}isteis`
         },
-        ThirdPluralAndSecondPluralFormal: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.ThirdPluralAndSecondPluralFormal,
-          Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonPlural ?? `${stem}ieron`
+        thirdPluralAndSecondPluralFormal: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.thirdPluralAndSecondPluralFormal,
+          value: irregularConjugations?.indicative?.preterite?.thirdPersonPlural ?? `${stem}ieron`
         }
       }),
-      Imperfect: new DefaultTenseConjugations({
-        FirstSingular: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.FirstSingular,
-          Value: irregularConjugations?.Indicative?.Imperfect?.FirstPersonSingular ?? `${stem}ía`
+      imperfect: new DefaultTenseConjugations({
+        firstSingular: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.firstSingular,
+          value: irregularConjugations?.indicative?.imperfect?.firstPersonSingular ?? `${stem}ía`
         },
-        SecondSingularInformal: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonSingular ?? `${stem}ías`
+        secondSingularInformal: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.indicative?.imperfect?.secondPersonSingular ?? `${stem}ías`
         },
-        ThirdSingularAndSecondSingularFormal: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.ThirdSingularAndSecondSingularFormal,
-          Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonSingular ?? `${stem}ía`
+        thirdSingularAndSecondSingularFormal: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.thirdSingularAndSecondSingularFormal,
+          value: irregularConjugations?.indicative?.imperfect?.thirdPersonSingular ?? `${stem}ía`
         },
-        FirstPlural: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Indicative?.Imperfect?.FirstPersonPlural ?? `${stem}íamos`
+        firstPlural: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.firstPlural,
+          value: irregularConjugations?.indicative?.imperfect?.firstPersonPlural ?? `${stem}íamos`
         },
-        SecondPluralInformal: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonPlural ?? `${stem}íais`
+        secondPluralInformal: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.indicative?.imperfect?.secondPersonPlural ?? `${stem}íais`
         },
-        ThirdPluralAndSecondPluralFormal: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.ThirdPluralAndSecondPluralFormal,
-          Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonPlural ?? `${stem}ían`
+        thirdPluralAndSecondPluralFormal: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.thirdPluralAndSecondPluralFormal,
+          value: irregularConjugations?.indicative?.imperfect?.thirdPersonPlural ?? `${stem}ían`
         }
       }),
-      Future: new DefaultTenseConjugations({
-        FirstSingular: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.FirstSingular,
-          Value: irregularConjugations?.Indicative?.Future?.FirstPersonSingular ?? `${stem}eré`
+      future: new DefaultTenseConjugations({
+        firstSingular: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.firstSingular,
+          value: irregularConjugations?.indicative?.future?.firstPersonSingular ?? `${stem}eré`
         },
-        SecondSingularInformal: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Indicative?.Future?.SecondPersonSingular ?? `${stem}erás`
+        secondSingularInformal: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.indicative?.future?.secondPersonSingular ?? `${stem}erás`
         },
-        ThirdSingularAndSecondSingularFormal: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.ThirdSingularAndSecondSingularFormal,
-          Value: irregularConjugations?.Indicative?.Future?.ThirdPersonSingular ?? `${stem}erá`
+        thirdSingularAndSecondSingularFormal: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.thirdSingularAndSecondSingularFormal,
+          value: irregularConjugations?.indicative?.future?.thirdPersonSingular ?? `${stem}erá`
         },
-        FirstPlural: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Indicative?.Future?.FirstPersonPlural ?? `${stem}eremos`
+        firstPlural: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.firstPlural,
+          value: irregularConjugations?.indicative?.future?.firstPersonPlural ?? `${stem}eremos`
         },
-        SecondPluralInformal: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Indicative?.Future?.SecondPersonPlural ?? `${stem}eréis`
+        secondPluralInformal: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.indicative?.future?.secondPersonPlural ?? `${stem}eréis`
         },
-        ThirdPluralAndSecondPluralFormal: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.ThirdPluralAndSecondPluralFormal,
-          Value: irregularConjugations?.Indicative?.Future?.ThirdPersonPlural ?? `${stem}erán`
+        thirdPluralAndSecondPluralFormal: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.thirdPluralAndSecondPluralFormal,
+          value: irregularConjugations?.indicative?.future?.thirdPersonPlural ?? `${stem}erán`
         }
       }),
-      Conditional: new DefaultTenseConjugations({
-        FirstSingular: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.FirstSingular,
-          Value: irregularConjugations?.Indicative?.Conditional?.FirstPersonSingular ?? `${stem}ería`
+      conditional: new DefaultTenseConjugations({
+        firstSingular: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.firstSingular,
+          value: irregularConjugations?.indicative?.conditional?.firstPersonSingular ?? `${stem}ería`
         },
-        SecondSingularInformal: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonSingular ?? `${stem}erías`
+        secondSingularInformal: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.indicative?.conditional?.secondPersonSingular ?? `${stem}erías`
         },
-        ThirdSingularAndSecondSingularFormal: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.ThirdSingularAndSecondSingularFormal,
-          Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonSingular ?? `${stem}ería`
+        thirdSingularAndSecondSingularFormal: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.thirdSingularAndSecondSingularFormal,
+          value: irregularConjugations?.indicative?.conditional?.thirdPersonSingular ?? `${stem}ería`
         },
-        FirstPlural: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Indicative?.Conditional?.FirstPersonPlural ?? `${stem}eríamos`
+        firstPlural: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.firstPlural,
+          value: irregularConjugations?.indicative?.conditional?.firstPersonPlural ?? `${stem}eríamos`
         },
-        SecondPluralInformal: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonPlural ?? `${stem}eríais`
+        secondPluralInformal: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.indicative?.conditional?.secondPersonPlural ?? `${stem}eríais`
         },
-        ThirdPluralAndSecondPluralFormal: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.ThirdPluralAndSecondPluralFormal,
-          Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonPlural ?? `${stem}erían`
+        thirdPluralAndSecondPluralFormal: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.thirdPluralAndSecondPluralFormal,
+          value: irregularConjugations?.indicative?.conditional?.thirdPersonPlural ?? `${stem}erían`
         }
       })
     }),
-    Imperative: new ImperativeMoodConjugations({
-      Affirmative: new ImperativeTenseConjugations({
-        SecondSingularInformal: {
-          Mood: "imperative",
-          Tense: "affirmative",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingular ?? `${stem}e`
+    imperative: new ImperativeMoodConjugations({
+      affirmative: new ImperativeTenseConjugations({
+        secondSingularInformal: {
+          mood: "imperative",
+          tense: "affirmative",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.imperative?.affirmative?.secondPersonSingular ?? `${stem}e`
         },
-        SecondSingularFormal: {
-          Mood: "imperative",
-          Tense: "affirmative",
-          Person: persons.SecondSingularFormal,
-          Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingularFormal ?? `${stem}a`
+        secondSingularFormal: {
+          mood: "imperative",
+          tense: "affirmative",
+          person: persons.secondSingularFormal,
+          value: irregularConjugations?.imperative?.affirmative?.secondPersonSingularFormal ?? `${stem}a`
         },
-        FirstPlural: {
-          Mood: "imperative",
-          Tense: "affirmative",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Imperative?.Affirmative?.FirstPersonPlural ?? `${stem}amos`
+        firstPlural: {
+          mood: "imperative",
+          tense: "affirmative",
+          person: persons.firstPlural,
+          value: irregularConjugations?.imperative?.affirmative?.firstPersonPlural ?? `${stem}amos`
         },
-        SecondPluralInformal: {
-          Mood: "imperative",
-          Tense: "affirmative",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPlural ?? `${stem}ed`
+        secondPluralInformal: {
+          mood: "imperative",
+          tense: "affirmative",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.imperative?.affirmative?.secondPersonPlural ?? `${stem}ed`
         },
-        SecondPluralFormal: {
-          Mood: "imperative",
-          Tense: "affirmative",
-          Person: persons.SecondPluralFormal,
-          Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPluralFormal ?? `${stem}an`
+        secondPluralFormal: {
+          mood: "imperative",
+          tense: "affirmative",
+          person: persons.secondPluralFormal,
+          value: irregularConjugations?.imperative?.affirmative?.secondPersonPluralFormal ?? `${stem}an`
         }
       })
     })
@@ -481,229 +481,229 @@ function buildErConjugations(stem: string, irregularConjugations?: IrregularConj
 
 function buildIrConjugations(stem: string, irregularConjugations?: IrregularConjugations): VerbConjugations {
   return new VerbConjugations({
-    Indicative: new IndicativeMoodConjugations({
-      Present: new DefaultTenseConjugations({
-        FirstSingular: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.FirstSingular,
-          Value: irregularConjugations?.Indicative?.Present?.FirstPersonSingular ?? `${stem}o`
+    indicative: new IndicativeMoodConjugations({
+      present: new DefaultTenseConjugations({
+        firstSingular: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.firstSingular,
+          value: irregularConjugations?.indicative?.present?.firstPersonSingular ?? `${stem}o`
         },
-        SecondSingularInformal: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Indicative?.Present?.SecondPersonSingular ?? `${stem}es`
+        secondSingularInformal: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.indicative?.present?.secondPersonSingular ?? `${stem}es`
         },
-        ThirdSingularAndSecondSingularFormal: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.ThirdSingularAndSecondSingularFormal,
-          Value: irregularConjugations?.Indicative?.Present?.ThirdPersonSingular ?? `${stem}e`
+        thirdSingularAndSecondSingularFormal: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.thirdSingularAndSecondSingularFormal,
+          value: irregularConjugations?.indicative?.present?.thirdPersonSingular ?? `${stem}e`
         },
-        FirstPlural: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Indicative?.Present?.FirstPersonPlural ?? `${stem}imos`
+        firstPlural: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.firstPlural,
+          value: irregularConjugations?.indicative?.present?.firstPersonPlural ?? `${stem}imos`
         },
-        SecondPluralInformal: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Indicative?.Present?.SecondPersonPlural ?? `${stem}ís`
+        secondPluralInformal: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.indicative?.present?.secondPersonPlural ?? `${stem}ís`
         },
-        ThirdPluralAndSecondPluralFormal: {
-          Mood: "indicative",
-          Tense: "present",
-          Person: persons.ThirdPluralAndSecondPluralFormal,
-          Value: irregularConjugations?.Indicative?.Present?.ThirdPersonPlural ?? `${stem}en`
+        thirdPluralAndSecondPluralFormal: {
+          mood: "indicative",
+          tense: "present",
+          person: persons.thirdPluralAndSecondPluralFormal,
+          value: irregularConjugations?.indicative?.present?.thirdPersonPlural ?? `${stem}en`
         }
       }),
-      Preterite: new DefaultTenseConjugations({
-        FirstSingular: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.FirstSingular,
-          Value: irregularConjugations?.Indicative?.Preterite?.FirstPersonSingular ?? `${stem}í`
+      preterite: new DefaultTenseConjugations({
+        firstSingular: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.firstSingular,
+          value: irregularConjugations?.indicative?.preterite?.firstPersonSingular ?? `${stem}í`
         },
-        SecondSingularInformal: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonSingular ?? `${stem}iste`
+        secondSingularInformal: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.indicative?.preterite?.secondPersonSingular ?? `${stem}iste`
         },
-        ThirdSingularAndSecondSingularFormal: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.ThirdSingularAndSecondSingularFormal,
-          Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonSingular ?? `${stem}ió`
+        thirdSingularAndSecondSingularFormal: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.thirdSingularAndSecondSingularFormal,
+          value: irregularConjugations?.indicative?.preterite?.thirdPersonSingular ?? `${stem}ió`
         },
-        FirstPlural: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Indicative?.Preterite?.FirstPersonPlural ?? `${stem}imos`
+        firstPlural: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.firstPlural,
+          value: irregularConjugations?.indicative?.preterite?.firstPersonPlural ?? `${stem}imos`
         },
-        SecondPluralInformal: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Indicative?.Preterite?.SecondPersonPlural ?? `${stem}isteis`
+        secondPluralInformal: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.indicative?.preterite?.secondPersonPlural ?? `${stem}isteis`
         },
-        ThirdPluralAndSecondPluralFormal: {
-          Mood: "indicative",
-          Tense: "preterite",
-          Person: persons.ThirdPluralAndSecondPluralFormal,
-          Value: irregularConjugations?.Indicative?.Preterite?.ThirdPersonPlural ?? `${stem}ieron`
+        thirdPluralAndSecondPluralFormal: {
+          mood: "indicative",
+          tense: "preterite",
+          person: persons.thirdPluralAndSecondPluralFormal,
+          value: irregularConjugations?.indicative?.preterite?.thirdPersonPlural ?? `${stem}ieron`
         }
       }),
-      Imperfect: new DefaultTenseConjugations({
-        FirstSingular: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.FirstSingular,
-          Value: irregularConjugations?.Indicative?.Imperfect?.FirstPersonSingular ?? `${stem}ía`
+      imperfect: new DefaultTenseConjugations({
+        firstSingular: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.firstSingular,
+          value: irregularConjugations?.indicative?.imperfect?.firstPersonSingular ?? `${stem}ía`
         },
-        SecondSingularInformal: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonSingular ?? `${stem}ías`
+        secondSingularInformal: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.indicative?.imperfect?.secondPersonSingular ?? `${stem}ías`
         },
-        ThirdSingularAndSecondSingularFormal: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.ThirdSingularAndSecondSingularFormal,
-          Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonSingular ?? `${stem}ía`
+        thirdSingularAndSecondSingularFormal: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.thirdSingularAndSecondSingularFormal,
+          value: irregularConjugations?.indicative?.imperfect?.thirdPersonSingular ?? `${stem}ía`
         },
-        FirstPlural: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Indicative?.Imperfect?.FirstPersonPlural ?? `${stem}íamos`
+        firstPlural: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.firstPlural,
+          value: irregularConjugations?.indicative?.imperfect?.firstPersonPlural ?? `${stem}íamos`
         },
-        SecondPluralInformal: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Indicative?.Imperfect?.SecondPersonPlural ?? `${stem}íais`
+        secondPluralInformal: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.indicative?.imperfect?.secondPersonPlural ?? `${stem}íais`
         },
-        ThirdPluralAndSecondPluralFormal: {
-          Mood: "indicative",
-          Tense: "imperfect",
-          Person: persons.ThirdPluralAndSecondPluralFormal,
-          Value: irregularConjugations?.Indicative?.Imperfect?.ThirdPersonPlural ?? `${stem}ían`
+        thirdPluralAndSecondPluralFormal: {
+          mood: "indicative",
+          tense: "imperfect",
+          person: persons.thirdPluralAndSecondPluralFormal,
+          value: irregularConjugations?.indicative?.imperfect?.thirdPersonPlural ?? `${stem}ían`
         }
       }),
-      Future: new DefaultTenseConjugations({
-        FirstSingular: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.FirstSingular,
-          Value: irregularConjugations?.Indicative?.Future?.FirstPersonSingular ?? `${stem}iré`
+      future: new DefaultTenseConjugations({
+        firstSingular: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.firstSingular,
+          value: irregularConjugations?.indicative?.future?.firstPersonSingular ?? `${stem}iré`
         },
-        SecondSingularInformal: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Indicative?.Future?.SecondPersonSingular ?? `${stem}irás`
+        secondSingularInformal: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.indicative?.future?.secondPersonSingular ?? `${stem}irás`
         },
-        ThirdSingularAndSecondSingularFormal: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.ThirdSingularAndSecondSingularFormal,
-          Value: irregularConjugations?.Indicative?.Future?.ThirdPersonSingular ?? `${stem}irá`
+        thirdSingularAndSecondSingularFormal: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.thirdSingularAndSecondSingularFormal,
+          value: irregularConjugations?.indicative?.future?.thirdPersonSingular ?? `${stem}irá`
         },
-        FirstPlural: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Indicative?.Future?.FirstPersonPlural ?? `${stem}iremos`
+        firstPlural: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.firstPlural,
+          value: irregularConjugations?.indicative?.future?.firstPersonPlural ?? `${stem}iremos`
         },
-        SecondPluralInformal: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Indicative?.Future?.SecondPersonPlural ?? `${stem}iréis`
+        secondPluralInformal: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.indicative?.future?.secondPersonPlural ?? `${stem}iréis`
         },
-        ThirdPluralAndSecondPluralFormal: {
-          Mood: "indicative",
-          Tense: "future",
-          Person: persons.ThirdPluralAndSecondPluralFormal,
-          Value: irregularConjugations?.Indicative?.Future?.ThirdPersonPlural ?? `${stem}irán`
+        thirdPluralAndSecondPluralFormal: {
+          mood: "indicative",
+          tense: "future",
+          person: persons.thirdPluralAndSecondPluralFormal,
+          value: irregularConjugations?.indicative?.future?.thirdPersonPlural ?? `${stem}irán`
         }
       }),
-      Conditional: new DefaultTenseConjugations({
-        FirstSingular: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.FirstSingular,
-          Value: irregularConjugations?.Indicative?.Conditional?.FirstPersonSingular ?? `${stem}iría`
+      conditional: new DefaultTenseConjugations({
+        firstSingular: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.firstSingular,
+          value: irregularConjugations?.indicative?.conditional?.firstPersonSingular ?? `${stem}iría`
         },
-        SecondSingularInformal: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonSingular ?? `${stem}irías`
+        secondSingularInformal: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.indicative?.conditional?.secondPersonSingular ?? `${stem}irías`
         },
-        ThirdSingularAndSecondSingularFormal: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.ThirdSingularAndSecondSingularFormal,
-          Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonSingular ?? `${stem}iría`
+        thirdSingularAndSecondSingularFormal: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.thirdSingularAndSecondSingularFormal,
+          value: irregularConjugations?.indicative?.conditional?.thirdPersonSingular ?? `${stem}iría`
         },
-        FirstPlural: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Indicative?.Conditional?.FirstPersonPlural ?? `${stem}iríamos`
+        firstPlural: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.firstPlural,
+          value: irregularConjugations?.indicative?.conditional?.firstPersonPlural ?? `${stem}iríamos`
         },
-        SecondPluralInformal: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Indicative?.Conditional?.SecondPersonPlural ?? `${stem}iríais`
+        secondPluralInformal: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.indicative?.conditional?.secondPersonPlural ?? `${stem}iríais`
         },
-        ThirdPluralAndSecondPluralFormal: {
-          Mood: "indicative",
-          Tense: "conditional",
-          Person: persons.ThirdPluralAndSecondPluralFormal,
-          Value: irregularConjugations?.Indicative?.Conditional?.ThirdPersonPlural ?? `${stem}irían`
+        thirdPluralAndSecondPluralFormal: {
+          mood: "indicative",
+          tense: "conditional",
+          person: persons.thirdPluralAndSecondPluralFormal,
+          value: irregularConjugations?.indicative?.conditional?.thirdPersonPlural ?? `${stem}irían`
         }
       })
     }),
-    Imperative: new ImperativeMoodConjugations({
-      Affirmative: new ImperativeTenseConjugations({
-        SecondSingularInformal: {
-          Mood: "imperative",
-          Tense: "affirmative",
-          Person: persons.SecondSingularInformal,
-          Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingular ?? `${stem}e`
+    imperative: new ImperativeMoodConjugations({
+      affirmative: new ImperativeTenseConjugations({
+        secondSingularInformal: {
+          mood: "imperative",
+          tense: "affirmative",
+          person: persons.secondSingularInformal,
+          value: irregularConjugations?.imperative?.affirmative?.secondPersonSingular ?? `${stem}e`
         },
-        SecondSingularFormal: {
-          Mood: "imperative",
-          Tense: "affirmative",
-          Person: persons.SecondSingularFormal,
-          Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonSingularFormal ?? `${stem}a`
+        secondSingularFormal: {
+          mood: "imperative",
+          tense: "affirmative",
+          person: persons.secondSingularFormal,
+          value: irregularConjugations?.imperative?.affirmative?.secondPersonSingularFormal ?? `${stem}a`
         },
-        FirstPlural: {
-          Mood: "imperative",
-          Tense: "affirmative",
-          Person: persons.FirstPlural,
-          Value: irregularConjugations?.Imperative?.Affirmative?.FirstPersonPlural ?? `${stem}amos`
+        firstPlural: {
+          mood: "imperative",
+          tense: "affirmative",
+          person: persons.firstPlural,
+          value: irregularConjugations?.imperative?.affirmative?.firstPersonPlural ?? `${stem}amos`
         },
-        SecondPluralInformal: {
-          Mood: "imperative",
-          Tense: "affirmative",
-          Person: persons.SecondPluralInformal,
-          Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPlural ?? `${stem}id`
+        secondPluralInformal: {
+          mood: "imperative",
+          tense: "affirmative",
+          person: persons.secondPluralInformal,
+          value: irregularConjugations?.imperative?.affirmative?.secondPersonPlural ?? `${stem}id`
         },
-        SecondPluralFormal: {
-          Mood: "imperative",
-          Tense: "affirmative",
-          Person: persons.SecondPluralFormal,
-          Value: irregularConjugations?.Imperative?.Affirmative?.SecondPersonPluralFormal ?? `${stem}an`
+        secondPluralFormal: {
+          mood: "imperative",
+          tense: "affirmative",
+          person: persons.secondPluralFormal,
+          value: irregularConjugations?.imperative?.affirmative?.secondPersonPluralFormal ?? `${stem}an`
         }
       })
     })

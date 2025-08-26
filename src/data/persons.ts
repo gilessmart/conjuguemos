@@ -1,47 +1,47 @@
 import type { Person } from "./verbs.types";
 
 interface Persons {
-  FirstSingular: Person;
-  SecondSingularInformal: Person;
-  SecondSingularFormal: Person;
-  ThirdSingularAndSecondSingularFormal: Person;
-  FirstPlural: Person;
-  SecondPluralInformal: Person;
-  SecondPluralFormal: Person;
-  ThirdPluralAndSecondPluralFormal: Person;
+  firstSingular: Person;
+  secondSingularInformal: Person;
+  secondSingularFormal: Person;
+  thirdSingularAndSecondSingularFormal: Person;
+  firstPlural: Person;
+  secondPluralInformal: Person;
+  secondPluralFormal: Person;
+  thirdPluralAndSecondPluralFormal: Person;
 }
 
 export const persons: Persons = {
-  FirstSingular: {
-    Description: "first person singular",
-    Pronouns: "yo"
+  firstSingular: {
+    description: "first person singular",
+    pronouns: "yo"
   },
-  SecondSingularInformal: {
-    Description: "informal second person singular",
-    Pronouns: "tú"
+  secondSingularInformal: {
+    description: "informal second person singular",
+    pronouns: "tú"
   },
-  SecondSingularFormal: {
-    Description: "formal second person singular",
-    Pronouns: "usted"
+  secondSingularFormal: {
+    description: "formal second person singular",
+    pronouns: "usted"
   },
-  ThirdSingularAndSecondSingularFormal: {
-    Description: "third person singular / formal second person singular",
-    Pronouns: "él / ella / usted"
+  thirdSingularAndSecondSingularFormal: {
+    description: "third person singular / formal second person singular",
+    pronouns: "él / ella / usted"
   },
-  FirstPlural: {
-    Description: "first person plural",
-    Pronouns: "nosotros / nosotras"
+  firstPlural: {
+    description: "first person plural",
+    pronouns: "nosotros / nosotras"
   },
-  SecondPluralInformal: {
-    Description: "informal second person plural",
-    Pronouns: "vosotros / vosotras"
+  secondPluralInformal: {
+    description: "informal second person plural",
+    pronouns: "vosotros / vosotras"
   },
-  SecondPluralFormal: {
-    Description: "formal second person plural",
-    Pronouns: "ustedes"
+  secondPluralFormal: {
+    description: "formal second person plural",
+    pronouns: "ustedes"
   },
-  ThirdPluralAndSecondPluralFormal: {
-    Description: "third person plural / formal second person plural",
-    Pronouns: "éllos / ellas / ustedes"
+  thirdPluralAndSecondPluralFormal: {
+    description: "third person plural / formal second person plural",
+    pronouns: "éllos / ellas / ustedes"
   }
 };
