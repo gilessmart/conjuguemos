@@ -1,5 +1,5 @@
 import zod from "zod";
-import { type Conjugation } from "./conjugation";
+import { type Conjugation } from "./verbs.types";
 import { persons } from "./persons";
 
 export const defaultSettings = {

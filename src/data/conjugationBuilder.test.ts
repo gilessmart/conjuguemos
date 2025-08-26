@@ -1,5 +1,6 @@
 import { assert, describe, expect, test } from "vitest";
-import { buildConjugations, DefaultTenseConjugations, ImperativeMoodConjugations, ImperativeTenseConjugations, IndicativeMoodConjugations, VerbConjugations } from "./conjugation";
+import { buildConjugations } from "./conjugationBuilder";
+import { DefaultTenseConjugations, ImperativeMoodConjugations, ImperativeTenseConjugations, IndicativeMoodConjugations, VerbConjugations } from "./verbs.types";
 import { persons } from "./persons";
 import { getVerbDefinition } from "./verbDefinitions";
 

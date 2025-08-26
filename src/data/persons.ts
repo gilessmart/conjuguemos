@@ -1,7 +1,4 @@
-export interface Person {
-  Description: string;
-  Pronouns: string;
-};
+import type { Person } from "./verbs.types";
 
 interface Persons {
   FirstSingular: Person;
