@@ -1,5 +1,5 @@
 import { persons } from "./persons";
-import type { VerbDefinition, IrregularConjugations } from "./verbDefinitions";
+import type { VerbDefinition, IrregularConjugations } from "./verbDefinitions.types";
 import { VerbConjugations, IndicativeMoodConjugations, DefaultTenseConjugations, ImperativeMoodConjugations, ImperativeTenseConjugations } from "./verbs.types";
 
 export function buildConjugations(definition: VerbDefinition): VerbConjugations {

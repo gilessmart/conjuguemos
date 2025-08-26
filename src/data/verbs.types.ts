@@ -1,5 +1,5 @@
 import { buildConjugations } from "./conjugationBuilder";
-import type { VerbDefinition } from "./verbDefinitions";
+import type { VerbDefinition } from "./verbDefinitions.types";
 
 export class Verb {
   readonly Infinitive: string;
