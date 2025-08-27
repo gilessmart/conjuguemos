@@ -31,7 +31,7 @@ export default function Game() {
   }
 
   function isCorrectAnswer(candidate: string): boolean {
-    return candidate.trim().toLowerCase() === target.conjugation.trim().toLowerCase();
+    return candidate.trim().toLowerCase() === target.conjugation.value.trim().toLowerCase();
   }
 
   function nextVerb() {
@@ -61,14 +61,14 @@ export default function Game() {
         <h1>Conjuguemos</h1>
       </header>
       <main>
-        <p>Conjugate <strong>{target.infinitive}</strong> in the <strong>{target.mood} {target.tense}</strong> tense:</p>
+        <p>Conjugate <strong>{target.infinitive}</strong> in the <strong>{target.conjugation.mood} {target.conjugation.tense}</strong> tense:</p>
         <div className={styles.verbInputRow}>
-          <label htmlFor={inputId}>{target.pronouns}</label>
+          <label htmlFor={inputId}>{target.conjugation.person.pronouns}</label>
           <input type="text" id={inputId} value={answer}
                  onChange={e => { onChangeAnswer(e.target.value); }} />
           { !showAnswer && <button className={styles.showAnswerButton} type="button" 
                                    onClick={() => { startShowAnswer(); }}>Show answer</button> }
-          { showAnswer && <span className={styles.answer}>{target.conjugation}</span> }
+          { showAnswer && <span className={styles.answer}>{target.conjugation.value}</span> }
         </div>
       </main>
     </div>
@@ -84,9 +84,6 @@ function generateTarget() {
   
   return {
     infinitive: verb.infinitive,
-    mood: conjugation.mood,
-    tense: conjugation.tense,
-    pronouns: conjugation.person.pronouns,
-    conjugation: conjugation.value
+    conjugation: conjugation
   };
 }
