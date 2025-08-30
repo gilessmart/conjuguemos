@@ -1,64 +1,71 @@
 import { buildConjugations } from "./conjugationBuilder";
+import { moods } from "./moods";
 import type { VerbDefinition } from "./verbDefinitions.types";
 
 export class Verb {
   readonly infinitive: string;
-  readonly conjugations: VerbConjugations;
+  readonly verbMoods: VerbMoods;
 
   constructor(definition: VerbDefinition) {
     this.infinitive = definition.infinitive;
-    this.conjugations = buildConjugations(definition);
+    this.verbMoods = buildConjugations(definition);
   }
 
-  allConjugations(): Conjugation[] {
-    const conjugations = [];
-    for (const mood of this.conjugations.allMoods())
-      for (const tense of mood.allTenses())
-        for (const conjugation of tense.allConjugations())
-          conjugations.push(conjugation);
-    return conjugations;
+  flatConjugations(): { mood: Mood, tense: Tense, conjugation: Conjugation }[] {
+    const results = [];
+    for (const verbMood of this.verbMoods.allVerbMoods())
+      for (const verbTense of verbMood.allVerbTenses())
+        for (const conjugation of verbTense.allConjugations())
+          results.push({ mood: verbMood.mood, tense: verbTense.tense, conjugation});
+    return results;
   }
 };
 
-export class VerbConjugations {
-  indicative: IndicativeMoodConjugations;
-  imperative: ImperativeMoodConjugations;
+export class VerbMoods {
+  readonly indicative: IndicativeVerbMood;
+  readonly imperative: ImperativeVerbMood;
 
   constructor(params: {
-    indicative: IndicativeMoodConjugations;
-    imperative: ImperativeMoodConjugations;
+    indicative: IndicativeVerbMood;
+    imperative: ImperativeVerbMood;
   }) {
     this.indicative = params.indicative;
     this.imperative = params.imperative;
   }
 
-  allMoods() {
+  allVerbMoods(): VerbMood[] {
     return [this.indicative, this.imperative];
   }
 };
 
-export class IndicativeMoodConjugations {
-  present: DefaultTenseConjugations;
-  preterite: DefaultTenseConjugations;
-  imperfect: DefaultTenseConjugations;
-  future: DefaultTenseConjugations;
-  conditional: DefaultTenseConjugations;
+interface VerbMood {
+  mood: Mood;
+  allVerbTenses: () => VerbTense[];
+}
 
-  constructor(params: {
-    present: DefaultTenseConjugations;
-    preterite: DefaultTenseConjugations;
-    imperfect: DefaultTenseConjugations;
-    future: DefaultTenseConjugations;
-    conditional: DefaultTenseConjugations;
+export class IndicativeVerbMood implements VerbMood {
+  readonly mood: Mood = moods.indicative;
+  readonly present: DefaultVerbTense;
+  readonly preterite: DefaultVerbTense;
+  readonly imperfect: DefaultVerbTense;
+  readonly future: DefaultVerbTense;
+  readonly conditional: DefaultVerbTense;
+
+  constructor(tenses: {
+    present: DefaultVerbTense;
+    preterite: DefaultVerbTense;
+    imperfect: DefaultVerbTense;
+    future: DefaultVerbTense;
+    conditional: DefaultVerbTense;
   }) {
-    this.present = params.present;
-    this.preterite = params.preterite;
-    this.imperfect = params.imperfect;
-    this.future = params.future;
-    this.conditional = params.conditional;
+    this.present = tenses.present;
+    this.preterite = tenses.preterite;
+    this.imperfect = tenses.imperfect;
+    this.future = tenses.future;
+    this.conditional = tenses.conditional;
   }
 
-  allTenses() {
+  allVerbTenses() {
     return [
       this.present,
       this.preterite,
@@ -69,29 +76,36 @@ export class IndicativeMoodConjugations {
   }
 };
 
-export class ImperativeMoodConjugations {
-  affirmative: ImperativeTenseConjugations;
+export class ImperativeVerbMood implements VerbMood{
+  readonly mood: Mood = moods.imperative;
+  readonly affirmative: ImperativeVerbTense;
 
-  constructor(params: {
-    affirmative: ImperativeTenseConjugations;
+  constructor(tenses: {
+    affirmative: ImperativeVerbTense;
   }) {
-    this.affirmative = params.affirmative;
+    this.affirmative = tenses.affirmative;
   }
 
-  allTenses() {
+  allVerbTenses() {
     return [this.affirmative];
   }
 };
 
-export class DefaultTenseConjugations {
-  firstSingular: Conjugation;
-  secondSingularInformal: Conjugation;
-  thirdSingularAndSecondSingularFormal: Conjugation;
-  firstPlural: Conjugation;
-  secondPluralInformal: Conjugation;
-  thirdPluralAndSecondPluralFormal: Conjugation;
+interface VerbTense {
+  tense: Tense;
+  allConjugations: () => Conjugation[];
+}
 
-  constructor(params: {
+export class DefaultVerbTense implements VerbTense {
+  readonly tense: Tense;
+  readonly firstSingular: Conjugation;
+  readonly secondSingularInformal: Conjugation;
+  readonly thirdSingularAndSecondSingularFormal: Conjugation;
+  readonly firstPlural: Conjugation;
+  readonly secondPluralInformal: Conjugation;
+  readonly thirdPluralAndSecondPluralFormal: Conjugation;
+
+  constructor(tense: Tense, conjugations: {
     firstSingular: Conjugation;
     secondSingularInformal: Conjugation;
     thirdSingularAndSecondSingularFormal: Conjugation;
@@ -99,12 +113,13 @@ export class DefaultTenseConjugations {
     secondPluralInformal: Conjugation;
     thirdPluralAndSecondPluralFormal: Conjugation;
   }) {
-    this.firstSingular = params.firstSingular;
-    this.secondSingularInformal = params.secondSingularInformal;
-    this.thirdSingularAndSecondSingularFormal = params.thirdSingularAndSecondSingularFormal;
-    this.firstPlural = params.firstPlural;
-    this.secondPluralInformal = params.secondPluralInformal;
-    this.thirdPluralAndSecondPluralFormal = params.thirdPluralAndSecondPluralFormal;
+    this.tense = tense;
+    this.firstSingular = conjugations.firstSingular;
+    this.secondSingularInformal = conjugations.secondSingularInformal;
+    this.thirdSingularAndSecondSingularFormal = conjugations.thirdSingularAndSecondSingularFormal;
+    this.firstPlural = conjugations.firstPlural;
+    this.secondPluralInformal = conjugations.secondPluralInformal;
+    this.thirdPluralAndSecondPluralFormal = conjugations.thirdPluralAndSecondPluralFormal;
   }
 
   allConjugations() {
@@ -119,25 +134,27 @@ export class DefaultTenseConjugations {
   }
 };
 
-export class ImperativeTenseConjugations {
-  secondSingularInformal: Conjugation;
-  secondSingularFormal: Conjugation;
-  firstPlural: Conjugation;
-  secondPluralInformal: Conjugation;
-  secondPluralFormal: Conjugation;
+export class ImperativeVerbTense implements VerbTense {
+  readonly tense: Tense;
+  readonly secondSingularInformal: Conjugation;
+  readonly secondSingularFormal: Conjugation;
+  readonly firstPlural: Conjugation;
+  readonly secondPluralInformal: Conjugation;
+  readonly secondPluralFormal: Conjugation;
 
-  constructor(params: {
+  constructor(tense: Tense, conjugations: {
     secondSingularInformal: Conjugation;
     secondSingularFormal: Conjugation;
     firstPlural: Conjugation;
     secondPluralInformal: Conjugation;
     secondPluralFormal: Conjugation;
   }) {
-    this.secondSingularInformal = params.secondSingularInformal;
-    this.secondSingularFormal = params.secondSingularFormal;
-    this.firstPlural = params.firstPlural;
-    this.secondPluralInformal = params.secondPluralInformal;
-    this.secondPluralFormal = params.secondPluralFormal;
+    this.tense = tense;
+    this.secondSingularInformal = conjugations.secondSingularInformal;
+    this.secondSingularFormal = conjugations.secondSingularFormal;
+    this.firstPlural = conjugations.firstPlural;
+    this.secondPluralInformal = conjugations.secondPluralInformal;
+    this.secondPluralFormal = conjugations.secondPluralFormal;
   }
 
   allConjugations() {
@@ -151,9 +168,15 @@ export class ImperativeTenseConjugations {
   }
 };
 
+export interface Mood {
+  description: string;
+};
+
+export interface Tense {
+  description: string;
+};
+
 export interface Conjugation {
-  mood: string;
-  tense: string;
   person: Person;
   value: string;
 };

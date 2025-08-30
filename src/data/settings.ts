@@ -1,6 +1,8 @@
 import zod from "zod";
-import { type Conjugation } from "./verbs.types";
+import { type Conjugation, type Mood, type Tense } from "./verbs.types";
 import { persons } from "./persons";
+import { moods } from "./moods";
+import { tenses } from "./tenses";
 
 export const defaultSettings = {
   tenses: {
@@ -60,23 +62,23 @@ export function parseSettings(json: string): Settings {
   return result.data;
 };
 
-const tenseSettingsMap = new Map<string, Map<string, (s: Settings) => boolean>>();
-tenseSettingsMap.set("indicative", new Map([ 
-  ["present", s => s.tenses.indicative.present],
-  ["preterite", s => s.tenses.indicative.preterite],
-  ["imperfect", s => s.tenses.indicative.imperfect],
-  ["future", s => s.tenses.indicative.future],
-  ["conditional", s => s.tenses.indicative.conditional]  
+const tenseSettingsMap = new Map<Mood, Map<Tense, (s: Settings) => boolean>>();
+tenseSettingsMap.set(moods.indicative, new Map([ 
+  [tenses.present, s => s.tenses.indicative.present],
+  [tenses.preterite, s => s.tenses.indicative.preterite],
+  [tenses.imperfect, s => s.tenses.indicative.imperfect],
+  [tenses.future, s => s.tenses.indicative.future],
+  [tenses.conditional, s => s.tenses.indicative.conditional]  
 ]));
-tenseSettingsMap.set("imperative", new Map([ 
-  ["affirmative", s => s.tenses.imperative.affirmative],
+tenseSettingsMap.set(moods.imperative, new Map([ 
+  [tenses.affirmative, s => s.tenses.imperative.affirmative],
 ]));
 
-export function isConjugationEnabled(settings: Settings, conjugation: Conjugation): boolean {
+export function isConjugationEnabled(settings: Settings, mood: Mood, tense: Tense, conjugation: Conjugation): boolean {
   if (conjugation.person === persons.secondPluralInformal && !settings.secondPluralInformal)
     return false;
 
-  const tenseSettingFn = tenseSettingsMap.get(conjugation.mood)?.get(conjugation.tense);
+  const tenseSettingFn = tenseSettingsMap.get(mood)?.get(tense);
   if (tenseSettingFn)
     return tenseSettingFn(settings);
 

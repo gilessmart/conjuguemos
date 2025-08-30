@@ -61,7 +61,7 @@ export default function Game() {
         <h1>Conjuguemos</h1>
       </header>
       <main>
-        <p>Conjugate <strong>{target.infinitive}</strong> in the <strong>{target.conjugation.mood} {target.conjugation.tense}</strong> tense:</p>
+        <p>Conjugate <strong>{target.verb.infinitive}</strong> in the <strong>{target.mood.description} {target.tense.description}</strong> tense:</p>
         <div className={styles.verbInputRow}>
           <label htmlFor={inputId}>{target.conjugation.person.pronouns}</label>
           <input type="text" id={inputId} value={answer}
@@ -78,12 +78,9 @@ export default function Game() {
 function generateTarget() {
   const verb = getRandomVerb();
   const settings = getSettings();
-  const choices = verb.allConjugations()
-    .filter(conjugation => isConjugationEnabled(settings, conjugation));
-  const conjugation = chooseRandomElement(choices);
+  const choices = verb.flatConjugations()
+    .filter(({mood, tense, conjugation}) => isConjugationEnabled(settings, mood, tense, conjugation));
+  const {mood, tense, conjugation} = chooseRandomElement(choices);
   
-  return {
-    infinitive: verb.infinitive,
-    conjugation: conjugation
-  };
+  return { verb, mood, tense, conjugation };
 }
