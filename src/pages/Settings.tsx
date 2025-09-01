@@ -2,7 +2,7 @@ import { useId, useState } from "react";
 import Menu from "../components/Menu";
 import { usePageTitle } from "../hooks/usePageTitle";
 import styles from "./Settings.module.css";
-import { getSettings, saveSettings, type Settings } from "../data/settings";
+import { getSettings, saveSettings, type Settings, type TenseSettings } from "../data/settings";
 
 export default function SettingsComponent() {
   const title = "Settings";
@@ -13,9 +13,20 @@ export default function SettingsComponent() {
   function updateSettings(mutateSettings: (s: Settings) => void) {
     const newSettings = structuredClone(settings);
     mutateSettings(newSettings);
-    setSettings(newSettings);
-    saveSettings(newSettings);
+    if (atLeastOneTenseSelected(newSettings.tenses)) {
+      setSettings(newSettings);
+      saveSettings(newSettings);
+    }
   };
+
+  function atLeastOneTenseSelected(tenses: TenseSettings): boolean {
+    return tenses.indicative.present
+      || tenses.indicative.preterite
+      || tenses.indicative.imperfect
+      || tenses.indicative.future
+      || tenses.indicative.conditional
+      || tenses.imperative.affirmative;
+  }
 
   return (
     <div>

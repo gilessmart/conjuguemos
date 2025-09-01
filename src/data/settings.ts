@@ -20,23 +20,27 @@ export const defaultSettings = {
   secondPluralInformal: true
 };
 
-const StoredSettings = zod.object({
-  tenses: zod.object({
-    indicative: zod.object({
-      present: zod.boolean().default(defaultSettings.tenses.indicative.present),
-      preterite: zod.boolean().default(defaultSettings.tenses.indicative.preterite),
-      imperfect: zod.boolean().default(defaultSettings.tenses.indicative.imperfect),
-      future: zod.boolean().default(defaultSettings.tenses.indicative.future),
-      conditional: zod.boolean().default(defaultSettings.tenses.indicative.conditional)
-    }).default(defaultSettings.tenses.indicative),
-    imperative: zod.object({
-      affirmative: zod.boolean().default(defaultSettings.tenses.imperative.affirmative)
-    }).default(defaultSettings.tenses.imperative)
-  }).default(defaultSettings.tenses),
+const tenseSettingsSchema = zod.object({
+  indicative: zod.object({
+    present: zod.boolean().default(defaultSettings.tenses.indicative.present),
+    preterite: zod.boolean().default(defaultSettings.tenses.indicative.preterite),
+    imperfect: zod.boolean().default(defaultSettings.tenses.indicative.imperfect),
+    future: zod.boolean().default(defaultSettings.tenses.indicative.future),
+    conditional: zod.boolean().default(defaultSettings.tenses.indicative.conditional)
+  }).default(defaultSettings.tenses.indicative),
+  imperative: zod.object({
+    affirmative: zod.boolean().default(defaultSettings.tenses.imperative.affirmative)
+  }).default(defaultSettings.tenses.imperative)
+});
+
+export type TenseSettings = zod.infer<typeof tenseSettingsSchema>;
+
+const settingsSchema = zod.object({
+  tenses: tenseSettingsSchema.default(defaultSettings.tenses),
   secondPluralInformal: zod.boolean().default(defaultSettings.secondPluralInformal)
 });
 
-export type Settings = zod.infer<typeof StoredSettings>;
+export type Settings = zod.infer<typeof settingsSchema>;
 
 export function getSettings(): Settings {
   const json = localStorage.getItem("settings");
@@ -55,7 +59,7 @@ export function parseSettings(json: string): Settings {
   try { storedObj = JSON.parse(json); }
   catch { return defaultSettings; }
 
-  const result = StoredSettings.safeParse(storedObj);
+  const result = settingsSchema.safeParse(storedObj);
   if (!result.success)
     return defaultSettings;
 
