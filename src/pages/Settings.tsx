@@ -2,30 +2,24 @@ import { useId, useState } from "react";
 import Menu from "../components/Menu";
 import { usePageTitle } from "../hooks/usePageTitle";
 import styles from "./Settings.module.css";
-import { getSettings, saveSettings, type Settings, type TenseSettings } from "../data/settings";
+import { getSettings, saveSettings, validateSettings } from "../data/settings";
+import type { Settings, ValidationResult } from "../data/settings.types";
 
 export default function SettingsComponent() {
   const title = "Settings";
   usePageTitle(title);
   
   const [settings, setSettings] = useState(getSettings());
+  const [validationResult, setValidationResult] = useState<ValidationResult>({ isValid: true });
 
   function updateSettings(mutateSettings: (s: Settings) => void) {
     const newSettings = structuredClone(settings);
     mutateSettings(newSettings);
-    if (atLeastOneTenseSelected(newSettings.tenses)) {
-      setSettings(newSettings);
+    setSettings(newSettings);
+    const validationResult = validateSettings(newSettings);
+    setValidationResult(validationResult);
+    if (validationResult.isValid)
       saveSettings(newSettings);
-    }
-  };
-
-  function atLeastOneTenseSelected(tenses: TenseSettings): boolean {
-    return tenses.indicative.present
-      || tenses.indicative.preterite
-      || tenses.indicative.imperfect
-      || tenses.indicative.future
-      || tenses.indicative.conditional
-      || tenses.imperative.affirmative;
   }
 
   return (
@@ -36,6 +30,8 @@ export default function SettingsComponent() {
       </header>
       <main>
           <p>Select the verb forms to include in the game.</p>
+
+          <ValidationMessage validationResult={validationResult} />
 
           <h2>Tenses</h2>
 
@@ -88,6 +84,16 @@ export default function SettingsComponent() {
     </div>
   );
 };
+
+interface ValidationMessageParams {
+  validationResult: ValidationResult;
+}
+
+function ValidationMessage({ validationResult }: ValidationMessageParams) {
+  return validationResult.isValid
+    ? null
+    : <p className={styles.validationError}>{validationResult.message}</p>
+}
 
 interface CheckBoxOptionParams {
   label: string;
