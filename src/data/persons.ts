@@ -42,6 +42,6 @@ export const persons: Persons = {
   },
   thirdPluralAndSecondPluralFormal: {
     description: "third person plural / formal second person plural",
-    pronouns: "éllos / ellas / ustedes"
+    pronouns: "ellos / ellas / ustedes"
   }
 };
