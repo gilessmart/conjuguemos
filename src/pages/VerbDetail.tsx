@@ -41,7 +41,7 @@ export default function VerbDetail() {
         <table className={styles.verbTable}>
           <thead>
             <tr>
-              <th>Pronoun</th>
+              <th>Pronoun(s)</th>
               <th>Present</th>
               <th>Preterite</th>
               <th>Imperfect</th>
@@ -106,7 +106,7 @@ export default function VerbDetail() {
         <table className={styles.verbTable}>
           <thead>
             <tr>
-              <th>Pronoun</th>
+              <th>Pronoun(s)</th>
               <th>Affirmative</th>
             </tr>
           </thead>
