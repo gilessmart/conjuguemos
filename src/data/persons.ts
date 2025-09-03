@@ -4,44 +4,44 @@ interface Persons {
   firstSingular: Person;
   secondSingularInformal: Person;
   secondSingularFormal: Person;
-  thirdSingularAndSecondSingularFormal: Person;
+  thirdSingular: Person;
   firstPlural: Person;
   secondPluralInformal: Person;
   secondPluralFormal: Person;
-  thirdPluralAndSecondPluralFormal: Person;
+  thirdPlural: Person;
 }
 
 export const persons: Persons = {
   firstSingular: {
     description: "first person singular",
-    pronouns: "yo"
+    pronouns: [ "yo" ]
   },
   secondSingularInformal: {
     description: "informal second person singular",
-    pronouns: "tú"
+    pronouns: [ "tú" ]
   },
   secondSingularFormal: {
     description: "formal second person singular",
-    pronouns: "usted"
+    pronouns: [ "usted" ]
   },
-  thirdSingularAndSecondSingularFormal: {
-    description: "third person singular / formal second person singular",
-    pronouns: "él / ella / usted"
+  thirdSingular: {
+    description: "third person singular",
+    pronouns: [ "él", "ella" ]
   },
   firstPlural: {
     description: "first person plural",
-    pronouns: "nosotros / nosotras"
+    pronouns: [ "nosotros", "nosotras" ]
   },
   secondPluralInformal: {
     description: "informal second person plural",
-    pronouns: "vosotros / vosotras"
+    pronouns: [ "vosotros", "vosotras" ]
   },
   secondPluralFormal: {
     description: "formal second person plural",
-    pronouns: "ustedes"
+    pronouns: [ "ustedes" ]
   },
-  thirdPluralAndSecondPluralFormal: {
-    description: "third person plural / formal second person plural",
-    pronouns: "ellos / ellas / ustedes"
+  thirdPlural: {
+    description: "third person plural",
+    pronouns: [ "ellos", "ellas" ]
   }
 };

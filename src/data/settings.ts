@@ -1,8 +1,8 @@
-import { type Conjugation, type Mood, type Tense } from "./verbs.types";
+import type { Mood, Person, Tense } from "./verbs.types";
 import { persons } from "./persons";
 import { moods } from "./moods";
 import { tenses } from "./tenses";
-import { defaultSettings, type Settings, type TenseSettings, type ValidationResult } from "./settings.types";
+import { defaultSettings, type PersonSettings, type Settings, type TenseSettings, type ValidationResult } from "./settings.types";
 import { parseSettings } from "./settingsParser";
 
 export function getSettings(): Settings {
@@ -42,25 +42,32 @@ export function saveSettings(settings: Settings) {
   localStorage.setItem("settings", json);
 };
 
-const tenseSettingsMap = new Map<Mood, Map<Tense, (s: Settings) => boolean>>();
-tenseSettingsMap.set(moods.indicative, new Map([ 
-  [tenses.present, s => s.tenses.indicative.present],
-  [tenses.preterite, s => s.tenses.indicative.preterite],
-  [tenses.imperfect, s => s.tenses.indicative.imperfect],
-  [tenses.future, s => s.tenses.indicative.future],
-  [tenses.conditional, s => s.tenses.indicative.conditional]  
-]));
-tenseSettingsMap.set(moods.imperative, new Map([ 
-  [tenses.affirmative, s => s.tenses.imperative.affirmative],
-]));
+const tenseSettingsMap = new Map<Mood, Map<Tense, (s: TenseSettings) => boolean>>([
+  [
+    moods.indicative, 
+    new Map([ 
+      [tenses.present, s => s.indicative.present],
+      [tenses.preterite, s => s.indicative.preterite],
+      [tenses.imperfect, s => s.indicative.imperfect],
+      [tenses.future, s => s.indicative.future],
+      [tenses.conditional, s => s.indicative.conditional]  
+    ])
+  ],
+  [
+    moods.imperative, 
+    new Map([ 
+      [tenses.affirmative, s => s.imperative.affirmative]
+    ])
+  ]
+]);
 
-export function isConjugationEnabled(settings: Settings, mood: Mood, tense: Tense, conjugation: Conjugation): boolean {
-  if (conjugation.person === persons.secondPluralInformal && !settings.secondPluralInformal)
-    return false;
+export function isTenseEnabled(tenseSettings: TenseSettings, mood: Mood, tense: Tense): boolean {
+  const tenseEnabledFn = tenseSettingsMap.get(mood)?.get(tense);
+  return tenseEnabledFn === undefined
+    ? false
+    : tenseEnabledFn(tenseSettings);
+};
 
-  const tenseSettingFn = tenseSettingsMap.get(mood)?.get(tense);
-  if (tenseSettingFn)
-    return tenseSettingFn(settings);
-
-  return false;
+export function isPersonEnabled(settings: PersonSettings, person: Person) {
+  return person !== persons.secondPluralInformal || settings.secondPluralInformal;
 };

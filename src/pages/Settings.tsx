@@ -76,8 +76,8 @@ export default function SettingsComponent() {
           <ul className={styles.settingsList}>
             <li>
               <CheckBoxOption label="Second person plural (vosotros / vosotras)"
-                              value={settings.secondPluralInformal}
-                              onChange={ v => { updateSettings(s => { s.secondPluralInformal = v; }); } } />
+                              value={settings.persons.secondPluralInformal}
+                              onChange={ v => { updateSettings(s => { s.persons.secondPluralInformal = v; }); } } />
             </li>
           </ul>
       </main>

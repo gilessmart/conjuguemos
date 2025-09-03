@@ -4,7 +4,8 @@ import { getRandomVerb } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
 import { chooseRandomElement } from "../utils/chooseRandom";
 import styles from "./Game.module.css";
-import { getSettings, isConjugationEnabled } from "../data/settings";
+import { getSettings, isPersonEnabled, isTenseEnabled } from "../data/settings";
+import type { Conjugation, Mood, Tense } from "../data/verbs.types";
 
 export default function Game() {
   usePageTitle("");
@@ -63,7 +64,7 @@ export default function Game() {
       <main>
         <p>Conjugate <strong>{target.verb.infinitive}</strong> in the <strong>{target.mood.description} {target.tense.description}</strong> tense:</p>
         <div className={styles.verbInputRow}>
-          <label htmlFor={inputId}>{target.conjugation.person.pronouns}</label>
+          <label htmlFor={inputId}>{target.pronoun}</label>
           <input type="text" id={inputId} value={answer}
                  onChange={e => { onChangeAnswer(e.target.value); }} />
           { !showAnswer && <button className={styles.showAnswerButton} type="button" 
@@ -78,9 +79,16 @@ export default function Game() {
 function generateTarget() {
   const verb = getRandomVerb();
   const settings = getSettings();
-  const choices = verb.flatConjugations()
-    .filter(({mood, tense, conjugation}) => isConjugationEnabled(settings, mood, tense, conjugation));
-  const {mood, tense, conjugation} = chooseRandomElement(choices);
   
-  return { verb, mood, tense, conjugation };
+  const validOptions = verb.flatConjugations()
+    .filter(({ mood, tense }) => isTenseEnabled(settings.tenses, mood, tense))
+    .reduce<{ mood: Mood, tense: Tense, conjugation: Conjugation }[]>((acc, curr) => {
+      curr.conjugation.persons = curr.conjugation.persons.filter(person => isPersonEnabled(settings.persons, person));
+      return curr.conjugation.persons.length ? [ ...acc, curr ] : acc;
+    }, []);
+  
+  const { mood, tense, conjugation } = chooseRandomElement(validOptions);
+  const person = chooseRandomElement(conjugation.persons);
+  const pronoun = chooseRandomElement(person.pronouns);
+  return { verb, mood, tense, conjugation, person, pronoun };
 }

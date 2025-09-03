@@ -13,7 +13,9 @@ export const defaultSettings = {
       affirmative: true
     }
   },
-  secondPluralInformal: true
+  persons: {
+    secondPluralInformal: true
+  }
 };
 
 const tenseSettingsSchema = zod.object({
@@ -31,9 +33,15 @@ const tenseSettingsSchema = zod.object({
 
 export type TenseSettings = zod.infer<typeof tenseSettingsSchema>;
 
+const personSettingsSchema = zod.object({
+  secondPluralInformal: zod.boolean().default(defaultSettings.persons.secondPluralInformal)
+});
+
+export type PersonSettings = zod.infer<typeof personSettingsSchema>;
+
 export const settingsSchema = zod.object({
   tenses: tenseSettingsSchema.default(defaultSettings.tenses),
-  secondPluralInformal: zod.boolean().default(defaultSettings.secondPluralInformal)
+  persons: personSettingsSchema.default(defaultSettings.persons)
 });
 
 export type Settings = zod.infer<typeof settingsSchema>;

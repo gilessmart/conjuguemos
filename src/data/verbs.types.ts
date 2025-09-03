@@ -16,7 +16,7 @@ export class Verb {
     for (const verbMood of this.verbMoods.allVerbMoods())
       for (const verbTense of verbMood.allVerbTenses())
         for (const conjugation of verbTense.allConjugations())
-          results.push({ mood: verbMood.mood, tense: verbTense.tense, conjugation});
+            results.push({ mood: verbMood.mood, tense: verbTense.tense, conjugation });
     return results;
   }
 };
@@ -177,11 +177,11 @@ export interface Tense {
 };
 
 export interface Conjugation {
-  person: Person;
+  persons: Person[];
   value: string;
 };
 
 export interface Person {
   description: string;
-  pronouns: string;
+  pronouns: string[];
 };

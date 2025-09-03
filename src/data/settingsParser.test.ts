@@ -27,7 +27,9 @@ describe("parseSettings()", () => {
           '"affirmative": false' +
         '}' +
       '},' +
-      '"secondPluralInformal": false' +
+      '"persons":{' +
+        '"secondPluralInformal": false' +
+      '}' +
     '}';
     const settings = parseSettings(json);
 
@@ -44,7 +46,9 @@ describe("parseSettings()", () => {
           affirmative: false
         }
       },
-      secondPluralInformal: false
+      persons: {
+        secondPluralInformal: false
+      }
     };
     expect(settings).toEqual(expected);
   });
@@ -63,7 +67,9 @@ describe("parseSettings()", () => {
           '"affirmative": true' +
         '}' +
       '},' +
-      '"secondPluralInformal": true' +
+      '"persons":{' +
+        '"secondPluralInformal": true' +
+      '}' +
     '}';
     const settings = parseSettings(json);
 
@@ -80,7 +86,9 @@ describe("parseSettings()", () => {
           affirmative: true
         }
       },
-      secondPluralInformal: true
+      persons: {
+        secondPluralInformal: true
+      }
     };
     expect(settings).toEqual(expected);
   });
