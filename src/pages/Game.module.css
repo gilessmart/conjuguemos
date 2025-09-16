@@ -1,16 +1,43 @@
+.targetDetails {
+  display: grid;
+  grid-template-columns: auto auto;
+  width: max-content;
+  column-gap: 0.5em;
+  margin-bottom: 1.5rem;
+}
+
+.targetDetails .label {
+  text-align: right;
+}
+
+.targetDetails .value {
+  font-weight: bold;
+}
+
 .verbInputRow {
   display: flex;
   gap: 1em;
+  margin-bottom: 1.5rem;
 }
 
-.showAnswerButton, .answer {
-  min-width: 6em;
+.showAnswerWrapper {
+  width: 50%;
+  height: 2.25rem;
+  border-radius: 0.5em;
+  border: solid 1px #d0d0d0;
 }
 
-.answer {
+.showAnswerWrapper > .showAnswerButton,
+.showAnswerWrapper > .answer {
   display: inline-block;
   text-align: center;
-  padding: 0.25em 0;
+  padding: 0.25rem 0.75rem;
+  line-height: 1.6rem;
+  border: none;
+  width: 100%;
+}
+
+.showAnswerWrapper > .answer {
   animation: fadeOut 0.5s ease-in 1.75s 1 forwards;
 }
 

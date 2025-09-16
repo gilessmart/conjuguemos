@@ -62,13 +62,18 @@ export default function Game() {
         <h1>Conjuguemos</h1>
       </header>
       <main>
-        <p>Conjugate <strong>{target.verb.infinitive}</strong> in the <strong>{target.mood.description} {target.tense.description}</strong> tense:</p>
+        <div className={styles.targetDetails}>
+          <span className={styles.label}>verb</span><span className={styles.value}>{target.verb.infinitive}</span>
+          <span className={styles.label}>tense</span><span className={styles.value}>{target.mood.description} {target.tense.description}</span>
+        </div>
+        
         <div className={styles.verbInputRow}>
           <label htmlFor={inputId}>{target.pronoun}</label>
-          <input type="text" id={inputId} value={answer}
-                 onChange={e => { onChangeAnswer(e.target.value); }} />
-          { !showAnswer && <button className={styles.showAnswerButton} type="button" 
-                                   onClick={() => { startShowAnswer(); }}>Show answer</button> }
+          <input type="text" id={inputId} value={answer} onChange={e => { onChangeAnswer(e.target.value); }} />
+        </div>
+
+        <div className={styles.showAnswerWrapper}>
+          { !showAnswer && <button className={styles.showAnswerButton} type="button" onClick={() => { startShowAnswer(); }}>Show answer</button> }
           { showAnswer && <span className={styles.answer}>{target.conjugation.value}</span> }
         </div>
       </main>
