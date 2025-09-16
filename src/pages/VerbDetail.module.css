@@ -1,5 +1,20 @@
-table.verbTable thead {
+.verbTableWrapper {
+  overflow-x: auto;
+  max-width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.verbTable {
+  margin-bottom: 0;
+}
+
+.verbTable thead {
   background-color: #f0f0f0;
   border-bottom: solid 1px #d0d0d0;
   border-top: solid 1px #d0d0d0;
+}
+
+.verbTable td,
+.verbTable th {
+  white-space: nowrap;
 }
