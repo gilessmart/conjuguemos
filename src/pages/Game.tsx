@@ -69,9 +69,19 @@ export default function Game() {
         
         <div className={styles.verbInputRow}>
           <label htmlFor={inputId}>{target.pronoun}</label>
-          <input type="text" id={inputId} value={answer}
-                 autoCapitalize="off" autoComplete="off"
-                 onChange={e => { onChangeAnswer(e.target.value); }} />
+          <div>
+            <input type="text" id={inputId} value={answer}
+                   autoCapitalize="off" autoComplete="off"
+                   onChange={e => { onChangeAnswer(e.target.value); }} />
+            <div className={styles.accentChars}>
+              <button type="button" onClick={ () => { onChangeAnswer(answer + "á"); } }>á</button>
+              <button type="button" onClick={ () => { onChangeAnswer(answer + "é"); } }>é</button>
+              <button type="button" onClick={ () => { onChangeAnswer(answer + "í"); } }>í</button>
+              <button type="button" onClick={ () => { onChangeAnswer(answer + "ñ"); } }>ñ</button>
+              <button type="button" onClick={ () => { onChangeAnswer(answer + "ó"); } }>ó</button>
+              <button type="button" onClick={ () => { onChangeAnswer(answer + "ú"); } }>ú</button>
+            </div>
+          </div>
         </div>
 
         <div className={styles.showAnswerWrapper}>

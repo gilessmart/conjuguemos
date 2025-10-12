@@ -20,6 +20,20 @@
   margin-bottom: 1.5rem;
 }
 
+.verbInputRow input {
+  margin-bottom: 0.5rem;
+}
+
+.verbInputRow .accentChars {
+  display: flex;
+  gap: 0.5em;
+}
+
+.verbInputRow .accentChars, 
+.verbInputRow .accentChars button {
+  font-size: 85%;
+}
+
 .showAnswerWrapper {
   width: 50%;
   height: 2.25rem;
