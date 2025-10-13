@@ -3,6 +3,7 @@ import Game from "./pages/Game";
 import Settings from "./pages/Settings";
 import VerbList from "./pages/VerbList";
 import VerbDetail from "./pages/VerbDetail";
+import "./App.css";
 
 export default function App() {
   return (
