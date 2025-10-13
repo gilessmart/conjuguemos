@@ -10,7 +10,7 @@ export default function VerbList() {
   const infinitives = getInfinitives();
   
   return (
-    <div>
+    <>
       <header>
         <Menu />
         <h1>{title}</h1>
@@ -24,6 +24,6 @@ export default function VerbList() {
           ))}
         </ul>
       </main>
-    </div>
+    </>
   );
 };

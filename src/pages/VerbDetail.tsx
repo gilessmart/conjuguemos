@@ -13,7 +13,7 @@ export default function VerbDetail() {
   
   if (!verbDetails) {    
     return (
-      <div>
+      <>
         <header>
           <Menu />
           <h1>{title}</h1>
@@ -21,14 +21,14 @@ export default function VerbDetail() {
         <main>
           <p>Verb <em>{verbParam}</em> was not found.</p>
         </main>
-      </div>
+      </>
     );
   }
   
   const moods = verbDetails.verbMoods;
 
   return (
-    <div>
+    <>
       <header>
         <Menu />
         <h1 className="capitalize">{title}</h1>
@@ -138,6 +138,6 @@ export default function VerbDetail() {
           </table>
         </div>
       </main>
-    </div>
+    </>
   );
 };

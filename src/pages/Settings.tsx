@@ -23,7 +23,7 @@ export default function SettingsComponent() {
   }
 
   return (
-    <div>
+    <>
       <header>
         <Menu />
         <h1>{title}</h1>
@@ -81,7 +81,7 @@ export default function SettingsComponent() {
             </li>
           </ul>
       </main>
-    </div>
+    </>
   );
 };
 

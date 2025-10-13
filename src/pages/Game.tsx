@@ -56,7 +56,7 @@ export default function Game() {
   }
 
   return (
-    <div>
+    <>
       <header>
         <Menu />
         <h1>Conjuguemos</h1>
@@ -89,7 +89,7 @@ export default function Game() {
           { showAnswer && <span className={styles.answer}>{target.conjugation.value}</span> }
         </div>
       </main>
-    </div>
+    </>
   );
 };
 
