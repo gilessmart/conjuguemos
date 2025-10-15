@@ -1,3 +1,12 @@
+:root {
+  --main-bg-color: #f9f9f9;
+  --main-text-color: #444;
+  --sans-font-fam: "Lucida Sans", "Lucida Sans Unicode", "lucida Grande", sans-serif;
+  --serif-font-fam: Georgia, Times, "Times New Roman", serif;
+  --accent-bg-color: #f0f0f0;
+  --accent-border-color: #ddd;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,14 +17,14 @@
 
 html {
   font-size: 17px;
-  font-family: Georgia, Times, 'Times New Roman', serif;
+  font-family: var(--serif-font-fam);
   line-height: 1.6;
 }
 
 body {
   padding: 15px;
-  color: #444;
-  background-color: #f9f9f9;
+  color: var(--main-text-color);
+  background-color: var(--main-bg-color);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -26,7 +35,7 @@ h1, h2, h3, h4, p, ol, ul, dl, dt, dd, pre, blockquote, table {
   margin-bottom: 1.5rem;
 }
 
-h1 { font-size: 2.5rem; }
+h1 { font-size: 2.0rem; }
 h2 { font-size: 1.5rem; }
 h3 { font-size: 1.3rem; }
 h4 { font-size: 1.15rem; }
@@ -50,12 +59,12 @@ label {
 }
 
 input[type=text], select, textarea, button, input[type=button] {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: var(--sans-font-fam);
   font-size: 0.85rem;
   line-height: 1.75em;
   padding: 0.25em 0.75em;
   border-radius: 0.5em;
-  border: solid 1px #d0d0d0;
+  border: solid 1px var(--accent-border-color);
 }
 
 input:focus, select:focus, textarea:focus, button:focus {
@@ -63,9 +72,9 @@ input:focus, select:focus, textarea:focus, button:focus {
 }
 
 button, input[type=button] {
-  background-color: #f0f0f0;
+  background-color: var(--accent-bg-color);
 }
 
-.capitalize {
-  text-transform: capitalize;
+a {
+  color: #555;
 }

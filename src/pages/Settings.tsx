@@ -1,9 +1,9 @@
 import { useId, useState } from "react";
-import Menu from "../components/Menu";
 import { usePageTitle } from "../hooks/usePageTitle";
 import styles from "./Settings.module.css";
 import { getSettings, saveSettings, validateSettings } from "../data/settings";
 import type { Settings, ValidationResult } from "../data/settings.types";
+import Header from "../components/Header";
 
 export default function SettingsComponent() {
   const title = "Settings";
@@ -24,10 +24,7 @@ export default function SettingsComponent() {
 
   return (
     <>
-      <header>
-        <Menu />
-        <h1>{title}</h1>
-      </header>
+      <Header title={title} />
       <main>
           <p>Select the verb forms to include in the game.</p>
 

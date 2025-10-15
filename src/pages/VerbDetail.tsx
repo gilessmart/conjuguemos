@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { getVerbDetails } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
-import Menu from "../components/Menu";
 import styles from "./VerbDetail.module.css";
+import Header from "../components/Header";
 
 export default function VerbDetail() {
   const params = useParams<{ verb: string }>();
@@ -14,10 +14,7 @@ export default function VerbDetail() {
   if (!verbDetails) {    
     return (
       <>
-        <header>
-          <Menu />
-          <h1>{title}</h1>
-        </header>
+        <Header title={title} />
         <main>
           <p>Verb <em>{verbParam}</em> was not found.</p>
         </main>
@@ -29,10 +26,7 @@ export default function VerbDetail() {
 
   return (
     <>
-      <header>
-        <Menu />
-        <h1 className="capitalize">{title}</h1>
-      </header>
+      <Header title={title} />
       <main>
         <h2>Conjugations</h2>
 

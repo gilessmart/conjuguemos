@@ -38,7 +38,7 @@
   width: 50%;
   height: 2.25rem;
   border-radius: 0.5em;
-  border: solid 1px #d0d0d0;
+  border: solid 1px var(--accent-border-color);
 }
 
 .showAnswerWrapper > .showAnswerButton,

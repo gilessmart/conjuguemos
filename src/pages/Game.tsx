@@ -1,11 +1,11 @@
 import { useEffect, useId, useRef, useState } from "react";
-import Menu from "../components/Menu";
 import { getRandomVerb } from "../data/verbs";
 import { usePageTitle } from "../hooks/usePageTitle";
 import { chooseRandomElement } from "../utils/chooseRandom";
 import styles from "./Game.module.css";
 import { getSettings, isPersonEnabled, isTenseEnabled } from "../data/settings";
 import type { Conjugation, Mood, Tense } from "../data/verbs.types";
+import Header from "../components/Header";
 
 export default function Game() {
   usePageTitle("");
@@ -57,10 +57,7 @@ export default function Game() {
 
   return (
     <>
-      <header>
-        <Menu />
-        <h1>Conjuguemos</h1>
-      </header>
+      <Header title="Conjuguemos" />
       <main>
         <div className={styles.targetDetails}>
           <span className={styles.label}>verb</span><span className={styles.value}>{target.verb.infinitive}</span>
