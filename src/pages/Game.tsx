@@ -13,6 +13,7 @@ export default function Game() {
   const [answer, setAnswer] = useState("");
   const [target, setTarget] = useState(generateTarget());
   const [showAnswer, setShowAnswer] = useState(false);
+  const [submissionIncorrect, setSubmissionIncorrect] = useState(false);
   const answerTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -23,31 +24,37 @@ export default function Game() {
     };
   }, []);
 
-  function onChangeAnswer(newAnswer: string) {
-    setAnswer(newAnswer);    
-    stopShowAnswer();
-    if (isCorrectAnswer(newAnswer)) {
-      nextVerb();
+  function updateAnswer(newAnswer: string) {
+    setSubmissionIncorrect(false);
+    setAnswer(newAnswer);
+    endShowAnswer();
+  }
+
+  function submitAnswer() {
+    if (answer.trim().length === 0)
+      return;
+
+    if (isAnswerCorrect()) {
+      setTarget(generateTarget());
+      setAnswer("");
+    }
+    else {
+      setSubmissionIncorrect(true);
     }
   }
 
-  function isCorrectAnswer(candidate: string): boolean {
-    return candidate.trim().toLowerCase() === target.conjugation.value.trim().toLowerCase();
-  }
-
-  function nextVerb() {
-    setTarget(generateTarget());
-    setAnswer("");
+  function isAnswerCorrect(): boolean {
+    return answer.trim().toLowerCase() === target.conjugation.value;
   }
 
   function startShowAnswer() {
     setShowAnswer(true);
     answerTimeout.current = setTimeout(() => {
-      stopShowAnswer();
+      endShowAnswer();
     }, 2500);
   }
 
-  function stopShowAnswer() {
+  function endShowAnswer() {
     setShowAnswer(false);
     if (answerTimeout.current) {
       clearTimeout(answerTimeout.current);
@@ -59,32 +66,38 @@ export default function Game() {
     <>
       <Header title="Conjuguemos" />
       <main>
-        <div className={styles.targetDetails}>
-          <span className={styles.label}>verb</span><span className={styles.value}>{target.verb.infinitive}</span>
-          <span className={styles.label}>tense</span><span className={styles.value}>{target.mood.description} {target.tense.description}</span>
-        </div>
-        
-        <div className={styles.verbInputRow}>
-          <label htmlFor={inputId}>{target.pronoun}</label>
-          <div>
-            <input type="text" id={inputId} value={answer}
-                   autoCapitalize="off" autoComplete="off"
-                   onChange={e => { onChangeAnswer(e.target.value); }} />
-            <div className={styles.accentChars}>
-              <button type="button" onClick={ () => { onChangeAnswer(answer + "á"); } }>á</button>
-              <button type="button" onClick={ () => { onChangeAnswer(answer + "é"); } }>é</button>
-              <button type="button" onClick={ () => { onChangeAnswer(answer + "í"); } }>í</button>
-              <button type="button" onClick={ () => { onChangeAnswer(answer + "ñ"); } }>ñ</button>
-              <button type="button" onClick={ () => { onChangeAnswer(answer + "ó"); } }>ó</button>
-              <button type="button" onClick={ () => { onChangeAnswer(answer + "ú"); } }>ú</button>
+        <form>
+          <div className={styles.targetDetails}>
+            <span className={styles.label}>verb</span><span className={styles.value}>{target.verb.infinitive}</span>
+            <span className={styles.label}>tense</span><span className={styles.value}>{target.mood.description} {target.tense.description}</span>
+          </div>
+          
+          <div className={styles.verbInputRow}>
+            <label htmlFor={inputId}>{target.pronoun}</label>
+            <div>
+              <input type="text" id={inputId} value={answer}
+                     autoCapitalize="off" autoComplete="off"
+                     onChange={e => { updateAnswer(e.target.value); }}
+                     className={submissionIncorrect ? styles.submissionIncorrect : ''}/>
+              <div className={styles.accentChars}>
+                <button type="button" onClick={ () => { updateAnswer(answer + "á"); } }>á</button>
+                <button type="button" onClick={ () => { updateAnswer(answer + "é"); } }>é</button>
+                <button type="button" onClick={ () => { updateAnswer(answer + "í"); } }>í</button>
+                <button type="button" onClick={ () => { updateAnswer(answer + "ñ"); } }>ñ</button>
+                <button type="button" onClick={ () => { updateAnswer(answer + "ó"); } }>ó</button>
+                <button type="button" onClick={ () => { updateAnswer(answer + "ú"); } }>ú</button>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className={styles.showAnswerWrapper}>
-          { !showAnswer && <button className={styles.showAnswerButton} type="button" onClick={() => { startShowAnswer(); }}>Show answer</button> }
-          { showAnswer && <span className={styles.answer}>{target.conjugation.value}</span> }
-        </div>
+          <div className={styles.buttonRow}>
+            <div className={styles.showAnswerWrapper}>
+              { !showAnswer && <button className={styles.showAnswerButton} type="button" onClick={() => { startShowAnswer(); }}>Show answer</button> }
+              { showAnswer && <span className={styles.answer}>{target.conjugation.value}</span> }
+            </div>
+            <button type="submit" className={styles.submitButton} onClick={e => { e.preventDefault(); submitAnswer(); }}>Check</button>
+          </div>
+        </form>
       </main>
     </>
   );

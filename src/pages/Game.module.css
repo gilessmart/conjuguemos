@@ -16,12 +16,16 @@
 
 .verbInputRow {
   display: flex;
-  gap: 1em;
+  gap: 0.5em;
   margin-bottom: 1.5rem;
 }
 
 .verbInputRow input {
   margin-bottom: 0.5rem;
+}
+
+.verbInputRow input.submissionIncorrect {
+  box-shadow: 0 0 5px 0 #dd1c1c inset;
 }
 
 .verbInputRow .accentChars {
@@ -34,25 +38,38 @@
   font-size: 85%;
 }
 
-.showAnswerWrapper {
-  width: 50%;
+.buttonRow {
+  display: flex;
+  gap: 0.5em;
+}
+
+.buttonRow > .showAnswerWrapper,
+.buttonRow > .submitButton {
+  width: 8rem;
+}
+
+.buttonRow > .showAnswerWrapper {
   height: 2.25rem;
   border-radius: 0.5em;
   border: solid 1px var(--accent-border-color);
 }
 
-.showAnswerWrapper > .showAnswerButton,
-.showAnswerWrapper > .answer {
+.buttonRow > .showAnswerWrapper > .showAnswerButton,
+.buttonRow > .showAnswerWrapper > .answer {
   display: inline-block;
   text-align: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.25rem 0;
   line-height: 1.6rem;
   border: none;
   width: 100%;
 }
 
-.showAnswerWrapper > .answer {
+.buttonRow > .showAnswerWrapper > .answer {
   animation: fadeOut 0.5s ease-in 1.75s 1 forwards;
+}
+
+.buttonRow > .submitButton {
+  font-weight: bold;
 }
 
 @keyframes fadeOut {
