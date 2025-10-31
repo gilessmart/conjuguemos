@@ -25,7 +25,8 @@
 }
 
 .verbInputRow input.submissionIncorrect {
-  box-shadow: 0 0 5px 0 #dd1c1c inset;
+  box-shadow: 0 0 5px 0 #b66969 inset;
+  border-color: #b34343;
 }
 
 .verbInputRow .accentChars {
