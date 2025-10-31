@@ -68,6 +68,10 @@ input[type=text], select, textarea, button, input[type=button] {
 }
 
 input:focus, select:focus, textarea:focus, button:focus {
+  outline: none;
+}
+
+input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible {
   outline: solid 1px #ffec90;
 }
 
