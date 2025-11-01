@@ -1,3 +1,28 @@
+.instructions {
+  margin-bottom: 1.5rem;
+  background-color: #f8f2d9;
+  padding: 0.75rem 1rem;
+  font-family: var(--sans-font-fam);
+  border-radius: .5em;
+  width: 20rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+}
+
+.instructions.incorrect {
+  background-color: #f8d9dd;
+}
+
+.instructions.incorrect .expected {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.instructions.correct {
+  background-color: #dff8d9;
+}
+
 .targetDetails {
   display: grid;
   grid-template-columns: auto auto;
@@ -24,11 +49,6 @@
   margin-bottom: 0.5rem;
 }
 
-.verbInputRow input.submissionIncorrect {
-  box-shadow: 0 0 5px 0 #b66969 inset;
-  border-color: #b34343;
-}
-
 .verbInputRow .accentChars {
   display: flex;
   gap: 0.5em;
@@ -44,36 +64,7 @@
   gap: 0.5em;
 }
 
-.buttonRow > .showAnswerWrapper,
-.buttonRow > .submitButton {
-  width: 8rem;
-}
-
-.buttonRow > .showAnswerWrapper {
-  height: 2.25rem;
-  border-radius: 0.5em;
-  border: solid 1px var(--accent-border-color);
-}
-
-.buttonRow > .showAnswerWrapper > .showAnswerButton,
-.buttonRow > .showAnswerWrapper > .answer {
-  display: inline-block;
-  text-align: center;
-  padding: 0.25rem 0;
-  line-height: 1.6rem;
-  border: none;
-  width: 100%;
-}
-
-.buttonRow > .showAnswerWrapper > .answer {
-  animation: fadeOut 0.5s ease-in 1.75s 1 forwards;
-}
-
-.buttonRow > .submitButton {
+.submitButton {
   font-weight: bold;
-}
-
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  width: 8rem;
 }
